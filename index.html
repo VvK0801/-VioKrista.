@@ -1375,25 +1375,110 @@ section { position: relative; }
   .ps-step .ps-num { min-width: 32px; font-size: 18px; }
   .dir-trigger { grid-template-columns: 40px 1fr auto; gap: 12px; padding: 20px 12px; }
   .dir-toggle { width: 36px; height: 36px; font-size: 18px; }
-  .dir-desc p { font-size: 16px; }
-  .dir-desc p:first-of-type { font-size: 17px; }
-  .dir-features { grid-template-columns: 1fr; }
-  .dir-lead { font-size: 16px; }
+  .dir-title { font-size: clamp(22px, 6vw, 32px); }
+  .dir-num { font-size: 18px; }
+  .dir-desc p { font-size: 15.5px; line-height: 1.7; }
+  .dir-desc p:first-of-type { font-size: 16.5px; }
+  .dir-lead { font-size: 15.5px; padding-left: 14px; border-left-width: 2px; margin-bottom: 14px; }
+  .dir-features { grid-template-columns: 1fr; gap: 8px; }
 
-  .dir-subhead .sh-num { font-size: 24px; }
-  .dir-subhead .sh-title { font-size: 11px; }
-  .dir-format { grid-template-columns: 60px 1fr; gap: 14px; padding: 20px 12px; }
-  .dir-format .df-icon { width: 32px; height: 32px; }
-  .dir-format .df-num { font-size: 11px; }
-  .dir-format .df-text h4 { font-size: 20px; }
-  .dir-format .df-text p { font-size: 14px; }
+  /* ===== РОСПИСЬ — адаптив ===== */
+  .dir-formats { margin-top: 28px; }
+  .dir-formats::before { top: -14px; }
 
-  .dir-levels-scale { grid-template-columns: 1fr; gap: 28px; }
+  .dir-subhead {
+    gap: 10px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+  .dir-subhead .sh-num { font-size: 22px; }
+  .dir-subhead .sh-title { font-size: 10.5px; letter-spacing: 0.18em; }
+  .dir-subhead .sh-line { display: none; }
+
+  .dir-formats-grid { border-top: 1px solid rgba(32,36,31,0.12); }
+  .dir-format {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+    padding: 20px 14px;
+    align-items: start;
+  }
+  .dir-format:hover { padding-left: 14px; }
+  .dir-format .df-icon-wrap { gap: 6px; }
+  .dir-format .df-icon { width: 30px; height: 30px; }
+  .dir-format .df-num { font-size: 10px; letter-spacing: 0.1em; }
+  .dir-format .df-text h4 {
+    font-size: 19px;
+    margin-bottom: 6px;
+    line-height: 1.15;
+  }
+  .dir-format .df-text p { font-size: 13.5px; line-height: 1.6; }
+
+  /* Уровни сложности на мобильном — вертикально, компактно */
+  .dir-levels { margin-top: 28px; padding-top: 18px; }
+  .dir-levels-scale {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 14px;
+  }
   .dir-levels-scale::before { display: none; }
-  .dir-level { padding: 0; text-align: left; display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; }
-  .dir-level .dl-marker { margin: 4px 0 0 0; }
-  .dir-level .dl-name { font-size: 19px; text-align: left; margin-bottom: 4px; }
-  .dir-level .dl-desc { max-width: 100%; text-align: left; }
+  .dir-level {
+    padding: 0;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .dir-level .dl-marker {
+    width: 20px;
+    height: 20px;
+    margin: 3px 0 0 0;
+    border-width: 1.5px;
+  }
+  .dir-level .dl-marker::after { width: 8px; height: 8px; }
+  .dir-level:nth-child(2) .dl-marker::after { width: 11px; height: 11px; }
+  .dir-level:nth-child(3) .dl-marker::after { width: 14px; height: 14px; }
+  .dir-level .dl-name {
+    font-size: 17px;
+    margin-bottom: 4px;
+    text-align: left;
+    line-height: 1.2;
+  }
+  .dir-level .dl-desc {
+    font-size: 13px;
+    max-width: 100%;
+    text-align: left;
+    line-height: 1.55;
+  }
+
+  /* Галерея — 1 большая + 2x2 */
+  .dir-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    aspect-ratio: auto;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .dir-gallery::before { top: -16px; height: 10px; }
+  .dir-gallery::after { top: -24px; font-size: 9px; padding: 0 6px; }
+  .dir-gallery .dg-item:nth-child(1) {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    aspect-ratio: 16/10;
+  }
+  .dir-gallery .dg-item:nth-child(2) { grid-column: 1; grid-row: 2; aspect-ratio: 1; }
+  .dir-gallery .dg-item:nth-child(3) { grid-column: 2; grid-row: 2; aspect-ratio: 1; }
+  .dir-gallery .dg-item:nth-child(4) { grid-column: 1; grid-row: 3; aspect-ratio: 1; }
+  .dir-gallery .dg-item:nth-child(5) { grid-column: 2; grid-row: 3; aspect-ratio: 1; }
+  .dir-gallery .dg-label {
+    font-size: 9px;
+    padding: 12px;
+    letter-spacing: 0.16em;
+  }
+  .dir-gallery .dg-item:nth-child(1) .dg-label {
+    font-size: 10px;
+    padding: 14px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
