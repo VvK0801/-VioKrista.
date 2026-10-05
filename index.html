@@ -89,6 +89,8 @@ section { position: relative; }
 .header.hero-over .nav a,
 .header.hero-over .menu-toggle span { color: var(--ivory); }
 .header.hero-over .logo svg { color: var(--ivory); }
+.header.hero-over .social-link { color: var(--ivory); border-color: rgba(243,239,231,0.4); }
+.header.hero-over .social-link:hover { background: var(--ivory); color: var(--forest); border-color: var(--ivory); }
 
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo {
@@ -97,22 +99,56 @@ section { position: relative; }
   letter-spacing: 0.32em; font-weight: 500;
   color: var(--forest);
   transition: color 0.6s var(--ease);
+  flex-shrink: 0;
 }
 .logo svg { width: 30px; height: 30px; color: var(--forest); transition: color 0.6s var(--ease); flex-shrink: 0; }
 
-.nav { display: flex; gap: 30px; align-items: center; }
-.nav a {
+.nav { display: flex; gap: 28px; align-items: center; }
+.nav a:not(.social-link) {
   font-size: 13px; font-weight: 400; letter-spacing: 0.06em;
   color: var(--forest); position: relative;
   transition: color 0.4s var(--ease);
 }
-.nav a::after {
+.nav a:not(.social-link)::after {
   content: ''; position: absolute; left: 0; bottom: -6px;
   height: 1px; width: 0; background: currentColor;
   transition: width 0.4s var(--ease);
 }
-.nav a:hover::after { width: 100%; }
-.nav a:hover { color: var(--blue-deep); }
+.nav a:not(.social-link):hover::after { width: 100%; }
+.nav a:not(.social-link):hover { color: var(--blue-deep); }
+
+/* Иконки соцсетей в шапке */
+.social-link {
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(32,36,31,0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s var(--ease);
+  flex-shrink: 0;
+  color: var(--forest);
+}
+.social-link svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.4s var(--ease);
+}
+.social-link:hover {
+  background: var(--forest);
+  color: var(--ivory);
+  border-color: var(--forest);
+}
+.social-link:hover svg { transform: scale(1.15); }
+
+.social-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 4px;
+}
 
 .btn-nav {
   font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -143,8 +179,49 @@ section { position: relative; }
   align-self: flex-end; color: var(--ivory);
   font-size: 28px; font-weight: 200; line-height: 1;
 }
-.mobile-menu nav { margin-top: 80px; display: flex; flex-direction: column; gap: 28px; }
-.mobile-menu nav a { color: var(--ivory); font-family: var(--serif); font-size: 32px; font-weight: 400; }
+.mobile-menu nav { margin-top: 60px; display: flex; flex-direction: column; gap: 24px; }
+.mobile-menu nav a { color: var(--ivory); font-family: var(--serif); font-size: 30px; font-weight: 400; }
+.mobile-menu .mm-social {
+  margin-top: 40px;
+  display: flex;
+  gap: 14px;
+}
+.mobile-menu .mm-social a {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(243,239,231,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s var(--ease);
+}
+.mobile-menu .mm-social a svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--ivory);
+}
+.mobile-menu .mm-social a:hover {
+  background: var(--ivory);
+  border-color: var(--ivory);
+}
+.mobile-menu .mm-social a:hover svg { fill: var(--forest); }
+
+.mobile-menu .mm-phone {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mobile-menu .mm-phone a {
+  color: var(--sand);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  transition: color 0.3s var(--ease);
+}
+.mobile-menu .mm-phone a:hover { color: var(--ivory); }
+
 .mobile-menu .mm-foot {
   margin-top: auto; color: var(--stone);
   font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
@@ -313,8 +390,6 @@ section { position: relative; }
   color: var(--brass); font-size: 24px;
   margin-bottom: 16px; font-style: normal;
 }
-
-/* Фото основательниц */
 .who-img img {
   position: absolute;
   inset: 0;
@@ -770,33 +845,12 @@ section { position: relative; }
   transition: opacity 0.5s var(--ease);
   z-index: 0;
 }
-.dir-gallery .dg-item:nth-child(2)::before {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(168,141,98,0.35) 0%, transparent 60%),
-    radial-gradient(circle at 80% 20%, rgba(122,147,168,0.3) 0%, transparent 55%);
-}
-.dir-gallery .dg-item:nth-child(3)::before {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(115,123,103,0.45) 0%, transparent 60%);
-}
-.dir-gallery .dg-item:nth-child(4)::before {
-  background:
-    radial-gradient(circle at 50% 50%, rgba(122,147,168,0.4) 0%, transparent 60%);
-}
-.dir-gallery .dg-item:nth-child(5)::before {
-  background:
-    radial-gradient(circle at 30% 30%, rgba(168,141,98,0.4) 0%, transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(115,123,103,0.35) 0%, transparent 55%);
-}
-
-/* Скрываем градиентную заглушку, когда внутри есть img или video */
 .dir-gallery .dg-item:has(img)::before,
 .dir-gallery .dg-item:has(video)::before { opacity: 0; }
 
 .dir-gallery .dg-item:hover::before { opacity: 0.7; }
 .dir-gallery .dg-item:hover { transform: scale(1.015); filter: brightness(1.1); }
 
-/* Фото и видео внутри слотов */
 .dir-gallery .dg-item img,
 .dir-gallery .dg-item video {
   position: absolute;
@@ -942,7 +996,6 @@ section { position: relative; }
 .proj-status.concept { background: rgba(74,99,119,0.95); color: var(--ivory); }
 .proj-status.diploma { background: rgba(168,141,98,0.95); color: var(--ivory); }
 
-/* Кнопка перехода на базу отдыха */
 .proj-link-btn {
   display: inline-flex;
   align-items: center;
@@ -1173,9 +1226,9 @@ section { position: relative; }
 
 .q-container {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr 1.2fr;
   gap: clamp(40px, 6vw, 96px);
-  align-items: start;
+  align-items: center;
   position: relative;
   z-index: 2;
 }
@@ -1224,78 +1277,33 @@ section { position: relative; }
 .q-form-wrap {
   background: rgba(243,239,231,0.03);
   border: 1px solid rgba(184,178,167,0.15);
-  padding: clamp(28px, 3.5vw, 48px);
+  padding: clamp(32px, 4vw, 56px);
+  text-align: left;
 }
-
-.form-types {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-bottom: 36px;
-}
-.form-type {
-  padding: 16px 10px;
-  border: 1px solid rgba(184,178,167,0.25);
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.4s var(--ease);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-.form-type:hover,
-.form-type.active {
-  border-color: var(--brass);
+.q-form-wrap .q-cta-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 40px);
   color: var(--ivory);
-  background: rgba(168,141,98,0.16);
+  margin-bottom: 20px;
+  line-height: 1.15;
 }
-
-.form-fields {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px 28px;
-  margin-bottom: 36px;
-}
-.form-field { display: flex; flex-direction: column; gap: 8px; }
-.form-field.full { grid-column: 1 / -1; }
-.form-field label {
-  font-size: 10px; letter-spacing: 0.22em;
-  text-transform: uppercase; color: var(--stone);
-}
-.form-field input,
-.form-field textarea {
-  font-family: var(--sans); font-size: 15px;
-  padding: 12px 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(184,178,167,0.3);
-  color: var(--ivory);
-  transition: border-color 0.4s var(--ease);
-  font-weight: 300;
-}
-.form-field input:focus,
-.form-field textarea:focus {
-  outline: none;
-  border-color: var(--brass);
-}
-.form-field textarea { resize: vertical; min-height: 70px; }
-.form-field input::placeholder,
-.form-field textarea::placeholder { color: rgba(184,178,167,0.4); }
-
-.form-submit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
-  padding-top: 28px;
-  border-top: 1px solid rgba(184,178,167,0.15);
-}
-.form-note {
-  font-size: 12px; color: var(--stone);
+.q-form-wrap .q-cta-title em {
   font-style: italic;
-  max-width: 40ch; line-height: 1.5;
+  color: var(--sand);
+}
+.q-form-wrap .q-cta-text {
+  font-size: 15px;
+  color: var(--sand);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 52ch;
+}
+.q-form-wrap .q-cta-note {
+  font-size: 12px;
+  color: var(--stone);
+  font-style: italic;
+  margin-top: 24px;
+  line-height: 1.5;
 }
 
 /* ============ FINAL CTA ============ */
@@ -1374,6 +1382,32 @@ section { position: relative; }
   color: rgba(184,178,167,0.55);
   font-style: italic; font-size: 14px;
 }
+.foot-col .social-inline {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.foot-col .social-inline a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(184,178,167,0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s var(--ease);
+}
+.foot-col .social-inline a svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--stone);
+  transition: fill 0.4s var(--ease);
+}
+.foot-col .social-inline a:hover {
+  background: var(--blue-soft);
+  border-color: var(--blue-soft);
+}
+.foot-col .social-inline a:hover svg { fill: var(--forest); }
 .foot-bottom {
   padding-top: 24px;
   border-top: 1px solid rgba(184,178,167,0.12);
@@ -1394,6 +1428,10 @@ section { position: relative; }
 .reveal.delay-3 { transition-delay: 0.24s; }
 
 /* ============ RESPONSIVE ============ */
+@media (max-width: 1100px) {
+  .social-group { display: none; }
+}
+
 @media (max-width: 1024px) {
   .who-grid,
   .ps-inner { grid-template-columns: 1fr; }
@@ -1407,7 +1445,6 @@ section { position: relative; }
   .service-block { grid-template-columns: 1fr; gap: 20px; }
   .service-block .sb-left { position: static; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
-  .form-types { grid-template-columns: 1fr 1fr; }
   .q-container { grid-template-columns: 1fr; gap: 40px; }
   .q-side { position: static; }
   .q-visual { max-width: 200px; margin: 0 auto; }
@@ -1428,10 +1465,7 @@ section { position: relative; }
   .process-grid { grid-template-columns: 1fr; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
   .service-block .sb-list { grid-template-columns: 1fr; }
-  .form-fields { grid-template-columns: 1fr; }
-  .form-types { grid-template-columns: 1fr 1fr; }
   .final-cta h2 { font-size: clamp(30px, 8vw, 48px); }
-  .form-submit { flex-direction: column; align-items: stretch; }
 
   .who { padding: 56px 0; }
   .who-img { aspect-ratio: 4/3; }
@@ -1577,14 +1611,9 @@ section { position: relative; }
   .questionnaire { padding: 56px 0; }
   .q-side h2 { font-size: 30px; line-height: 1.15; margin-bottom: 16px; }
   .q-side > p { font-size: 15.5px; line-height: 1.7; margin-bottom: 28px; }
-  .q-form-wrap { padding: 24px 18px; }
-  .form-types { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
-  .form-type { padding: 14px 8px; font-size: 11px; }
-  .form-fields { gap: 18px; margin-bottom: 24px; }
-  .form-field label { font-size: 11px; }
-  .form-field input,
-  .form-field textarea { font-size: 16px; padding: 12px 0; }
-  .form-submit { padding-top: 22px; gap: 16px; }
+  .q-form-wrap { padding: 28px 22px; }
+  .q-form-wrap .q-cta-title { font-size: 24px; margin-bottom: 16px; }
+  .q-form-wrap .q-cta-text { font-size: 15px; line-height: 1.65; margin-bottom: 28px; }
 
   .final-cta { padding: 64px 0 56px; }
   .final-cta h2 { font-size: 32px; line-height: 1.15; margin-bottom: 32px; }
@@ -1635,7 +1664,22 @@ section { position: relative; }
       <a href="#process">Процесс</a>
       <a href="#services">Услуги</a>
       <a href="#about">О студии</a>
-      <a href="#questionnaire" class="btn-nav">Обсудить проект</a>
+
+      <!-- Соцсети в шапке -->
+      <div class="social-group">
+        <a href="https://t.me/VioKrista" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.85-10.4c0 .79-.65 1.44-1.44 1.44-.79 0-1.44-.65-1.44-1.44 0-.79.65-1.44 1.44-1.44.79 0 1.44.65 1.44 1.44z"/>
+          </svg>
+        </a>
+      </div>
+
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn-nav">Обсудить проект</a>
     </nav>
 
     <button class="menu-toggle" id="menuToggle" aria-label="Меню">
@@ -1653,8 +1697,26 @@ section { position: relative; }
     <a href="#process">Процесс</a>
     <a href="#services">Услуги</a>
     <a href="#about">О студии</a>
-    <a href="#questionnaire">Обсудить проект</a>
   </nav>
+
+  <div class="mm-social">
+    <a href="https://t.me/VioKrista" target="_blank" rel="noopener" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+      </svg>
+    </a>
+    <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.85-10.4c0 .79-.65 1.44-1.44 1.44-.79 0-1.44-.65-1.44-1.44 0-.79.65-1.44 1.44-1.44.79 0 1.44.65 1.44 1.44z"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="mm-phone">
+    <a href="tel:+79628333044">+7 (962) 833-30-44</a>
+    <a href="tel:+79513613880">+7 (951) 361-38-80</a>
+  </div>
+
   <div class="mm-foot">NOVOSIBIRSK · REMOTE</div>
 </div>
 
@@ -1672,7 +1734,7 @@ section { position: relative; }
     <p class="tagline">Пространства, которые становятся частью истории.</p>
     <p class="sub">Дизайн интерьера · Авторская роспись</p>
     <div class="hero-actions">
-      <a href="#questionnaire" class="btn">Обсудить проект <span class="arrow">→</span></a>
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn">Обсудить проект <span class="arrow">→</span></a>
       <a href="#projects" class="btn btn-ghost">Смотреть проекты <span class="arrow">→</span></a>
     </div>
   </div>
@@ -1899,7 +1961,7 @@ section { position: relative; }
     </div>
 
     <div class="proj-grid">
-      <a href="#questionnaire" class="proj-item reveal">
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="proj-item reveal">
         <div class="proj-thumb">
           <img src="images/orel.jpg" alt="Детский центр — Орлёнок" loading="lazy">
           <span class="thumb-num">01</span>
@@ -1912,7 +1974,7 @@ section { position: relative; }
         </div>
       </a>
 
-      <a href="#questionnaire" class="proj-item reveal delay-1">
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="proj-item reveal delay-1">
         <div class="proj-thumb">
           <img src="images/edinorog.jpg" alt="Детская комната — Единорог" loading="lazy">
           <span class="thumb-num">02</span>
@@ -1925,7 +1987,7 @@ section { position: relative; }
         </div>
       </a>
 
-      <a href="#questionnaire" class="proj-item reveal">
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="proj-item reveal">
         <div class="proj-thumb">
           <img src="images/traktor.jpg" alt="Детская комната — Синий трактор" loading="lazy">
           <span class="thumb-num">03</span>
@@ -2007,7 +2069,7 @@ section { position: relative; }
         </div>
 
         <div class="ps-cta">
-          <a href="#questionnaire" class="btn btn-light">Обсудить персональное решение <span class="arrow">→</span></a>
+          <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">Обсудить персональное решение <span class="arrow">→</span></a>
         </div>
       </div>
     </div>
@@ -2135,44 +2197,12 @@ section { position: relative; }
     </div>
 
     <div class="q-form-wrap reveal delay-1">
-      <div class="form-types">
-        <div class="form-type active" data-type="interior">Интерьер</div>
-        <div class="form-type" data-type="art">Роспись</div>
-        <div class="form-type" data-type="story">Персональное решение</div>
-        <div class="form-type" data-type="other">Другое</div>
-      </div>
-
-      <form class="form-fields" id="mainForm">
-        <div class="form-field">
-          <label>Имя</label>
-          <input type="text" placeholder="Как к вам обращаться">
-        </div>
-        <div class="form-field">
-          <label>Город</label>
-          <input type="text" placeholder="Где находится пространство">
-        </div>
-        <div class="form-field">
-          <label>Email</label>
-          <input type="email" placeholder="Ваш email">
-        </div>
-        <div class="form-field">
-          <label>Телефон или Telegram</label>
-          <input type="text" placeholder="Для связи">
-        </div>
-        <div class="form-field full">
-          <label>Тип объекта</label>
-          <input type="text" placeholder="Квартира / дом / коммерческое / другое">
-        </div>
-        <div class="form-field full">
-          <label>Расскажите о пространстве и вашей идее</label>
-          <textarea placeholder="Даже короткий рассказ поможет начать разговор"></textarea>
-        </div>
-      </form>
-
-      <div class="form-submit">
-        <p class="form-note">Это демо-форма. Позже сюда можно встроить вашу реальную анкету.</p>
-        <a href="#" class="btn btn-light" id="submitBtn">Заполнить анкету <span class="arrow">→</span></a>
-      </div>
+      <h3 class="q-cta-title">Готовы <em>начать?</em></h3>
+      <p class="q-cta-text">Заполните анкету — это займёт несколько минут. Расскажите о пространстве, своих пожеланиях и референсах. Мы свяжемся с вами, чтобы обсудить проект.</p>
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">
+        Заполнить анкету <span class="arrow">→</span>
+      </a>
+      <p class="q-cta-note">Откроется в новой вкладке.</p>
     </div>
   </div>
 </section>
@@ -2189,13 +2219,13 @@ section { position: relative; }
   <div class="container">
     <span class="fstar reveal">✦</span>
     <h2 class="reveal">Создадим пространство,<br><em>которое будет только вашим.</em></h2>
-    <a href="#questionnaire" class="btn reveal">Обсудить проект <span class="arrow">→</span></a>
+    <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn reveal">Обсудить проект <span class="arrow">→</span></a>
 
     <div class="final-links reveal">
-      <a href="#" onclick="event.preventDefault();">Telegram — скоро</a>
-      <a href="#" onclick="event.preventDefault();">WhatsApp — скоро</a>
-      <a href="#" onclick="event.preventDefault();">Instagram — скоро</a>
-      <a href="#" onclick="event.preventDefault();">Email — скоро</a>
+      <a href="https://t.me/VioKrista" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:+79628333044">+7 (962) 833-30-44</a>
+      <a href="tel:+79513613880">+7 (951) 361-38-80</a>
     </div>
   </div>
 </section>
@@ -2239,11 +2269,22 @@ section { position: relative; }
       <div class="foot-col">
         <h4>Контакты</h4>
         <ul>
-          <li><span class="placeholder">Telegram — скоро</span></li>
-          <li><span class="placeholder">WhatsApp — скоро</span></li>
-          <li><span class="placeholder">Instagram — скоро</span></li>
-          <li><span class="placeholder">Email — скоро</span></li>
+          <li><a href="tel:+79628333044">+7 (962) 833-30-44</a></li>
+          <li><a href="tel:+79513613880">+7 (951) 361-38-80</a></li>
+          <li><a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener">Анкета</a></li>
         </ul>
+        <div class="social-inline">
+          <a href="https://t.me/VioKrista" target="_blank" rel="noopener" aria-label="Telegram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.85-10.4c0 .79-.65 1.44-1.44 1.44-.79 0-1.44-.65-1.44-1.44 0-.79.65-1.44 1.44-1.44.79 0 1.44.65 1.44 1.44z"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -2312,24 +2353,6 @@ dirItems.forEach(item => {
     }
   });
 });
-
-// ========== FORM TYPE SWITCHER ==========
-const formTypes = document.querySelectorAll('.form-type');
-formTypes.forEach(btn => {
-  btn.addEventListener('click', () => {
-    formTypes.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-
-// ========== SUBMIT BUTTON (демо) ==========
-const submitBtn = document.getElementById('submitBtn');
-if (submitBtn) {
-  submitBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    alert('Это демо-версия. Позже здесь будет ваша реальная анкета или ссылка на неё.');
-  });
-}
 
 // ========== SMOOTH ANCHOR SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
