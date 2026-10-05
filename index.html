@@ -1351,93 +1351,85 @@ section { position: relative; }
   .foot-grid { grid-template-columns: 1fr; gap: 28px; }
   .service-block .sb-list { grid-template-columns: 1fr; }
   .form-fields { grid-template-columns: 1fr; }
-  .form-types { grid-template-columns: 1fr; }
+  .form-types { grid-template-columns: 1fr 1fr; }
   .final-cta h2 { font-size: clamp(30px, 8vw, 48px); }
   .form-submit { flex-direction: column; align-items: stretch; }
-  .ps-step { padding: 18px 0; gap: 16px; }
-  .ps-step .ps-num { min-width: 32px; font-size: 18px; }
 
-  /* ===== ОСНОВНОЙ АККОРДЕОН ===== */
+  /* ===== КТО МЫ ===== */
+  .who { padding: 56px 0; }
+  .who-img { aspect-ratio: 4/3; }
+  .who-img .img-placeholder { font-size: 12px; letter-spacing: 0.2em; }
+  .who-text h2 { font-size: 30px; line-height: 1.15; margin-bottom: 20px; }
+  .who-text p { font-size: 15.5px; line-height: 1.7; margin-bottom: 16px; }
+  .who-signature { font-size: 17px; margin-top: 24px; }
+
+  /* ===== АККОРДЕОН НАПРАВЛЕНИЙ ===== */
   .dir-trigger {
     grid-template-columns: 32px 1fr auto;
-    gap: 10px;
-    padding: 18px 10px;
+    gap: 12px;
+    padding: 20px 10px;
   }
   .dir-trigger:hover { padding-left: 14px; }
-  .dir-toggle { width: 34px; height: 34px; font-size: 18px; }
-  .dir-title { font-size: clamp(20px, 6vw, 28px); }
-  .dir-num { font-size: 16px; }
+  .dir-toggle { width: 36px; height: 36px; font-size: 18px; }
+  .dir-title { font-size: 24px; line-height: 1.15; }
+  .dir-num { font-size: 17px; }
   .dir-content-inner { padding-left: 0; }
-  .dir-lead { font-size: 14.5px; padding-left: 12px; border-left-width: 2px; margin-bottom: 12px; line-height: 1.5; }
-  .dir-desc p { font-size: 14.5px; line-height: 1.65; margin-bottom: 10px; }
-  .dir-desc p:first-of-type { font-size: 15.5px; }
-  .dir-features { grid-template-columns: 1fr 1fr; gap: 8px 14px; }
-  .dir-features li { font-size: 12.5px; }
+  .dir-lead { font-size: 15.5px; padding-left: 14px; border-left-width: 2px; margin-bottom: 16px; line-height: 1.55; }
+  .dir-desc p { font-size: 15px; line-height: 1.7; margin-bottom: 12px; }
+  .dir-desc p:first-of-type { font-size: 16px; }
+  .dir-features { grid-template-columns: 1fr; gap: 10px; }
+  .dir-features li { font-size: 14px; }
 
-  /* ===== РОСПИСЬ — визуально как на ПК, только меньше ===== */
-  .dir-formats { margin-top: 26px; }
-  .dir-formats::before { top: -13px; }
+  /* ===== РОСПИСЬ ===== */
+  .dir-formats { margin-top: 30px; }
+  .dir-formats::before { top: -15px; }
 
-  .dir-subhead { gap: 10px; margin-bottom: 14px; }
-  .dir-subhead .sh-num { font-size: 22px; }
-  .dir-subhead .sh-title { font-size: 10px; letter-spacing: 0.18em; }
+  .dir-subhead { gap: 10px; margin-bottom: 16px; }
+  .dir-subhead .sh-num { font-size: 24px; }
+  .dir-subhead .sh-title { font-size: 11px; letter-spacing: 0.18em; }
   .dir-subhead .sh-line { display: block; min-width: 20px; }
 
-  .dir-formats-grid { border-top: 1px solid rgba(32,36,31,0.12); }
   .dir-format {
-    grid-template-columns: 72px 1fr;
-    gap: 16px;
-    padding: 18px 14px;
-    align-items: center;
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+    padding: 20px 14px;
+    align-items: start;
   }
-  .dir-format:hover { padding-left: 20px; }
-  .dir-format::after { width: 2px; }
-  .dir-format .df-icon-wrap { gap: 6px; }
-  .dir-format .df-icon { width: 36px; height: 36px; }
-  .dir-format .df-num { font-size: 11px; letter-spacing: 0.1em; }
-  .dir-format .df-text h4 {
-    font-size: 20px;
-    margin-bottom: 6px;
-    line-height: 1.15;
-  }
-  .dir-format .df-text p {
-    font-size: 13.5px;
-    line-height: 1.6;
-  }
+  .dir-format:hover { padding-left: 18px; }
+  .dir-format .df-icon { width: 38px; height: 38px; }
+  .dir-format .df-num { font-size: 12px; }
+  .dir-format .df-text h4 { font-size: 21px; margin-bottom: 8px; line-height: 1.15; }
+  .dir-format .df-text p { font-size: 14.5px; line-height: 1.65; }
 
-  .dir-levels { margin-top: 26px; padding-top: 18px; }
+  .dir-levels { margin-top: 30px; padding-top: 20px; }
   .dir-levels-scale {
     grid-template-columns: repeat(3, 1fr);
     gap: 0;
-    margin-top: 14px;
+    margin-top: 18px;
   }
-  .dir-levels-scale::before {
-    top: 9px;
-    left: 16.66%;
-    right: 16.66%;
-    height: 1px;
-  }
+  .dir-levels-scale::before { top: 11px; height: 1px; }
   .dir-level { padding: 0 4px; text-align: center; display: block; }
   .dir-level .dl-marker {
-    width: 20px; height: 20px;
-    margin: 0 auto 14px;
+    width: 22px; height: 22px;
+    margin: 0 auto 16px;
     border-width: 1.5px;
   }
-  .dir-level .dl-marker::after { width: 8px; height: 8px; }
-  .dir-level:nth-child(2) .dl-marker::after { width: 11px; height: 11px; }
-  .dir-level:nth-child(3) .dl-marker::after { width: 14px; height: 14px; }
-  .dir-level .dl-name { font-size: 15px; margin-bottom: 4px; text-align: center; line-height: 1.15; }
-  .dir-level .dl-desc { font-size: 11.5px; text-align: center; line-height: 1.45; max-width: 100%; }
+  .dir-level .dl-marker::after { width: 9px; height: 9px; }
+  .dir-level:nth-child(2) .dl-marker::after { width: 12px; height: 12px; }
+  .dir-level:nth-child(3) .dl-marker::after { width: 15px; height: 15px; }
+  .dir-level .dl-name { font-size: 15px; margin-bottom: 6px; line-height: 1.2; }
+  .dir-level .dl-desc { font-size: 12px; line-height: 1.5; }
 
+  /* Галерея — те же пропорции, что на ПК, но выше */
   .dir-gallery {
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    aspect-ratio: 16/7;
-    gap: 7px;
-    margin-top: 26px;
+    aspect-ratio: 4/3;
+    gap: 8px;
+    margin-top: 30px;
   }
-  .dir-gallery::before { top: -16px; height: 10px; }
-  .dir-gallery::after { top: -23px; font-size: 9px; padding: 0 6px; }
+  .dir-gallery::before { top: -18px; height: 12px; }
+  .dir-gallery::after { top: -26px; font-size: 10px; padding: 0 7px; }
   .dir-gallery .dg-item:nth-child(1) {
     grid-column: 1;
     grid-row: 1 / 3;
@@ -1447,8 +1439,79 @@ section { position: relative; }
   .dir-gallery .dg-item:nth-child(3) { grid-column: 3; grid-row: 1; aspect-ratio: auto; }
   .dir-gallery .dg-item:nth-child(4) { grid-column: 2; grid-row: 2; aspect-ratio: auto; }
   .dir-gallery .dg-item:nth-child(5) { grid-column: 3; grid-row: 2; aspect-ratio: auto; }
-  .dir-gallery .dg-label { font-size: 8px; padding: 8px; letter-spacing: 0.1em; line-height: 1.3; }
-  .dir-gallery .dg-item:nth-child(1) .dg-label { font-size: 9px; padding: 10px; }
+  .dir-gallery .dg-label { font-size: 10px; padding: 12px; letter-spacing: 0.14em; line-height: 1.35; }
+  .dir-gallery .dg-item:nth-child(1) .dg-label { font-size: 11px; padding: 14px; }
+
+  /* ===== PROJECTS ===== */
+  .projects { padding: 56px 0; }
+  .proj-thumb { aspect-ratio: 4/3; }
+  .proj-body { padding: 22px 22px 26px; }
+  .proj-body h4 { font-size: 22px; line-height: 1.2; }
+  .proj-body .p-info { font-size: 12px; margin-bottom: 12px; }
+  .proj-body .p-desc { font-size: 14px; line-height: 1.65; }
+  .proj-status { font-size: 9px; padding: 5px 10px; top: 16px; right: 16px; }
+  .thumb-num { top: 16px; left: 18px; }
+  .thumb-note { bottom: 16px; left: 18px; right: 18px; font-size: 10px; }
+  .thumb-mark { font-size: 56px; }
+
+  /* ===== PERSONAL STORY ===== */
+  .personal-story { padding: 56px 0; }
+  .ps-left h2 { font-size: 30px; line-height: 1.15; margin-bottom: 18px; }
+  .ps-left p { font-size: 15.5px; line-height: 1.7; }
+  .ps-step { padding: 18px 0; gap: 18px; }
+  .ps-step .ps-num { min-width: 34px; font-size: 19px; }
+  .ps-step .ps-content h4 { font-size: 19px; margin-bottom: 6px; }
+  .ps-step .ps-content p { font-size: 13.5px; line-height: 1.6; }
+  .ps-cta { margin-top: 32px; }
+
+  /* ===== PROCESS ===== */
+  .process { padding: 56px 0; }
+  .step { padding: 26px 0; }
+  .step .num { font-size: 30px; margin-bottom: 14px; }
+  .step h3 { font-size: 13px; margin-bottom: 8px; }
+  .step p { font-size: 15px; line-height: 1.65; }
+
+  /* ===== SERVICES ===== */
+  .services { padding: 56px 0; }
+  .services-intro h2 { font-size: 30px; line-height: 1.15; }
+  .services-intro p { font-size: 15.5px; line-height: 1.7; }
+  .service-block { padding: 32px 0; gap: 16px; }
+  .service-block h3 { font-size: 26px; margin-bottom: 12px; line-height: 1.15; }
+  .service-block .sb-tag { font-size: 16px; margin-bottom: 16px; }
+  .service-block .sb-list li { font-size: 15px; line-height: 1.65; padding-left: 22px; }
+  .service-block .sb-note { font-size: 14px; line-height: 1.65; padding: 14px 16px; }
+
+  /* ===== QUESTIONNAIRE ===== */
+  .questionnaire { padding: 56px 0; }
+  .q-side h2 { font-size: 30px; line-height: 1.15; margin-bottom: 16px; }
+  .q-side > p { font-size: 15.5px; line-height: 1.7; margin-bottom: 28px; }
+  .q-form-wrap { padding: 24px 18px; }
+  .form-types { grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
+  .form-type { padding: 14px 8px; font-size: 11px; }
+  .form-fields { gap: 18px; margin-bottom: 24px; }
+  .form-field label { font-size: 11px; }
+  .form-field input,
+  .form-field textarea { font-size: 16px; padding: 12px 0; }
+  .form-submit { padding-top: 22px; gap: 16px; }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta { padding: 64px 0 56px; }
+  .final-cta h2 { font-size: 32px; line-height: 1.15; margin-bottom: 32px; }
+  .final-links { margin-top: 40px; padding-top: 28px; gap: 16px; }
+  .final-links a { font-size: 12px; }
+
+  /* ===== FOOTER ===== */
+  .footer { padding: 48px 0 24px; }
+  .foot-brand .f-tag { font-size: 15px; margin-bottom: 16px; }
+  .foot-col h4 { font-size: 12px; margin-bottom: 14px; }
+  .foot-col a, .foot-col .placeholder { font-size: 15px; }
+  .foot-bottom { font-size: 11px; padding-top: 20px; }
+
+  /* ===== SECTION HEAD ===== */
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: 30px; line-height: 1.15; }
+  .eyebrow { font-size: 10px; letter-spacing: 0.22em; }
+  .section-head .eyebrow::before { width: 18px; margin-right: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
