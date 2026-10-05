@@ -484,275 +484,318 @@ section { position: relative; }
 
 /* ============ ФОРМАТЫ РОСПИСИ ============ */
 .dir-formats {
-  margin-top: 36px;
+  margin-top: 40px;
   position: relative;
 }
 .dir-formats::before {
   content: '';
   position: absolute;
-  top: -18px;
+  top: -22px;
   left: 0;
   right: 0;
   height: 1px;
   background: linear-gradient(to right,
     transparent 0%,
-    rgba(122,147,168,0.5) 20%,
-    rgba(122,147,168,0.5) 80%,
+    rgba(122,147,168,0.6) 15%,
+    rgba(122,147,168,0.6) 85%,
     transparent 100%);
 }
+
 .dir-subhead {
   display: flex;
   align-items: baseline;
-  gap: 14px;
-  margin-bottom: 16px;
+  gap: 16px;
+  margin-bottom: 22px;
   position: relative;
 }
 .dir-subhead .sh-num {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  color: var(--blue-deep);
-  font-weight: 600;
-}
-.dir-subhead .sh-title {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 20px;
+  font-size: 32px;
+  color: var(--blue-deep);
+  line-height: 1;
+  font-weight: 400;
+}
+.dir-subhead .sh-title {
+  font-family: var(--sans);
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
   color: var(--forest);
+  font-weight: 600;
 }
 .dir-subhead .sh-line {
   flex: 1;
-  height: 14px;
-  position: relative;
+  height: 1px;
+  background: linear-gradient(to right, rgba(122,147,168,0.5), transparent);
   align-self: center;
-}
-.dir-subhead .sh-line svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.dir-subhead .sh-line svg path {
-  fill: none;
-  stroke: var(--blue);
-  stroke-width: 0.8;
-  opacity: 0.6;
-}
-.dir-subhead .sh-line svg circle {
-  fill: var(--brass);
 }
 
 .dir-formats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(32,36,31,0.12);
 }
-.dir-formats-grid::before,
-.dir-formats-grid::after {
-  content: '✦';
-  position: absolute;
-  top: -14px;
-  font-size: 8px;
-  color: var(--brass);
-  opacity: 0.8;
-}
-.dir-formats-grid::before { left: calc(33.33% - 4px); }
-.dir-formats-grid::after { left: calc(66.66% - 4px); }
-
 .dir-format {
-  padding: 20px 18px;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 32px;
+  align-items: center;
+  padding: 28px 24px;
   background: var(--ivory);
-  border: 1px solid rgba(32,36,31,0.12);
-  border-top: 2px solid var(--blue);
-  transition: all 0.4s var(--ease);
+  border-bottom: 1px solid rgba(32,36,31,0.12);
   position: relative;
-  overflow: hidden;
+  transition: all 0.5s var(--ease);
+  cursor: default;
 }
-.dir-format::before {
+.dir-format::after {
   content: '';
   position: absolute;
-  top: 12px; right: 14px;
-  width: 22px; height: 22px;
-  background:
-    radial-gradient(circle at 30% 30%, rgba(122,147,168,0.35) 0%, transparent 70%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 0.5s var(--ease);
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--blue);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s var(--ease);
 }
-.dir-format:hover::before { opacity: 1; }
-.dir-format:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px -18px rgba(32,36,31,0.22);
-  border-color: var(--blue);
-}
-.dir-format:nth-child(2) { border-top-color: var(--brass); }
-.dir-format:nth-child(3) { border-top-color: var(--olive); }
+.dir-format:nth-child(2)::after { background: var(--brass); }
+.dir-format:nth-child(3)::after { background: var(--olive); }
+.dir-format:hover { background: rgba(168,186,199,0.1); padding-left: 32px; }
+.dir-format:hover::after { transform: scaleY(1); }
 
+.dir-format .df-icon-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
 .dir-format .df-icon {
-  width: 30px; height: 30px;
-  margin-bottom: 12px;
-  opacity: 0.9;
+  width: 44px;
+  height: 44px;
+  transition: transform 0.5s var(--ease);
 }
+.dir-format:hover .df-icon { transform: scale(1.1); }
 .dir-format .df-num {
-  font-size: 10px; letter-spacing: 0.22em;
-  color: var(--blue-deep); margin-bottom: 8px;
-  font-weight: 600;
-}
-.dir-format h4 {
   font-family: var(--serif);
-  font-size: 20px; font-weight: 500;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--blue-deep);
+  font-weight: 500;
+}
+.dir-format:nth-child(2) .df-num { color: var(--brass); }
+.dir-format:nth-child(3) .df-num { color: var(--olive); }
+
+.dir-format .df-text h4 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 400;
   margin-bottom: 8px;
   color: var(--forest);
+  letter-spacing: -0.005em;
 }
-.dir-format p {
-  font-size: 13.5px; color: var(--forest);
-  line-height: 1.6;
+.dir-format .df-text p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.65;
+  max-width: 68ch;
   font-weight: 400;
 }
 
 /* ============ УРОВНИ СЛОЖНОСТИ ============ */
 .dir-levels {
-  margin-top: 36px;
+  margin-top: 40px;
+  padding-top: 24px;
   position: relative;
 }
 .dir-levels::before {
   content: '';
   position: absolute;
-  top: -18px;
+  top: 0;
   left: 0;
   right: 0;
   height: 1px;
   background: linear-gradient(to right,
     transparent 0%,
-    rgba(115,123,103,0.4) 20%,
-    rgba(115,123,103,0.4) 80%,
+    rgba(115,123,103,0.5) 15%,
+    rgba(115,123,103,0.5) 85%,
     transparent 100%);
 }
-.dir-levels-list {
+
+.dir-levels-scale {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 0;
+  margin-top: 20px;
   position: relative;
 }
-.dir-levels-list::before,
-.dir-levels-list::after {
-  content: '✦';
+.dir-levels-scale::before {
+  content: '';
   position: absolute;
-  top: -14px;
-  font-size: 8px;
-  color: var(--olive);
-  opacity: 0.8;
+  top: 12px;
+  left: 16.66%;
+  right: 16.66%;
+  height: 1px;
+  background: linear-gradient(to right,
+    var(--blue),
+    var(--olive),
+    var(--brass));
+  opacity: 0.5;
 }
-.dir-levels-list::before { left: calc(33.33% - 4px); }
-.dir-levels-list::after { left: calc(66.66% - 4px); }
-
 .dir-level {
-  padding: 16px 18px;
-  background: rgba(168,186,199,0.12);
-  border-left: 3px solid var(--blue);
-  transition: all 0.4s var(--ease);
+  padding: 0 12px;
+  text-align: center;
   position: relative;
+  transition: all 0.4s var(--ease);
 }
-.dir-level:nth-child(2) { border-left-color: var(--olive); }
-.dir-level:nth-child(3) { border-left-color: var(--brass); }
-.dir-level:hover {
-  background: rgba(168,186,199,0.22);
-  transform: translateX(4px);
-}
-.dir-level .dl-dots {
+.dir-level .dl-marker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ivory);
+  border: 2px solid var(--blue);
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s var(--ease);
   display: flex;
-  gap: 4px;
-  margin-bottom: 8px;
+  align-items: center;
+  justify-content: center;
 }
-.dir-level .dl-dot {
-  width: 6px; height: 6px;
+.dir-level .dl-marker::after {
+  content: '';
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--blue);
-  opacity: 0.35;
+  transition: all 0.4s var(--ease);
 }
-.dir-level .dl-dot.active { opacity: 1; background: var(--blue-deep); }
-.dir-level:nth-child(2) .dl-dot.active { background: var(--olive); }
-.dir-level:nth-child(3) .dl-dot.active { background: var(--brass); }
+.dir-level:nth-child(2) .dl-marker { border-color: var(--olive); }
+.dir-level:nth-child(2) .dl-marker::after { background: var(--olive); width: 14px; height: 14px; }
+.dir-level:nth-child(3) .dl-marker { border-color: var(--brass); }
+.dir-level:nth-child(3) .dl-marker::after { background: var(--brass); width: 18px; height: 18px; }
+
+.dir-level:hover .dl-marker { transform: scale(1.15); }
 .dir-level .dl-name {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 17px;
+  font-size: 22px;
   color: var(--forest);
   display: block;
-  margin-bottom: 4px;
-  font-weight: 500;
-}
-.dir-level .dl-desc {
-  font-size: 13px;
-  color: var(--forest);
-  line-height: 1.55;
+  margin-bottom: 8px;
   font-weight: 400;
 }
+.dir-level .dl-desc {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.55;
+  font-weight: 400;
+  max-width: 28ch;
+  margin: 0 auto;
+}
 
-/* ============ ГАЛЕРЕЯ ============ */
+/* ============ ГАЛЕРЕЯ РОСПИСИ ============ */
 .dir-gallery {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  gap: 8px;
-  margin-top: 32px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  margin-top: 40px;
   position: relative;
+  aspect-ratio: 16/7;
 }
 .dir-gallery::before {
   content: '';
   position: absolute;
-  top: -22px;
+  top: -24px;
   left: 50%;
   transform: translateX(-50%);
   width: 1px;
-  height: 14px;
+  height: 16px;
   background: linear-gradient(to bottom,
     transparent,
-    rgba(122,147,168,0.7),
+    rgba(122,147,168,0.8),
     transparent);
 }
 .dir-gallery::after {
   content: '✦';
   position: absolute;
-  top: -30px;
+  top: -34px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 8px;
+  font-size: 10px;
   color: var(--brass);
   background: var(--ivory);
-  padding: 0 6px;
+  padding: 0 8px;
 }
 
 .dir-gallery .dg-item {
-  aspect-ratio: 1;
   background: var(--forest);
   position: relative;
   overflow: hidden;
-  transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
+  transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+  cursor: pointer;
 }
-.dir-gallery .dg-item:hover {
-  transform: scale(1.02);
-  filter: brightness(1.08);
+.dir-gallery .dg-item:nth-child(1) {
+  grid-row: 1 / 3;
+  grid-column: 1;
 }
-.dir-gallery .dg-item:first-child { aspect-ratio: 16/10; }
+.dir-gallery .dg-item:nth-child(2) { grid-column: 2; grid-row: 1; }
+.dir-gallery .dg-item:nth-child(3) { grid-column: 3; grid-row: 1; }
+.dir-gallery .dg-item:nth-child(4) { grid-column: 2; grid-row: 2; }
+.dir-gallery .dg-item:nth-child(5) { grid-column: 3; grid-row: 2; }
+
 .dir-gallery .dg-item::before {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(115,123,103,0.4) 0%, transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(122,147,168,0.35) 0%, transparent 55%);
+    radial-gradient(circle at 30% 30%, rgba(115,123,103,0.45) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(122,147,168,0.4) 0%, transparent 55%);
   transition: opacity 0.5s var(--ease);
 }
-.dir-gallery .dg-item:hover::before { opacity: 0.75; }
+.dir-gallery .dg-item:nth-child(2)::before {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(168,141,98,0.35) 0%, transparent 60%),
+    radial-gradient(circle at 80% 20%, rgba(122,147,168,0.3) 0%, transparent 55%);
+}
+.dir-gallery .dg-item:nth-child(3)::before {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(115,123,103,0.45) 0%, transparent 60%);
+}
+.dir-gallery .dg-item:nth-child(4)::before {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(122,147,168,0.4) 0%, transparent 60%);
+}
+.dir-gallery .dg-item:nth-child(5)::before {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(168,141,98,0.4) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(115,123,103,0.35) 0%, transparent 55%);
+}
+.dir-gallery .dg-item:hover::before { opacity: 0.7; }
+.dir-gallery .dg-item:hover { transform: scale(1.015); filter: brightness(1.1); }
+
 .dir-gallery .dg-label {
   position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 9px; letter-spacing: 0.2em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  font-size: 10px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--stone);
+  color: var(--ivory);
   font-style: italic;
   z-index: 2;
-  text-align: center;
-  padding: 12px;
+  padding: 18px;
   line-height: 1.4;
+  text-align: left;
+  background: linear-gradient(to top, rgba(32,36,31,0.6) 0%, transparent 40%);
+}
+.dir-gallery .dg-item:nth-child(1) .dg-label {
+  font-size: 11px;
+  padding: 22px;
 }
 
 /* Каскадное появление слоёв при открытии */
@@ -1291,15 +1334,24 @@ section { position: relative; }
   .q-side { position: static; }
   .q-visual { max-width: 200px; margin: 0 auto; }
   .dir-content-inner { padding-left: 0; }
-  .dir-formats-grid { grid-template-columns: 1fr 1fr; }
-  .dir-levels-list { grid-template-columns: 1fr 1fr; }
   .dir-features { grid-template-columns: 1fr 1fr; }
-  .dir-gallery { grid-template-columns: 1fr 1fr 1fr; }
-  .dir-gallery .dg-item:first-child { grid-column: 1 / -1; }
-  .dir-formats-grid::before,
-  .dir-formats-grid::after { display: none; }
-  .dir-levels-list::before,
-  .dir-levels-list::after { display: none; }
+  .dir-gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    aspect-ratio: auto;
+  }
+  .dir-gallery .dg-item:nth-child(1) { grid-row: 1; grid-column: 1 / 3; aspect-ratio: 16/9; }
+  .dir-gallery .dg-item:nth-child(2),
+  .dir-gallery .dg-item:nth-child(3),
+  .dir-gallery .dg-item:nth-child(4),
+  .dir-gallery .dg-item:nth-child(5) { aspect-ratio: 4/3; }
+  .dir-gallery .dg-item:nth-child(2) { grid-column: 1; grid-row: 2; }
+  .dir-gallery .dg-item:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .dir-gallery .dg-item:nth-child(4) { grid-column: 1; grid-row: 3; }
+  .dir-gallery .dg-item:nth-child(5) { grid-column: 2; grid-row: 3; }
+  .dir-format { grid-template-columns: 80px 1fr; gap: 20px; padding: 22px 16px; }
+  .dir-format .df-icon { width: 36px; height: 36px; }
+  .dir-format .df-text h4 { font-size: 22px; }
 }
 
 @media (max-width: 720px) {
@@ -1325,13 +1377,23 @@ section { position: relative; }
   .dir-toggle { width: 36px; height: 36px; font-size: 18px; }
   .dir-desc p { font-size: 16px; }
   .dir-desc p:first-of-type { font-size: 17px; }
-  .dir-formats-grid { grid-template-columns: 1fr; }
-  .dir-levels-list { grid-template-columns: 1fr; }
   .dir-features { grid-template-columns: 1fr; }
-  .dir-gallery { grid-template-columns: 1fr 1fr; }
-  .dir-gallery .dg-item:first-child { grid-column: 1 / -1; aspect-ratio: 4/3; }
-  .dir-gallery .dg-item { aspect-ratio: 1; }
   .dir-lead { font-size: 16px; }
+
+  .dir-subhead .sh-num { font-size: 24px; }
+  .dir-subhead .sh-title { font-size: 11px; }
+  .dir-format { grid-template-columns: 60px 1fr; gap: 14px; padding: 20px 12px; }
+  .dir-format .df-icon { width: 32px; height: 32px; }
+  .dir-format .df-num { font-size: 11px; }
+  .dir-format .df-text h4 { font-size: 20px; }
+  .dir-format .df-text p { font-size: 14px; }
+
+  .dir-levels-scale { grid-template-columns: 1fr; gap: 28px; }
+  .dir-levels-scale::before { display: none; }
+  .dir-level { padding: 0; text-align: left; display: grid; grid-template-columns: 32px 1fr; gap: 16px; align-items: start; }
+  .dir-level .dl-marker { margin: 4px 0 0 0; }
+  .dir-level .dl-name { font-size: 19px; text-align: left; margin-bottom: 4px; }
+  .dir-level .dl-desc { max-width: 100%; text-align: left; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1500,49 +1562,62 @@ section { position: relative; }
               <p>Внутри направления есть три формата — от классической авторской росписи до истории с цифровым продолжением. Каждый формат можно заказать отдельно или интегрировать в интерьерный проект.</p>
             </div>
 
-            <!-- 3 формата росписи -->
+            <!-- Форматы росписи -->
             <div class="dir-formats">
               <div class="dir-subhead">
-                <span class="sh-num">01 — 03</span>
-                <span class="sh-title">Три формата росписи</span>
-                <span class="sh-line">
-                  <svg viewBox="0 0 400 14" preserveAspectRatio="none" aria-hidden="true">
-                    <path d="M0 7 C80 7, 120 2, 200 7 S320 12, 400 7"/>
-                    <circle cx="200" cy="7" r="2"/>
-                  </svg>
-                </span>
+                <span class="sh-num">01</span>
+                <span class="sh-title">Форматы росписи</span>
+                <span class="sh-line"></span>
               </div>
+
               <div class="dir-formats-grid">
                 <div class="dir-format">
-                  <svg class="df-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <path d="M4 24 L14 4 L24 24" stroke="#4A6377" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M14 24 L14 14" stroke="#4A6377" stroke-width="1.2" stroke-linecap="round"/>
-                    <circle cx="14" cy="10" r="1.5" fill="#A88D62"/>
-                  </svg>
-                  <div class="df-num">01</div>
-                  <h4>Авторская роспись</h4>
-                  <p>Индивидуальный сюжет, созданный под ваше пространство и под вас.</p>
+                  <div class="df-icon-wrap">
+                    <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                      <path d="M6 38 L22 6 L38 38" stroke="#4A6377" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M22 38 L22 22" stroke="#4A6377" stroke-width="1.6" stroke-linecap="round"/>
+                      <circle cx="22" cy="15" r="2.5" fill="#A88D62"/>
+                      <path d="M10 30 L14 26 M34 30 L30 26" stroke="#7A93A8" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+                    </svg>
+                    <div class="df-num">01 / 03</div>
+                  </div>
+                  <div class="df-text">
+                    <h4>Авторская роспись</h4>
+                    <p>Индивидуальный сюжет, созданный под ваше пространство и под вас. Роспись становится частью архитектуры и делает пространство именно вашим — не декор, не «картинка на стене».</p>
+                  </div>
                 </div>
+
                 <div class="dir-format">
-                  <svg class="df-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <rect x="6" y="6" width="16" height="16" stroke="#4A6377" stroke-width="1.2"/>
-                    <rect x="9" y="9" width="4" height="4" fill="#4A6377"/>
-                    <rect x="15" y="9" width="4" height="4" fill="#4A6377" opacity="0.5"/>
-                    <rect x="9" y="15" width="4" height="4" fill="#4A6377" opacity="0.5"/>
-                    <rect x="15" y="15" width="4" height="4" fill="#4A6377"/>
-                  </svg>
-                  <div class="df-num">02</div>
-                  <h4>Роспись + игра</h4>
-                  <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене.</p>
+                  <div class="df-icon-wrap">
+                    <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                      <rect x="10" y="10" width="24" height="24" stroke="#A88D62" stroke-width="1.6"/>
+                      <rect x="14" y="14" width="6" height="6" fill="#A88D62"/>
+                      <rect x="24" y="14" width="6" height="6" fill="#A88D62" opacity="0.5"/>
+                      <rect x="14" y="24" width="6" height="6" fill="#A88D62" opacity="0.5"/>
+                      <rect x="24" y="24" width="6" height="6" fill="#A88D62"/>
+                      <circle cx="34" cy="34" r="3" fill="#7A93A8"/>
+                    </svg>
+                    <div class="df-num">02 / 03</div>
+                  </div>
+                  <div class="df-text">
+                    <h4>Роспись + игра</h4>
+                    <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене. Подходит для детских центров, клиник, кафе и образовательных пространств — там, где важно вовлечь.</p>
+                  </div>
                 </div>
+
                 <div class="dir-format">
-                  <svg class="df-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                    <path d="M14 24 C8 20, 4 15, 4 10 C4 6, 7 4, 10 4 C12 4, 13 5, 14 7 C15 5, 16 4, 18 4 C21 4, 24 6, 24 10 C24 15, 20 20, 14 24 Z" stroke="#4A6377" stroke-width="1.2" stroke-linejoin="round"/>
-                    <circle cx="14" cy="13" r="1.5" fill="#A88D62"/>
-                  </svg>
-                  <div class="df-num">03</div>
-                  <h4>Роспись + история</h4>
-                  <p>Личная или семейная история становится частью пространства. QR ведёт к фото, аудио, текстам или архиву.</p>
+                  <div class="df-icon-wrap">
+                    <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                      <path d="M22 38 C12 32, 6 24, 6 16 C6 10, 11 6, 16 6 C18 6, 20 7, 22 11 C24 7, 26 6, 28 6 C33 6, 38 10, 38 16 C38 24, 32 32, 22 38 Z" stroke="#737B67" stroke-width="1.6" stroke-linejoin="round"/>
+                      <circle cx="22" cy="20" r="2.5" fill="#A88D62"/>
+                      <path d="M14 14 C16 12, 18 12, 20 14 M24 14 C26 12, 28 12, 30 14" stroke="#7A93A8" stroke-width="1" stroke-linecap="round" opacity="0.7"/>
+                    </svg>
+                    <div class="df-num">03 / 03</div>
+                  </div>
+                  <div class="df-text">
+                    <h4>Роспись + история</h4>
+                    <p>Личная или семейная история становится частью пространства. QR ведёт к фотографиям, аудио, текстам или цифровому архиву — так память остаётся рядом.</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1550,40 +1625,24 @@ section { position: relative; }
             <!-- Уровни сложности -->
             <div class="dir-levels">
               <div class="dir-subhead">
-                <span class="sh-num">A — C</span>
+                <span class="sh-num">02</span>
                 <span class="sh-title">Уровни сложности</span>
-                <span class="sh-line">
-                  <svg viewBox="0 0 400 14" preserveAspectRatio="none" aria-hidden="true">
-                    <path d="M0 7 C80 7, 120 12, 200 7 S320 2, 400 7"/>
-                    <circle cx="200" cy="7" r="2"/>
-                  </svg>
-                </span>
+                <span class="sh-line"></span>
               </div>
-              <div class="dir-levels-list">
+
+              <div class="dir-levels-scale">
                 <div class="dir-level">
-                  <div class="dl-dots">
-                    <span class="dl-dot active"></span>
-                    <span class="dl-dot"></span>
-                    <span class="dl-dot"></span>
-                  </div>
+                  <div class="dl-marker"></div>
                   <span class="dl-name">Минимальная</span>
                   <span class="dl-desc">Простой сюжет, ограниченная палитра, небольшой объём.</span>
                 </div>
                 <div class="dir-level">
-                  <div class="dl-dots">
-                    <span class="dl-dot active"></span>
-                    <span class="dl-dot active"></span>
-                    <span class="dl-dot"></span>
-                  </div>
+                  <div class="dl-marker"></div>
                   <span class="dl-name">Средняя</span>
                   <span class="dl-desc">Детализированный сюжет, несколько элементов, работа с цветом.</span>
                 </div>
                 <div class="dir-level">
-                  <div class="dl-dots">
-                    <span class="dl-dot active"></span>
-                    <span class="dl-dot active"></span>
-                    <span class="dl-dot active"></span>
-                  </div>
+                  <div class="dl-marker"></div>
                   <span class="dl-name">Высокая</span>
                   <span class="dl-desc">Многослойная композиция, максимум деталей, сложные переходы.</span>
                 </div>
@@ -1592,10 +1651,10 @@ section { position: relative; }
 
             <!-- Галерея росписи -->
             <div class="dir-gallery">
-              <div class="dg-item"><span class="dg-label">Фото росписи — главная работа</span></div>
+              <div class="dg-item"><span class="dg-label">Главная работа</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
-              <div class="dg-item"><span class="dg-label">Фото</span></div>
+              <div class="dg-item"><span class="dg-label">Деталь</span></div>
               <div class="dg-item"><span class="dg-label">Процесс</span></div>
             </div>
           </div>
