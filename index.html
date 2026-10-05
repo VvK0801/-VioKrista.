@@ -25,8 +25,11 @@
   --sand:   #CDBDA7;
   --olive:  #737B67;
   --brass:  #A88D62;
-  --blue:   #7A93A8;   /* более заметный голубой акцент */
-  --blue-deep: #5C7386; /* для тёмных секций */
+  --blue:   #7A93A8;
+  --blue-deep: #5C7386;
+  --blue-soft: #A8BAC7;
+  --text: #3a3f38;
+  --text-soft: #5a5f57;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans:  'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -109,6 +112,7 @@ section { position: relative; }
   transition: width 0.4s var(--ease);
 }
 .nav a:hover::after { width: 100%; }
+.nav a:hover { color: var(--blue-deep); }
 
 .btn-nav {
   font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -157,7 +161,7 @@ section { position: relative; }
   background-color: var(--forest);
   background-image:
     radial-gradient(circle at 28% 35%, rgba(115,123,103,0.42) 0%, transparent 55%),
-    radial-gradient(circle at 72% 65%, rgba(122,147,168,0.28) 0%, transparent 50%),
+    radial-gradient(circle at 72% 65%, rgba(122,147,168,0.35) 0%, transparent 50%),
     radial-gradient(circle at 60% 20%, rgba(168,141,98,0.16) 0%, transparent 45%);
   transform: scale(1.05);
   animation: heroZoom 22s var(--ease-soft) forwards;
@@ -175,7 +179,7 @@ section { position: relative; }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0.55;
 }
 .hero-lines path {
   fill: none; stroke: var(--stone); stroke-width: 0.6;
@@ -185,7 +189,8 @@ section { position: relative; }
 .hero-lines path:nth-child(2) {
   animation-delay: 1.6s;
   stroke: var(--blue);
-  opacity: 0.8;
+  opacity: 0.9;
+  stroke-width: 0.8;
 }
 @keyframes drawLine { to { stroke-dashoffset: 0; } }
 
@@ -314,7 +319,7 @@ section { position: relative; }
 }
 .who-text h2 em { font-style: italic; color: var(--olive); }
 .who-text p {
-  font-size: 16px; color: #3a3f38;
+  font-size: 16px; color: var(--text);
   margin-bottom: 18px; max-width: 52ch;
   line-height: 1.65;
 }
@@ -335,9 +340,17 @@ section { position: relative; }
   font-size: clamp(32px, 4.6vw, 68px);
   margin-top: 16px;
 }
-.section-head h2 em { font-style: italic; color: var(--olive); }
+.section-head h2 em { font-style: italic; color: var(--blue-deep); }
+.section-head .eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--blue);
+  vertical-align: middle;
+  margin-right: 12px;
+}
 
-/* ============ DIRECTIONS (аккордеон) ============ */
+/* ============ DIRECTIONS (аккордеон, 2 главных) ============ */
 .directions {
   padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 9vw, 120px);
   background: var(--ivory);
@@ -352,7 +365,7 @@ section { position: relative; }
   border-bottom: 1px solid rgba(32,36,31,0.15);
   transition: background 0.5s var(--ease);
 }
-.dir-item.open { background: rgba(205,189,167,0.14); }
+.dir-item.open { background: rgba(168,186,199,0.12); }
 .dir-trigger {
   display: grid;
   grid-template-columns: 60px 1fr auto;
@@ -369,7 +382,7 @@ section { position: relative; }
   font-family: var(--serif);
   font-style: italic;
   font-size: clamp(20px, 1.6vw, 26px);
-  color: var(--brass);
+  color: var(--blue-deep);
   line-height: 1;
 }
 .dir-title {
@@ -392,8 +405,8 @@ section { position: relative; }
 }
 .dir-item.open .dir-toggle {
   transform: rotate(45deg);
-  background: var(--forest); color: var(--ivory);
-  border-color: var(--forest);
+  background: var(--blue-deep); color: var(--ivory);
+  border-color: var(--blue-deep);
 }
 .dir-item:hover .dir-toggle { border-color: var(--blue); }
 .dir-content {
@@ -402,29 +415,35 @@ section { position: relative; }
   transition: max-height 0.7s var(--ease), padding 0.7s var(--ease);
 }
 .dir-item.open .dir-content {
-  max-height: 800px;
+  max-height: 2000px;
   padding: 0 clamp(16px, 2vw, 32px) clamp(32px, 4vw, 56px);
 }
 .dir-content-inner {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: clamp(32px, 5vw, 72px);
   padding-left: clamp(0px, 6vw, 100px);
   align-items: start;
 }
 .dir-desc p {
-  font-size: 16px; color: #3a3f38;
-  line-height: 1.7; margin-bottom: 16px;
-  max-width: 52ch;
+  font-size: 17px; color: var(--text);
+  line-height: 1.75; margin-bottom: 18px;
+  max-width: 54ch;
+}
+.dir-desc p:first-of-type {
+  font-size: 18px;
+  color: var(--forest);
 }
 .dir-features {
   list-style: none;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: 10px 24px;
-  margin-top: 24px;
+  gap: 12px 24px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(32,36,31,0.12);
 }
 .dir-features li {
-  font-size: 13px; color: #3a3f38;
+  font-size: 14px; color: var(--text);
   padding-left: 20px; position: relative;
 }
 .dir-features li::before {
@@ -433,6 +452,92 @@ section { position: relative; }
   color: var(--blue);
   font-size: 9px; top: 5px;
 }
+
+/* Форматы росписи (внутри второго направления) */
+.dir-formats {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(32,36,31,0.12);
+}
+.dir-formats-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--blue-deep);
+  margin-bottom: 20px;
+}
+.dir-formats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.dir-format {
+  padding: 22px 20px;
+  background: var(--ivory);
+  border: 1px solid rgba(32,36,31,0.12);
+  border-top: 2px solid var(--blue);
+  transition: all 0.4s var(--ease);
+}
+.dir-format:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -18px rgba(32,36,31,0.2);
+}
+.dir-format:nth-child(2) { border-top-color: var(--brass); }
+.dir-format:nth-child(3) { border-top-color: var(--olive); }
+.dir-format .df-num {
+  font-size: 10px; letter-spacing: 0.22em;
+  color: var(--blue-deep); margin-bottom: 12px;
+  font-weight: 500;
+}
+.dir-format h4 {
+  font-family: var(--serif);
+  font-size: 19px; font-weight: 400;
+  margin-bottom: 10px;
+  color: var(--forest);
+}
+.dir-format p {
+  font-size: 13px; color: var(--text);
+  line-height: 1.55;
+}
+
+/* Уровни сложности */
+.dir-levels {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(32,36,31,0.1);
+}
+.dir-levels-title {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue-deep);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.dir-levels-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.dir-level {
+  padding: 16px 18px;
+  background: rgba(168,186,199,0.15);
+  border-left: 2px solid var(--blue);
+}
+.dir-level .dl-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--forest);
+  display: block;
+  margin-bottom: 6px;
+}
+.dir-level .dl-desc {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
 .dir-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -453,7 +558,7 @@ section { position: relative; }
   position: absolute; inset: 0;
   background:
     radial-gradient(circle at 30% 30%, rgba(115,123,103,0.35) 0%, transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(122,147,168,0.25) 0%, transparent 55%);
+    radial-gradient(circle at 70% 70%, rgba(122,147,168,0.3) 0%, transparent 55%);
 }
 .dir-gallery .dg-label {
   position: absolute; inset: 0;
@@ -473,70 +578,6 @@ section { position: relative; }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ============ MURAL FORMATS ============ */
-.formats {
-  padding: clamp(64px, 9vw, 120px) 0;
-  background: var(--ivory);
-  border-top: 1px solid rgba(32,36,31,0.08);
-}
-.formats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(16px, 2vw, 28px);
-}
-.format-card {
-  padding: 36px 28px 32px;
-  background: var(--ivory);
-  border: 1px solid rgba(32,36,31,0.12);
-  border-top: 2px solid var(--blue);
-  display: flex; flex-direction: column;
-  transition: all 0.5s var(--ease);
-}
-.format-card:nth-child(2) { border-top-color: var(--brass); }
-.format-card:nth-child(3) { border-top-color: var(--olive); }
-.format-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -20px rgba(32,36,31,0.15);
-}
-.format-card .fc-num {
-  font-size: 10px; letter-spacing: 0.24em;
-  color: var(--brass); margin-bottom: 20px;
-}
-.format-card h3 {
-  font-family: var(--serif); font-size: 24px;
-  margin-bottom: 14px; font-weight: 400;
-}
-.format-card p {
-  font-size: 14px; color: #3a3f38;
-  line-height: 1.6; margin-bottom: 20px;
-}
-.format-card .fc-tags {
-  display: flex; flex-wrap: wrap; gap: 6px;
-  margin-bottom: 24px;
-}
-.format-card .fc-tag {
-  font-size: 10px; letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--blue-deep);
-  border: 1px solid rgba(122,147,168,0.4);
-  padding: 4px 10px;
-}
-.format-card .fc-price {
-  font-family: var(--serif); font-style: italic;
-  font-size: 15px; color: var(--olive);
-  margin-bottom: 20px; margin-top: auto;
-}
-.format-card .fc-cta {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--forest);
-  padding-bottom: 3px;
-  border-bottom: 1px solid rgba(32,36,31,0.3);
-  transition: gap 0.4s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease);
-  align-self: flex-start;
-}
-.format-card .fc-cta:hover { gap: 16px; color: var(--brass); border-color: var(--brass); }
-
 /* ============ PROJECTS ============ */
 .projects {
   padding: clamp(64px, 9vw, 120px) 0;
@@ -555,8 +596,9 @@ section { position: relative; }
   transition: all 0.5s var(--ease);
 }
 .proj-item:hover {
-  border-color: var(--forest);
+  border-color: var(--blue-deep);
   transform: translateY(-4px);
+  box-shadow: 0 20px 40px -24px rgba(32,36,31,0.2);
 }
 .proj-thumb {
   aspect-ratio: 4/3;
@@ -571,7 +613,7 @@ section { position: relative; }
   position: absolute; inset: 0;
   background:
     radial-gradient(circle at 30% 30%, rgba(115,123,103,0.35) 0%, transparent 60%),
-    radial-gradient(circle at 72% 68%, rgba(122,147,168,0.25) 0%, transparent 55%);
+    radial-gradient(circle at 72% 68%, rgba(122,147,168,0.3) 0%, transparent 55%);
 }
 .proj-thumb .thumb-mark {
   position: relative; z-index: 2;
@@ -582,7 +624,7 @@ section { position: relative; }
 .proj-thumb .thumb-num {
   position: absolute; top: 22px; left: 24px;
   font-size: 10px; letter-spacing: 0.24em;
-  color: var(--stone); z-index: 2;
+  color: var(--blue-soft); z-index: 2;
 }
 .proj-thumb .thumb-note {
   position: absolute; bottom: 22px; left: 24px; right: 24px;
@@ -601,7 +643,7 @@ section { position: relative; }
   color: var(--stone); margin-bottom: 16px;
 }
 .proj-body .p-desc {
-  font-size: 14px; color: #3a3f38;
+  font-size: 14px; color: var(--text);
   line-height: 1.6;
 }
 .proj-status {
@@ -612,8 +654,8 @@ section { position: relative; }
   background: rgba(243,239,231,0.95);
   color: var(--forest);
 }
-.proj-status.concept { background: rgba(122,147,168,0.9); color: var(--ivory); }
-.proj-status.diploma { background: rgba(168,141,98,0.9); color: var(--ivory); }
+.proj-status.concept { background: rgba(92,115,134,0.95); color: var(--ivory); }
+.proj-status.diploma { background: rgba(168,141,98,0.95); color: var(--ivory); }
 
 /* ============ PERSONAL STORY ============ */
 .personal-story {
@@ -629,13 +671,13 @@ section { position: relative; }
   width: 55%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.35;
+  opacity: 0.45;
 }
 .ps-deco path {
-  fill: none; stroke: var(--blue); stroke-width: 0.6;
+  fill: none; stroke: var(--blue); stroke-width: 0.7;
 }
 .ps-deco .star {
-  fill: var(--brass); opacity: 0.6;
+  fill: var(--brass); opacity: 0.7;
 }
 .ps-inner {
   display: grid;
@@ -705,11 +747,11 @@ section { position: relative; }
 .step:nth-child(2n) { padding-left: 24px; }
 .step:nth-child(3n) { padding-left: 24px; }
 .step:nth-child(4n) { padding-left: 24px; }
-.step:hover { background: rgba(205,189,167,0.15); }
+.step:hover { background: rgba(168,186,199,0.15); }
 .step .num {
   font-family: var(--serif);
   font-size: 32px;
-  color: var(--brass); margin-bottom: 18px;
+  color: var(--blue-deep); margin-bottom: 18px;
   display: block; font-style: italic;
   line-height: 1;
 }
@@ -719,7 +761,7 @@ section { position: relative; }
   font-size: 12px; letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.step p { font-size: 14px; color: #3a3f38; line-height: 1.55; }
+.step p { font-size: 14px; color: var(--text); line-height: 1.55; }
 
 /* ============ SERVICES ============ */
 .services {
@@ -734,8 +776,8 @@ section { position: relative; }
   font-size: clamp(32px, 4.6vw, 68px);
   margin: 16px 0 20px;
 }
-.services-intro h2 em { font-style: italic; color: var(--olive); }
-.services-intro p { font-size: 16px; color: #3a3f38; }
+.services-intro h2 em { font-style: italic; color: var(--blue-deep); }
+.services-intro p { font-size: 16px; color: var(--text); }
 
 .service-block {
   display: grid;
@@ -748,7 +790,8 @@ section { position: relative; }
 .service-block .sb-left { position: sticky; top: 100px; align-self: start; }
 .service-block .sb-num {
   font-size: 11px; letter-spacing: 0.28em;
-  color: var(--brass); margin-bottom: 14px;
+  color: var(--blue-deep); margin-bottom: 14px;
+  font-weight: 500;
 }
 .service-block h3 {
   font-family: var(--serif);
@@ -757,9 +800,11 @@ section { position: relative; }
 }
 .service-block h3 em { font-style: italic; color: var(--olive); }
 .service-block .sb-tag {
-  font-family: var(--serif); font-style: italic;
-  font-size: 17px; color: var(--olive);
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--forest);
   margin-bottom: 18px;
+  font-style: italic;
 }
 .service-block .sb-list {
   list-style: none;
@@ -767,7 +812,7 @@ section { position: relative; }
   gap: 10px 28px;
 }
 .service-block .sb-list li {
-  font-size: 14px; color: #3a3f38;
+  font-size: 14px; color: var(--text);
   padding-left: 20px; position: relative;
   line-height: 1.55;
 }
@@ -778,15 +823,18 @@ section { position: relative; }
   top: 5px;
 }
 .service-block .sb-note {
-  font-size: 13px; color: var(--olive);
+  font-size: 14px;
+  color: var(--forest);
   font-style: italic;
-  margin-top: 20px;
-  padding-left: 20px;
-  border-left: 2px solid var(--blue);
+  margin-top: 22px;
+  padding: 14px 20px;
+  background: rgba(168,186,199,0.16);
+  border-left: 3px solid var(--blue);
   max-width: 60ch;
+  line-height: 1.55;
 }
 
-/* ============ QUESTIONNAIRE (переоформлена) ============ */
+/* ============ QUESTIONNAIRE ============ */
 .questionnaire {
   padding: clamp(64px, 9vw, 120px) 0;
   background: var(--forest);
@@ -797,12 +845,12 @@ section { position: relative; }
 .q-bg-deco {
   position: absolute; inset: 0;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 .q-bg-deco svg { width: 100%; height: 100%; }
 .q-bg-deco .qline {
   fill: none; stroke: var(--blue); stroke-width: 0.5;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 .q-bg-deco .qline.olive { stroke: var(--olive); }
 .q-bg-deco .qstar {
@@ -948,7 +996,7 @@ section { position: relative; }
 .final-cta-bg {
   position: absolute; inset: 0;
   pointer-events: none;
-  opacity: 0.25;
+  opacity: 0.35;
 }
 .final-cta-bg svg { width: 100%; height: 100%; }
 .final-cta-bg .fline {
@@ -964,7 +1012,7 @@ section { position: relative; }
   line-height: 1.05; max-width: 18ch;
   margin: 0 auto 40px;
 }
-.final-cta h2 em { font-style: italic; color: var(--olive); }
+.final-cta h2 em { font-style: italic; color: var(--blue-deep); }
 .final-links {
   display: flex; justify-content: center;
   gap: clamp(20px, 4vw, 56px); flex-wrap: wrap;
@@ -973,10 +1021,10 @@ section { position: relative; }
 }
 .final-links a {
   font-size: 12px; letter-spacing: 0.2em;
-  text-transform: uppercase; color: #3a3f38;
+  text-transform: uppercase; color: var(--text);
   transition: color 0.4s var(--ease);
 }
-.final-links a:hover { color: var(--brass); }
+.final-links a:hover { color: var(--blue-deep); }
 
 /* ============ FOOTER ============ */
 .footer {
@@ -1007,7 +1055,7 @@ section { position: relative; }
 }
 .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .foot-col a { font-size: 14px; color: var(--stone); transition: color 0.4s var(--ease); }
-.foot-col a:hover { color: var(--ivory); }
+.foot-col a:hover { color: var(--blue-soft); }
 .foot-col .placeholder {
   color: rgba(184,178,167,0.55);
   font-style: italic; font-size: 14px;
@@ -1036,7 +1084,6 @@ section { position: relative; }
   .who-grid,
   .ps-inner { grid-template-columns: 1fr; }
   .who-img { aspect-ratio: 16/10; }
-  .formats-grid { grid-template-columns: 1fr; }
   .proj-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; }
   .step { border-right: none; border-bottom: 1px solid rgba(32,36,31,0.1); padding: 28px 0; }
@@ -1051,6 +1098,8 @@ section { position: relative; }
   .q-side { position: static; }
   .q-visual { max-width: 200px; margin: 0 auto; }
   .dir-content-inner { grid-template-columns: 1fr; padding-left: 0; }
+  .dir-formats-grid { grid-template-columns: 1fr; }
+  .dir-levels-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 720px) {
@@ -1077,6 +1126,8 @@ section { position: relative; }
   .dir-gallery { grid-template-columns: 1fr; }
   .dir-gallery .dg-item:first-child { aspect-ratio: 4/3; }
   .dir-gallery .dg-item { aspect-ratio: 4/3; }
+  .dir-desc p { font-size: 16px; }
+  .dir-desc p:first-of-type { font-size: 17px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1105,9 +1156,9 @@ section { position: relative; }
 
     <nav class="nav">
       <a href="#directions">Направления</a>
-      <a href="#formats">Роспись</a>
       <a href="#projects">Проекты</a>
       <a href="#process">Процесс</a>
+      <a href="#services">Услуги</a>
       <a href="#about">О студии</a>
       <a href="#questionnaire" class="btn-nav">Обсудить проект</a>
     </nav>
@@ -1123,9 +1174,9 @@ section { position: relative; }
   <button class="close" id="menuClose" aria-label="Закрыть">&times;</button>
   <nav>
     <a href="#directions">Направления</a>
-    <a href="#formats">Роспись</a>
     <a href="#projects">Проекты</a>
     <a href="#process">Процесс</a>
+    <a href="#services">Услуги</a>
     <a href="#about">О студии</a>
     <a href="#questionnaire">Обсудить проект</a>
   </nav>
@@ -1185,7 +1236,7 @@ section { position: relative; }
   </svg>
 </div>
 
-<!-- DIRECTIONS (аккордеон) -->
+<!-- DIRECTIONS (2 главных направления, всё про роспись — внутри второго) -->
 <section class="directions" id="directions">
   <div class="container">
     <div class="section-head reveal">
@@ -1194,7 +1245,7 @@ section { position: relative; }
     </div>
 
     <div class="dir-accordion">
-      <!-- 01 ИНТЕРЬЕР -->
+      <!-- 01 ДИЗАЙН ИНТЕРЬЕРА -->
       <div class="dir-item open reveal" data-dir="interior">
         <button class="dir-trigger" aria-expanded="true">
           <span class="dir-num">01</span>
@@ -1205,9 +1256,10 @@ section { position: relative; }
           <div class="dir-content-inner">
             <div class="dir-desc">
               <p>Главное направление студии. Мы проектируем пространства, в которых архитектура, свет, материал и повседневная жизнь соединяются в одно целое.</p>
-              <p>Работаем с квартирами, домами и коммерческими пространствами. Каждый проект начинается с разговора о вас — и заканчивается реализацией, в которой всё продумано до деталей.</p>
+              <p>Работаем с квартирами, домами и коммерческими пространствами. Каждый проект начинается с разговора о вас — о ваших привычках, вкусе, образе жизни. Мы не собираем интерьер из готовых решений: планировка, сценарии света, материалы и детали рождаются именно под вас.</p>
+              <p>От первой встречи и анкеты до рабочей документации и авторского надзора — мы ведём проект целиком, чтобы результат совпал с тем, что вы представляли.</p>
               <ul class="dir-features">
-                <li>Анкета и интервью</li>
+                <li>Анкета и знакомство</li>
                 <li>Анализ пространства</li>
                 <li>Планировочное решение</li>
                 <li>Концепция интерьера</li>
@@ -1226,7 +1278,7 @@ section { position: relative; }
         </div>
       </div>
 
-      <!-- 02 РОСПИСЬ -->
+      <!-- 02 АВТОРСКАЯ РОСПИСЬ (сюда же — 3 формата и уровни сложности) -->
       <div class="dir-item reveal" data-dir="art">
         <button class="dir-trigger" aria-expanded="false">
           <span class="dir-num">02</span>
@@ -1236,17 +1288,51 @@ section { position: relative; }
         <div class="dir-content">
           <div class="dir-content-inner">
             <div class="dir-desc">
-              <p>Второе самостоятельное направление. Роспись создаётся специально под ваше пространство и под вас — с учётом архитектуры, света, цвета и вашей идеи.</p>
-              <p>Это не декор и не «картинка на стене». Это часть пространства, которая делает его именно вашим. Три формата — от классической авторской росписи до истории с цифровым продолжением.</p>
-              <ul class="dir-features">
-                <li>Авторская роспись</li>
-                <li>Роспись + игра</li>
-                <li>Роспись + история</li>
-                <li>Работа с символами</li>
-                <li>QR и цифровая история</li>
-                <li>Мини-игры</li>
-              </ul>
+              <p>Второе направление. Роспись создаётся специально под ваше пространство и под вас — с учётом архитектуры, света, цвета и вашей идеи.</p>
+              <p>Это не декор и не «картинка на стене». Это часть пространства, которая делает его именно вашим. Внутри направления есть три формата — от классической авторской росписи до истории с цифровым продолжением.</p>
+
+              <!-- 3 формата росписи -->
+              <div class="dir-formats">
+                <div class="dir-formats-title">Три формата росписи</div>
+                <div class="dir-formats-grid">
+                  <div class="dir-format">
+                    <div class="df-num">01</div>
+                    <h4>Авторская роспись</h4>
+                    <p>Индивидуальный сюжет, созданный под ваше пространство и под вас.</p>
+                  </div>
+                  <div class="dir-format">
+                    <div class="df-num">02</div>
+                    <h4>Роспись + игра</h4>
+                    <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене. Для детских центров, кафе, клиник, образовательных пространств.</p>
+                  </div>
+                  <div class="dir-format">
+                    <div class="df-num">03</div>
+                    <h4>Роспись + история</h4>
+                    <p>Личная или семейная история становится частью пространства. QR ведёт к фото, аудио, текстам или цифровому архиву.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Уровни сложности -->
+              <div class="dir-levels">
+                <div class="dir-levels-title">Уровни сложности</div>
+                <div class="dir-levels-list">
+                  <div class="dir-level">
+                    <span class="dl-name">Минимальная</span>
+                    <span class="dl-desc">Простой сюжет, ограниченная палитра, небольшой объём.</span>
+                  </div>
+                  <div class="dir-level">
+                    <span class="dl-name">Средняя</span>
+                    <span class="dl-desc">Детализированный сюжет, несколько элементов, работа с цветом.</span>
+                  </div>
+                  <div class="dir-level">
+                    <span class="dl-name">Высокая</span>
+                    <span class="dl-desc">Многослойная композиция, максимум деталей, сложные переходы.</span>
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div class="dir-gallery">
               <div class="dg-item"><span class="dg-label">Фото росписи</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
@@ -1254,57 +1340,6 @@ section { position: relative; }
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MURAL FORMATS -->
-<section class="formats" id="formats">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Три формата росписи</span>
-      <h2>Авторская <em>роспись.</em></h2>
-    </div>
-
-    <div class="formats-grid">
-      <div class="format-card reveal">
-        <div class="fc-num">01</div>
-        <h3>Авторская роспись</h3>
-        <p>Индивидуальный сюжет, созданный под ваше пространство и под вас.</p>
-        <div class="fc-tags">
-          <span class="fc-tag">Квартира</span>
-          <span class="fc-tag">Дом</span>
-          <span class="fc-tag">Детская</span>
-        </div>
-        <p class="fc-price">Стоимость зависит от площади, сложности и сюжета</p>
-        <a href="#questionnaire" class="fc-cta">Рассчитать стоимость <span>→</span></a>
-      </div>
-
-      <div class="format-card reveal delay-1">
-        <div class="fc-num">02</div>
-        <h3>Роспись + игра</h3>
-        <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене.</p>
-        <div class="fc-tags">
-          <span class="fc-tag">Детские центры</span>
-          <span class="fc-tag">Кафе</span>
-          <span class="fc-tag">Клиники</span>
-        </div>
-        <p class="fc-price">Индивидуальный расчёт</p>
-        <a href="#questionnaire" class="fc-cta">Рассчитать стоимость <span>→</span></a>
-      </div>
-
-      <div class="format-card reveal delay-2">
-        <div class="fc-num">03</div>
-        <h3>Роспись + история</h3>
-        <p>Личная или семейная история становится частью пространства.</p>
-        <div class="fc-tags">
-          <span class="fc-tag">Семья</span>
-          <span class="fc-tag">Личное</span>
-          <span class="fc-tag">Память</span>
-        </div>
-        <p class="fc-price">QR ведёт к фото, аудио, текстам, архиву</p>
-        <a href="#questionnaire" class="fc-cta">Рассчитать стоимость <span>→</span></a>
       </div>
     </div>
   </div>
@@ -1509,11 +1544,11 @@ section { position: relative; }
       <div class="sb-left">
         <div class="sb-num">02</div>
         <h3>Авторская <em>роспись</em></h3>
-        <p class="sb-tag">Второе самостоятельное направление.</p>
+        <p class="sb-tag">Второе направление студии.</p>
       </div>
       <div>
-        <p style="font-size:15px;color:#3a3f38;margin-bottom:20px;max-width:60ch;">Роспись создаётся специально под ваше пространство — с учётом архитектуры, света, цвета и вашей идеи. Три формата — от классической авторской росписи до истории с цифровым продолжением.</p>
-        <p class="sb-note" style="border-left-color:var(--brass);">Роспись может быть интегрирована в интерьерный проект или заказана отдельно.</p>
+        <p style="font-size:15px;color:var(--text);margin-bottom:20px;max-width:60ch;line-height:1.7;">Роспись создаётся специально под ваше пространство — с учётом архитектуры, света, цвета и вашей идеи. Три формата — от классической авторской росписи до истории с цифровым продолжением.</p>
+        <p class="sb-note">Роспись может быть интегрирована в интерьерный проект или заказана отдельно.</p>
       </div>
     </div>
   </div>
@@ -1641,9 +1676,9 @@ section { position: relative; }
         <h4>Меню</h4>
         <ul>
           <li><a href="#directions">Направления</a></li>
-          <li><a href="#formats">Роспись</a></li>
           <li><a href="#projects">Проекты</a></li>
           <li><a href="#process">Процесс</a></li>
+          <li><a href="#services">Услуги</a></li>
           <li><a href="#about">О студии</a></li>
         </ul>
       </div>
@@ -1652,7 +1687,7 @@ section { position: relative; }
         <h4>Услуги</h4>
         <ul>
           <li><a href="#directions">Дизайн интерьера</a></li>
-          <li><a href="#formats">Авторская роспись</a></li>
+          <li><a href="#directions">Авторская роспись</a></li>
           <li><a href="#personal-story">Персональные решения</a></li>
         </ul>
       </div>
@@ -1718,12 +1753,10 @@ dirItems.forEach(item => {
   const trigger = item.querySelector('.dir-trigger');
   trigger.addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
-    // Закрыть все
     dirItems.forEach(i => {
       i.classList.remove('open');
       i.querySelector('.dir-trigger').setAttribute('aria-expanded', 'false');
     });
-    // Открыть текущий (если был закрыт)
     if (!isOpen) {
       item.classList.add('open');
       trigger.setAttribute('aria-expanded', 'true');
