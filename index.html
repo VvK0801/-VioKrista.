@@ -26,10 +26,10 @@
   --olive:  #737B67;
   --brass:  #A88D62;
   --blue:   #7A93A8;
-  --blue-deep: #5C7386;
+  --blue-deep: #4A6377;
   --blue-soft: #A8BAC7;
-  --text: #3a3f38;
-  --text-soft: #5a5f57;
+  --text: #2c3129;
+  --text-soft: #4a4f47;
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans:  'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -350,7 +350,7 @@ section { position: relative; }
   margin-right: 12px;
 }
 
-/* ============ DIRECTIONS (аккордеон, 2 главных) ============ */
+/* ============ DIRECTIONS ============ */
 .directions {
   padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 9vw, 120px);
   background: var(--ivory);
@@ -363,9 +363,24 @@ section { position: relative; }
 }
 .dir-item {
   border-bottom: 1px solid rgba(32,36,31,0.15);
-  transition: background 0.5s var(--ease);
+  transition: background 0.6s var(--ease);
+  position: relative;
 }
-.dir-item.open { background: rgba(168,186,199,0.12); }
+.dir-item.open { background: rgba(168,186,199,0.08); }
+
+.dir-item.open::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 95% 15%, rgba(122,147,168,0.12) 0%, transparent 35%),
+    radial-gradient(circle at 5% 85%, rgba(168,141,98,0.08) 0%, transparent 30%);
+  opacity: 0;
+  animation: decoFade 1.2s var(--ease) 0.3s forwards;
+}
+@keyframes decoFade { to { opacity: 1; } }
+
 .dir-trigger {
   display: grid;
   grid-template-columns: 60px 1fr auto;
@@ -373,7 +388,7 @@ section { position: relative; }
   gap: clamp(16px, 3vw, 40px);
   width: 100%;
   text-align: left;
-  padding: clamp(24px, 3vw, 40px) clamp(16px, 2vw, 32px);
+  padding: clamp(22px, 2.6vw, 34px) clamp(16px, 2vw, 32px);
   transition: padding 0.4s var(--ease);
   cursor: pointer;
 }
@@ -384,7 +399,9 @@ section { position: relative; }
   font-size: clamp(20px, 1.6vw, 26px);
   color: var(--blue-deep);
   line-height: 1;
+  transition: color 0.4s var(--ease);
 }
+.dir-item:hover .dir-num { color: var(--brass); }
 .dir-title {
   font-family: var(--serif);
   font-size: clamp(28px, 3.6vw, 52px);
@@ -409,42 +426,54 @@ section { position: relative; }
   border-color: var(--blue-deep);
 }
 .dir-item:hover .dir-toggle { border-color: var(--blue); }
+
 .dir-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.7s var(--ease), padding 0.7s var(--ease);
+  transition: max-height 0.9s var(--ease), padding 0.9s var(--ease);
 }
 .dir-item.open .dir-content {
-  max-height: 2000px;
-  padding: 0 clamp(16px, 2vw, 32px) clamp(32px, 4vw, 56px);
+  max-height: 2600px;
+  padding: 0 clamp(16px, 2vw, 32px) clamp(28px, 3.5vw, 44px);
 }
+
 .dir-content-inner {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: clamp(32px, 5vw, 72px);
   padding-left: clamp(0px, 6vw, 100px);
-  align-items: start;
+}
+
+.dir-lead {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.6vw, 22px);
+  color: var(--blue-deep);
+  line-height: 1.5;
+  margin-bottom: 18px;
+  max-width: 72ch;
+  padding-left: 20px;
+  border-left: 3px solid var(--blue);
 }
 .dir-desc p {
   font-size: 17px; color: var(--text);
-  line-height: 1.75; margin-bottom: 18px;
-  max-width: 54ch;
+  line-height: 1.75; margin-bottom: 14px;
+  max-width: 72ch;
 }
 .dir-desc p:first-of-type {
   font-size: 18px;
   color: var(--forest);
 }
+
 .dir-features {
   list-style: none;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 12px 24px;
-  margin-top: 28px;
-  padding-top: 24px;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 10px 22px;
+  margin-top: 22px;
+  padding-top: 18px;
   border-top: 1px solid rgba(32,36,31,0.12);
 }
 .dir-features li {
-  font-size: 14px; color: var(--text);
-  padding-left: 20px; position: relative;
+  font-size: 14px; color: var(--forest);
+  padding-left: 18px; position: relative;
+  font-weight: 400;
 }
 .dir-features li::before {
   content: '✦';
@@ -453,128 +482,292 @@ section { position: relative; }
   font-size: 9px; top: 5px;
 }
 
-/* Форматы росписи (внутри второго направления) */
+/* ============ ФОРМАТЫ РОСПИСИ ============ */
 .dir-formats {
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 1px solid rgba(32,36,31,0.12);
+  margin-top: 36px;
+  position: relative;
 }
-.dir-formats-title {
+.dir-formats::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(122,147,168,0.5) 20%,
+    rgba(122,147,168,0.5) 80%,
+    transparent 100%);
+}
+.dir-subhead {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+  position: relative;
+}
+.dir-subhead .sh-num {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--blue-deep);
+  font-weight: 600;
+}
+.dir-subhead .sh-title {
   font-family: var(--serif);
   font-style: italic;
   font-size: 20px;
-  color: var(--blue-deep);
-  margin-bottom: 20px;
+  color: var(--forest);
 }
+.dir-subhead .sh-line {
+  flex: 1;
+  height: 14px;
+  position: relative;
+  align-self: center;
+}
+.dir-subhead .sh-line svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.dir-subhead .sh-line svg path {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 0.8;
+  opacity: 0.6;
+}
+.dir-subhead .sh-line svg circle {
+  fill: var(--brass);
+}
+
 .dir-formats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  gap: 14px;
+  position: relative;
 }
+.dir-formats-grid::before,
+.dir-formats-grid::after {
+  content: '✦';
+  position: absolute;
+  top: -14px;
+  font-size: 8px;
+  color: var(--brass);
+  opacity: 0.8;
+}
+.dir-formats-grid::before { left: calc(33.33% - 4px); }
+.dir-formats-grid::after { left: calc(66.66% - 4px); }
+
 .dir-format {
-  padding: 22px 20px;
+  padding: 20px 18px;
   background: var(--ivory);
   border: 1px solid rgba(32,36,31,0.12);
   border-top: 2px solid var(--blue);
   transition: all 0.4s var(--ease);
+  position: relative;
+  overflow: hidden;
 }
+.dir-format::before {
+  content: '';
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 22px; height: 22px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(122,147,168,0.35) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+.dir-format:hover::before { opacity: 1; }
 .dir-format:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 32px -18px rgba(32,36,31,0.2);
+  box-shadow: 0 16px 32px -18px rgba(32,36,31,0.22);
+  border-color: var(--blue);
 }
 .dir-format:nth-child(2) { border-top-color: var(--brass); }
 .dir-format:nth-child(3) { border-top-color: var(--olive); }
+
+.dir-format .df-icon {
+  width: 30px; height: 30px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
 .dir-format .df-num {
   font-size: 10px; letter-spacing: 0.22em;
-  color: var(--blue-deep); margin-bottom: 12px;
-  font-weight: 500;
+  color: var(--blue-deep); margin-bottom: 8px;
+  font-weight: 600;
 }
 .dir-format h4 {
   font-family: var(--serif);
-  font-size: 19px; font-weight: 400;
-  margin-bottom: 10px;
+  font-size: 20px; font-weight: 500;
+  margin-bottom: 8px;
   color: var(--forest);
 }
 .dir-format p {
-  font-size: 13px; color: var(--text);
-  line-height: 1.55;
+  font-size: 13.5px; color: var(--forest);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-/* Уровни сложности */
+/* ============ УРОВНИ СЛОЖНОСТИ ============ */
 .dir-levels {
-  margin-top: 24px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(32,36,31,0.1);
+  margin-top: 36px;
+  position: relative;
 }
-.dir-levels-title {
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--blue-deep);
-  margin-bottom: 16px;
-  font-weight: 500;
+.dir-levels::before {
+  content: '';
+  position: absolute;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    rgba(115,123,103,0.4) 20%,
+    rgba(115,123,103,0.4) 80%,
+    transparent 100%);
 }
 .dir-levels-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+  position: relative;
 }
+.dir-levels-list::before,
+.dir-levels-list::after {
+  content: '✦';
+  position: absolute;
+  top: -14px;
+  font-size: 8px;
+  color: var(--olive);
+  opacity: 0.8;
+}
+.dir-levels-list::before { left: calc(33.33% - 4px); }
+.dir-levels-list::after { left: calc(66.66% - 4px); }
+
 .dir-level {
   padding: 16px 18px;
-  background: rgba(168,186,199,0.15);
-  border-left: 2px solid var(--blue);
+  background: rgba(168,186,199,0.12);
+  border-left: 3px solid var(--blue);
+  transition: all 0.4s var(--ease);
+  position: relative;
 }
+.dir-level:nth-child(2) { border-left-color: var(--olive); }
+.dir-level:nth-child(3) { border-left-color: var(--brass); }
+.dir-level:hover {
+  background: rgba(168,186,199,0.22);
+  transform: translateX(4px);
+}
+.dir-level .dl-dots {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.dir-level .dl-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  opacity: 0.35;
+}
+.dir-level .dl-dot.active { opacity: 1; background: var(--blue-deep); }
+.dir-level:nth-child(2) .dl-dot.active { background: var(--olive); }
+.dir-level:nth-child(3) .dl-dot.active { background: var(--brass); }
 .dir-level .dl-name {
   font-family: var(--serif);
   font-style: italic;
-  font-size: 16px;
+  font-size: 17px;
   color: var(--forest);
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 .dir-level .dl-desc {
-  font-size: 12px;
-  color: var(--text);
-  line-height: 1.5;
+  font-size: 13px;
+  color: var(--forest);
+  line-height: 1.55;
+  font-weight: 400;
 }
 
+/* ============ ГАЛЕРЕЯ ============ */
 .dir-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 32px;
+  position: relative;
 }
+.dir-gallery::before {
+  content: '';
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 14px;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(122,147,168,0.7),
+    transparent);
+}
+.dir-gallery::after {
+  content: '✦';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  color: var(--brass);
+  background: var(--ivory);
+  padding: 0 6px;
+}
+
 .dir-gallery .dg-item {
-  aspect-ratio: 4/5;
+  aspect-ratio: 1;
   background: var(--forest);
   position: relative;
   overflow: hidden;
+  transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
 }
-.dir-gallery .dg-item:first-child {
-  grid-column: 1 / -1;
-  aspect-ratio: 16/10;
+.dir-gallery .dg-item:hover {
+  transform: scale(1.02);
+  filter: brightness(1.08);
 }
+.dir-gallery .dg-item:first-child { aspect-ratio: 16/10; }
 .dir-gallery .dg-item::before {
   content: '';
   position: absolute; inset: 0;
   background:
-    radial-gradient(circle at 30% 30%, rgba(115,123,103,0.35) 0%, transparent 60%),
-    radial-gradient(circle at 70% 70%, rgba(122,147,168,0.3) 0%, transparent 55%);
+    radial-gradient(circle at 30% 30%, rgba(115,123,103,0.4) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, rgba(122,147,168,0.35) 0%, transparent 55%);
+  transition: opacity 0.5s var(--ease);
 }
+.dir-gallery .dg-item:hover::before { opacity: 0.75; }
 .dir-gallery .dg-label {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  font-size: 10px; letter-spacing: 0.2em;
+  font-size: 9px; letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--stone);
   font-style: italic;
   z-index: 2;
   text-align: center;
-  padding: 16px;
-  line-height: 1.5;
+  padding: 12px;
+  line-height: 1.4;
 }
-.dir-item.open .dir-content-inner { animation: fadeIn 0.6s var(--ease) 0.2s both; }
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+
+/* Каскадное появление слоёв при открытии */
+.dir-item.open .dir-content-inner > * {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: layerIn 0.7s var(--ease) forwards;
+}
+.dir-item.open .dir-content-inner > *:nth-child(1) { animation-delay: 0.15s; }
+.dir-item.open .dir-content-inner > *:nth-child(2) { animation-delay: 0.25s; }
+.dir-item.open .dir-content-inner > *:nth-child(3) { animation-delay: 0.35s; }
+.dir-item.open .dir-content-inner > *:nth-child(4) { animation-delay: 0.45s; }
+.dir-item.open .dir-content-inner > *:nth-child(5) { animation-delay: 0.55s; }
+
+@keyframes layerIn {
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -654,7 +847,7 @@ section { position: relative; }
   background: rgba(243,239,231,0.95);
   color: var(--forest);
 }
-.proj-status.concept { background: rgba(92,115,134,0.95); color: var(--ivory); }
+.proj-status.concept { background: rgba(74,99,119,0.95); color: var(--ivory); }
 .proj-status.diploma { background: rgba(168,141,98,0.95); color: var(--ivory); }
 
 /* ============ PERSONAL STORY ============ */
@@ -1097,9 +1290,16 @@ section { position: relative; }
   .q-container { grid-template-columns: 1fr; gap: 40px; }
   .q-side { position: static; }
   .q-visual { max-width: 200px; margin: 0 auto; }
-  .dir-content-inner { grid-template-columns: 1fr; padding-left: 0; }
-  .dir-formats-grid { grid-template-columns: 1fr; }
-  .dir-levels-list { grid-template-columns: 1fr; }
+  .dir-content-inner { padding-left: 0; }
+  .dir-formats-grid { grid-template-columns: 1fr 1fr; }
+  .dir-levels-list { grid-template-columns: 1fr 1fr; }
+  .dir-features { grid-template-columns: 1fr 1fr; }
+  .dir-gallery { grid-template-columns: 1fr 1fr 1fr; }
+  .dir-gallery .dg-item:first-child { grid-column: 1 / -1; }
+  .dir-formats-grid::before,
+  .dir-formats-grid::after { display: none; }
+  .dir-levels-list::before,
+  .dir-levels-list::after { display: none; }
 }
 
 @media (max-width: 720px) {
@@ -1123,11 +1323,15 @@ section { position: relative; }
   .ps-step .ps-num { min-width: 32px; font-size: 18px; }
   .dir-trigger { grid-template-columns: 40px 1fr auto; gap: 12px; padding: 20px 12px; }
   .dir-toggle { width: 36px; height: 36px; font-size: 18px; }
-  .dir-gallery { grid-template-columns: 1fr; }
-  .dir-gallery .dg-item:first-child { aspect-ratio: 4/3; }
-  .dir-gallery .dg-item { aspect-ratio: 4/3; }
   .dir-desc p { font-size: 16px; }
   .dir-desc p:first-of-type { font-size: 17px; }
+  .dir-formats-grid { grid-template-columns: 1fr; }
+  .dir-levels-list { grid-template-columns: 1fr; }
+  .dir-features { grid-template-columns: 1fr; }
+  .dir-gallery { grid-template-columns: 1fr 1fr; }
+  .dir-gallery .dg-item:first-child { grid-column: 1 / -1; aspect-ratio: 4/3; }
+  .dir-gallery .dg-item { aspect-ratio: 1; }
+  .dir-lead { font-size: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1236,7 +1440,7 @@ section { position: relative; }
   </svg>
 </div>
 
-<!-- DIRECTIONS (2 главных направления, всё про роспись — внутри второго) -->
+<!-- DIRECTIONS -->
 <section class="directions" id="directions">
   <div class="container">
     <div class="section-head reveal">
@@ -1254,23 +1458,26 @@ section { position: relative; }
         </button>
         <div class="dir-content">
           <div class="dir-content-inner">
+            <p class="dir-lead">Пространство, в котором архитектура, свет, материал и повседневная жизнь соединяются в одно целое.</p>
             <div class="dir-desc">
-              <p>Главное направление студии. Мы проектируем пространства, в которых архитектура, свет, материал и повседневная жизнь соединяются в одно целое.</p>
-              <p>Работаем с квартирами, домами и коммерческими пространствами. Каждый проект начинается с разговора о вас — о ваших привычках, вкусе, образе жизни. Мы не собираем интерьер из готовых решений: планировка, сценарии света, материалы и детали рождаются именно под вас.</p>
-              <p>От первой встречи и анкеты до рабочей документации и авторского надзора — мы ведём проект целиком, чтобы результат совпал с тем, что вы представляли.</p>
-              <ul class="dir-features">
-                <li>Анкета и знакомство</li>
-                <li>Анализ пространства</li>
-                <li>Планировочное решение</li>
-                <li>Концепция интерьера</li>
-                <li>3D-визуализация</li>
-                <li>Рабочая документация</li>
-                <li>Комплектация</li>
-                <li>Авторский надзор</li>
-              </ul>
+              <p>Главное направление студии. Мы проектируем интерьеры для квартир, домов и коммерческих пространств — от первой встречи и анкеты до рабочей документации и авторского надзора.</p>
+              <p>Каждый проект начинается с разговора о вас: о ваших привычках, вкусе, образе жизни. Мы не собираем интерьер из готовых решений — планировка, сценарии света, материалы и детали рождаются именно под вас.</p>
+              <p>Мы ведём проект целиком, чтобы результат совпал с тем, что вы представляли — без потери смысла на этапе реализации.</p>
             </div>
+            <ul class="dir-features">
+              <li>Анкета и знакомство</li>
+              <li>Анализ пространства</li>
+              <li>Планировочное решение</li>
+              <li>Концепция интерьера</li>
+              <li>3D-визуализация</li>
+              <li>Рабочая документация</li>
+              <li>Комплектация</li>
+              <li>Авторский надзор</li>
+            </ul>
             <div class="dir-gallery">
               <div class="dg-item"><span class="dg-label">Фото проекта интерьера</span></div>
+              <div class="dg-item"><span class="dg-label">Фото</span></div>
+              <div class="dg-item"><span class="dg-label">Фото</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
             </div>
@@ -1278,7 +1485,7 @@ section { position: relative; }
         </div>
       </div>
 
-      <!-- 02 АВТОРСКАЯ РОСПИСЬ (сюда же — 3 формата и уровни сложности) -->
+      <!-- 02 АВТОРСКАЯ РОСПИСЬ -->
       <div class="dir-item reveal" data-dir="art">
         <button class="dir-trigger" aria-expanded="false">
           <span class="dir-num">02</span>
@@ -1287,56 +1494,109 @@ section { position: relative; }
         </button>
         <div class="dir-content">
           <div class="dir-content-inner">
+            <p class="dir-lead">Искусство, созданное специально для вашего пространства — с учётом архитектуры, света, цвета и вашей идеи.</p>
             <div class="dir-desc">
-              <p>Второе направление. Роспись создаётся специально под ваше пространство и под вас — с учётом архитектуры, света, цвета и вашей идеи.</p>
-              <p>Это не декор и не «картинка на стене». Это часть пространства, которая делает его именно вашим. Внутри направления есть три формата — от классической авторской росписи до истории с цифровым продолжением.</p>
+              <p>Второе направление студии. Это не декор и не «картинка на стене» — это часть пространства, которая делает его именно вашим.</p>
+              <p>Внутри направления есть три формата — от классической авторской росписи до истории с цифровым продолжением. Каждый формат можно заказать отдельно или интегрировать в интерьерный проект.</p>
+            </div>
 
-              <!-- 3 формата росписи -->
-              <div class="dir-formats">
-                <div class="dir-formats-title">Три формата росписи</div>
-                <div class="dir-formats-grid">
-                  <div class="dir-format">
-                    <div class="df-num">01</div>
-                    <h4>Авторская роспись</h4>
-                    <p>Индивидуальный сюжет, созданный под ваше пространство и под вас.</p>
-                  </div>
-                  <div class="dir-format">
-                    <div class="df-num">02</div>
-                    <h4>Роспись + игра</h4>
-                    <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене. Для детских центров, кафе, клиник, образовательных пространств.</p>
-                  </div>
-                  <div class="dir-format">
-                    <div class="df-num">03</div>
-                    <h4>Роспись + история</h4>
-                    <p>Личная или семейная история становится частью пространства. QR ведёт к фото, аудио, текстам или цифровому архиву.</p>
-                  </div>
-                </div>
+            <!-- 3 формата росписи -->
+            <div class="dir-formats">
+              <div class="dir-subhead">
+                <span class="sh-num">01 — 03</span>
+                <span class="sh-title">Три формата росписи</span>
+                <span class="sh-line">
+                  <svg viewBox="0 0 400 14" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 7 C80 7, 120 2, 200 7 S320 12, 400 7"/>
+                    <circle cx="200" cy="7" r="2"/>
+                  </svg>
+                </span>
               </div>
-
-              <!-- Уровни сложности -->
-              <div class="dir-levels">
-                <div class="dir-levels-title">Уровни сложности</div>
-                <div class="dir-levels-list">
-                  <div class="dir-level">
-                    <span class="dl-name">Минимальная</span>
-                    <span class="dl-desc">Простой сюжет, ограниченная палитра, небольшой объём.</span>
-                  </div>
-                  <div class="dir-level">
-                    <span class="dl-name">Средняя</span>
-                    <span class="dl-desc">Детализированный сюжет, несколько элементов, работа с цветом.</span>
-                  </div>
-                  <div class="dir-level">
-                    <span class="dl-name">Высокая</span>
-                    <span class="dl-desc">Многослойная композиция, максимум деталей, сложные переходы.</span>
-                  </div>
+              <div class="dir-formats-grid">
+                <div class="dir-format">
+                  <svg class="df-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <path d="M4 24 L14 4 L24 24" stroke="#4A6377" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 24 L14 14" stroke="#4A6377" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="14" cy="10" r="1.5" fill="#A88D62"/>
+                  </svg>
+                  <div class="df-num">01</div>
+                  <h4>Авторская роспись</h4>
+                  <p>Индивидуальный сюжет, созданный под ваше пространство и под вас.</p>
+                </div>
+                <div class="dir-format">
+                  <svg class="df-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <rect x="6" y="6" width="16" height="16" stroke="#4A6377" stroke-width="1.2"/>
+                    <rect x="9" y="9" width="4" height="4" fill="#4A6377"/>
+                    <rect x="15" y="9" width="4" height="4" fill="#4A6377" opacity="0.5"/>
+                    <rect x="9" y="15" width="4" height="4" fill="#4A6377" opacity="0.5"/>
+                    <rect x="15" y="15" width="4" height="4" fill="#4A6377"/>
+                  </svg>
+                  <div class="df-num">02</div>
+                  <h4>Роспись + игра</h4>
+                  <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене.</p>
+                </div>
+                <div class="dir-format">
+                  <svg class="df-icon" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                    <path d="M14 24 C8 20, 4 15, 4 10 C4 6, 7 4, 10 4 C12 4, 13 5, 14 7 C15 5, 16 4, 18 4 C21 4, 24 6, 24 10 C24 15, 20 20, 14 24 Z" stroke="#4A6377" stroke-width="1.2" stroke-linejoin="round"/>
+                    <circle cx="14" cy="13" r="1.5" fill="#A88D62"/>
+                  </svg>
+                  <div class="df-num">03</div>
+                  <h4>Роспись + история</h4>
+                  <p>Личная или семейная история становится частью пространства. QR ведёт к фото, аудио, текстам или архиву.</p>
                 </div>
               </div>
             </div>
 
+            <!-- Уровни сложности -->
+            <div class="dir-levels">
+              <div class="dir-subhead">
+                <span class="sh-num">A — C</span>
+                <span class="sh-title">Уровни сложности</span>
+                <span class="sh-line">
+                  <svg viewBox="0 0 400 14" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M0 7 C80 7, 120 12, 200 7 S320 2, 400 7"/>
+                    <circle cx="200" cy="7" r="2"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="dir-levels-list">
+                <div class="dir-level">
+                  <div class="dl-dots">
+                    <span class="dl-dot active"></span>
+                    <span class="dl-dot"></span>
+                    <span class="dl-dot"></span>
+                  </div>
+                  <span class="dl-name">Минимальная</span>
+                  <span class="dl-desc">Простой сюжет, ограниченная палитра, небольшой объём.</span>
+                </div>
+                <div class="dir-level">
+                  <div class="dl-dots">
+                    <span class="dl-dot active"></span>
+                    <span class="dl-dot active"></span>
+                    <span class="dl-dot"></span>
+                  </div>
+                  <span class="dl-name">Средняя</span>
+                  <span class="dl-desc">Детализированный сюжет, несколько элементов, работа с цветом.</span>
+                </div>
+                <div class="dir-level">
+                  <div class="dl-dots">
+                    <span class="dl-dot active"></span>
+                    <span class="dl-dot active"></span>
+                    <span class="dl-dot active"></span>
+                  </div>
+                  <span class="dl-name">Высокая</span>
+                  <span class="dl-desc">Многослойная композиция, максимум деталей, сложные переходы.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Галерея росписи -->
             <div class="dir-gallery">
-              <div class="dg-item"><span class="dg-label">Фото росписи</span></div>
+              <div class="dg-item"><span class="dg-label">Фото росписи — главная работа</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
               <div class="dg-item"><span class="dg-label">Фото</span></div>
+              <div class="dg-item"><span class="dg-label">Фото</span></div>
+              <div class="dg-item"><span class="dg-label">Процесс</span></div>
             </div>
           </div>
         </div>
@@ -1754,12 +2014,17 @@ dirItems.forEach(item => {
   trigger.addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
     dirItems.forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.dir-trigger').setAttribute('aria-expanded', 'false');
+      if (i !== item) {
+        i.classList.remove('open');
+        i.querySelector('.dir-trigger').setAttribute('aria-expanded', 'false');
+      }
     });
     if (!isOpen) {
       item.classList.add('open');
       trigger.setAttribute('aria-expanded', 'true');
+    } else {
+      item.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
     }
   });
 });
