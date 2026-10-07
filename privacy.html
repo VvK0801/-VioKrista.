@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Политика конфиденциальности — VIOKRISTA</title>
+<meta name="description" content="Политика конфиденциальности и обработка персональных данных студии VIOKRISTA.">
+<meta name="robots" content="noindex, follow">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 8 L20 34 L34 8' stroke='%2320241F' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M20 34 L20 22' stroke='%2320241F' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M20 5 L20.9 8.1 L24 9 L20.9 9.9 L20 13 L19.1 9.9 L16 9 L19.1 8.1 Z' fill='%23A88D62'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest: #20241F;
+  --ivory:  #F3EFE7;
+  --stone:  #B8B2A7;
+  --sand:   #CDBDA7;
+  --olive:  #737B67;
+  --brass:  #A88D62;
+  --blue-deep: #4A6377;
+  --text: #2c3129;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  background: var(--ivory);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 16px;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--brass); color: var(--ivory); }
+
+/* Header */
+.header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 18px 0;
+  background: rgba(243, 239, 231, 0.95);
+  border-bottom: 1px solid rgba(32, 36, 31, 0.06);
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--serif); font-size: 20px;
+  letter-spacing: 0.32em; font-weight: 500;
+  color: var(--forest);
+}
+.logo svg { width: 28px; height: 28px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--forest);
+  padding: 10px 18px;
+  border: 1px solid rgba(32,36,31,0.25);
+  transition: all 0.4s var(--ease);
+}
+.back-link:hover {
+  background: var(--forest);
+  color: var(--ivory);
+  border-color: var(--forest);
+}
+.back-link .arrow { transition: transform 0.4s var(--ease); }
+.back-link:hover .arrow { transform: translateX(-4px); }
+
+/* Content */
+.privacy-hero {
+  padding: clamp(120px, 16vw, 180px) 0 clamp(40px, 5vw, 64px);
+  background: var(--ivory);
+  border-bottom: 1px solid rgba(32,36,31,0.08);
+}
+.privacy-hero .eyebrow {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--olive);
+  display: block;
+  margin-bottom: 16px;
+}
+.privacy-hero .eyebrow::before {
+  content: ''; display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--blue-deep);
+  vertical-align: middle; margin-right: 12px;
+}
+.privacy-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.6vw, 56px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+.privacy-hero .sub {
+  font-size: 14px;
+  color: var(--stone);
+  max-width: 60ch;
+}
+
+/* Main content */
+.privacy-content {
+  padding: clamp(48px, 7vw, 96px) 0;
+  background: var(--ivory);
+}
+.privacy-content .container { max-width: 900px; }
+
+.privacy-block { margin-bottom: clamp(36px, 4vw, 56px); }
+.privacy-block:last-child { margin-bottom: 0; }
+
+.privacy-block h2 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.4vw, 30px);
+  font-weight: 400;
+  color: var(--forest);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(32,36,31,0.12);
+}
+.privacy-block h3 {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 24px 0 12px;
+}
+.privacy-block p {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 14px;
+}
+.privacy-block ul {
+  list-style: none;
+  margin: 16px 0 20px;
+  padding-left: 0;
+}
+.privacy-block ul li {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+  padding-left: 22px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.privacy-block ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: var(--brass);
+  font-size: 10px;
+}
+.privacy-block strong { font-weight: 600; color: var(--forest); }
+.privacy-block a {
+  color: var(--blue-deep);
+  border-bottom: 1px solid rgba(74,99,119,0.3);
+  transition: border-color 0.3s var(--ease);
+}
+.privacy-block a:hover { border-color: var(--blue-deep); }
+
+.info-box {
+  background: rgba(205,189,167,0.18);
+  border-left: 3px solid var(--blue-deep);
+  padding: 20px 24px;
+  margin: 24px 0;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.7;
+}
+.info-box strong { color: var(--forest); }
+
+/* Footer */
+.privacy-footer {
+  padding: 48px 0 32px;
+  background: var(--forest);
+  color: var(--stone);
+  text-align: center;
+}
+.privacy-footer .f-logo {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: 0.32em;
+  color: var(--ivory);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.privacy-footer .f-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--sand);
+  margin-bottom: 24px;
+}
+.privacy-footer .foot-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.privacy-footer .foot-links a {
+  font-size: 13px;
+  color: var(--stone);
+  transition: color 0.3s var(--ease);
+}
+.privacy-footer .foot-links a:hover { color: var(--ivory); }
+.privacy-footer .copyright {
+  padding-top: 24px;
+  border-top: 1px solid rgba(184,178,167,0.12);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+@media (max-width: 720px) {
+  .back-link .label { display: none; }
+  .privacy-hero { padding: 100px 0 40px; }
+  .privacy-block h2 { font-size: 22px; }
+  .info-box { padding: 16px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6 8 L20 34 L34 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 34 L20 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M20 5 L20.9 8.1 L24 9 L20.9 9.9 L20 13 L19.1 9.9 L16 9 L19.1 8.1 Z" fill="#A88D62"/>
+      </svg>
+      <span>VIOKRISTA</span>
+    </a>
+    <a href="index.html" class="back-link">
+      <span class="arrow">←</span> <span class="label">На главную</span>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="privacy-hero">
+  <div class="container">
+    <span class="eyebrow">Правовая информация</span>
+    <h1>Политика конфиденциальности и обработка персональных данных</h1>
+    <p class="sub">Действующая редакция. Дата последнего обновления — 7 октября 2025 г.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="privacy-content">
+  <div class="container">
+
+    <div class="privacy-block">
+      <h2>1. Общие положения</h2>
+      <p>Настоящая Политика конфиденциальности и обработки персональных данных (далее — Политика) разработана в соответствии с положениями Конституции Российской Федерации, Федерального закона от 27 июля 2006 г. № 149-ФЗ «Об информации, информационных технологиях и о защите информации», Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных» и иными нормативными правовыми актами в области защиты и обработки персональных данных, действующими на территории Российской Федерации.</p>
+      <p>Оператором персональных данных является студия VIOKRISTA в лице Волковой В.К. и Винс К.С. (далее — Студия, Оператор).</p>
+      <p>Настоящая Политика устанавливает порядок получения, защиты, хранения, обработки и передачи персональных данных пользователей сайта VIOKRISTA, действует в отношении всей информации, которую Оператор может получить о пользователях во время использования ими сайта.</p>
+      <p>Использование сайта означает безоговорочное согласие пользователя с настоящей Политикой и указанными в ней условиями обработки персональных данных. В случае несогласия с условиями Политики пользователь должен воздержаться от использования сайта.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>2. Основные понятия</h2>
+      <ul>
+        <li><strong>Сайт</strong> — веб-сайт студии VIOKRISTA, предоставляющий услуги дизайна интерьера и авторской росписи.</li>
+        <li><strong>Оператор</strong> — студия VIOKRISTA в лице Волковой В.К. и Винс К.С., организующие и (или) осуществляющие обработку персональных данных, а также определяющие цели и состав обрабатываемых данных.</li>
+        <li><strong>Пользователь</strong> — физическое лицо, использующее сайт и добровольно предоставившее свои персональные данные.</li>
+        <li><strong>Персональные данные</strong> — любая информация, относящаяся к прямо или косвенно определённому или определяемому физическому лицу.</li>
+        <li><strong>Обработка персональных данных</strong> — любое действие (операция) или совокупность действий с персональными данными, включая сбор, запись, систематизацию, накопление, хранение, уточнение, извлечение, использование, передачу, обезличивание, блокирование, удаление, уничтожение.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-block">
+      <h2>3. Состав обрабатываемых персональных данных</h2>
+      <p>Оператор может обрабатывать следующие персональные данные пользователей, которые пользователь предоставляет добровольно при заполнении анкеты или формы обратной связи:</p>
+      <ul>
+        <li>фамилия, имя (по желанию);</li>
+        <li>номер телефона;</li>
+        <li>адрес электронной почты;</li>
+        <li>город и иная информация о пространстве, указанная пользователем добровольно;</li>
+        <li>данные, передаваемые автоматически: IP-адрес, тип браузера, cookie-файлы, страницы посещения и время.</li>
+      </ul>
+      <p>Оператор не обрабатывает специальные категории персональных данных (о расовой, национальной принадлежности, политических взглядах, религиозных и философских убеждениях, состоянии здоровья, интимной жизни) и биометрические персональные данные.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>4. Цели обработки персональных данных</h2>
+      <p>Персональные данные пользователей обрабатываются в следующих целях:</p>
+      <ul>
+        <li>связь с пользователем для обсуждения его обращения, заявки или проекта;</li>
+        <li>предоставление консультаций по услугам студии — дизайну интерьера и авторской росписи;</li>
+        <li>заключение и исполнение договоров на оказание услуг;</li>
+        <li>улучшение качества работы сайта и сервиса;</li>
+        <li>направление информационных сообщений (только с согласия пользователя).</li>
+      </ul>
+    </div>
+
+    <div class="privacy-block">
+      <h2>5. Правовые основания обработки</h2>
+      <p>Обработка персональных данных осуществляется на следующих правовых основаниях:</p>
+      <ul>
+        <li>согласие пользователя на обработку персональных данных, выраженное путём заполнения форм на сайте и проставления соответствующей отметки;</li>
+        <li>исполнение договора, стороной которого является пользователь;</li>
+        <li>выполнение обязанностей, возложенных на Оператора законодательством Российской Федерации.</li>
+      </ul>
+    </div>
+
+    <div class="privacy-block">
+      <h2>6. Порядок и условия обработки персональных данных</h2>
+      <p>Обработка персональных данных осуществляется как с использованием средств автоматизации, так и без их использования.</p>
+      <p>Оператор обеспечивает сохранность персональных данных и принимает необходимые организационные и технические меры для защиты от неправомерного доступа, уничтожения, изменения, блокирования, копирования, распространения, а также иных неправомерных действий третьих лиц.</p>
+      <p>Персональные данные пользователей хранятся в электронном виде в защищённых информационных системах. Доступ к персональным данным имеют только Оператор и уполномоченные лица, обязанные соблюдать конфиденциальность.</p>
+      <p>Оператор не передаёт персональные данные третьим лицам, за исключением случаев, прямо предусмотренных законодательством Российской Федерации, либо когда передача необходима для исполнения договора с пользователем (например, при привлечении подрядчиков).</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>7. Согласие на обработку персональных данных</h2>
+      <div class="info-box">
+        <strong>Отправляя анкету или заполняя форму на сайте, пользователь подтверждает своё согласие на обработку персональных данных на условиях, изложенных в настоящей Политике.</strong>
+      </div>
+      <p>Согласие даётся на следующие действия с персональными данными: сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование, передача (в объёме, необходимом для исполнения договора), блокирование, удаление, уничтожение.</p>
+      <p>Согласие действует до момента его отзыва пользователем. Пользователь вправе в любой момент отозвать своё согласие, направив соответствующее обращение на электронную почту Оператора.</p>
+      <p>Согласие на обработку персональных данных, разрешённых пользователем для распространения, оформляется отдельно от иных согласий.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>8. Права пользователя</h2>
+      <p>Пользователь имеет право:</p>
+      <ul>
+        <li>получать информацию о своих персональных данных, их обработке, хранении и передаче;</li>
+        <li>требовать уточнения, блокирования или уничтожения своих персональных данных, если они являются неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной цели обработки;</li>
+        <li>отозвать согласие на обработку персональных данных;</li>
+        <li>обжаловать действия или бездействие Оператора в уполномоченный орган по защите прав субъектов персональных данных или в судебном порядке;</li>
+        <li>на защиту своих прав и законных интересов, в том числе на возмещение убытков и компенсацию морального вреда.</li>
+      </ul>
+      <p>Для реализации своих прав пользователь может направить обращение на электронную почту: <a href="mailto:viokrista16@gmail.com">viokrista16@gmail.com</a>.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>9. Уничтожение и блокирование персональных данных</h2>
+      <p>В случае выявления неправомерной обработки персональных данных Оператор прекращает обработку и уничтожает персональные данные в срок, не превышающий тридцати дней с даты выявления.</p>
+      <p>В случае отзыва пользователем согласия на обработку персональных данных Оператор прекращает их обработку и уничтожает персональные данные в срок, не превышающий тридцати дней с даты поступления отзыва.</p>
+      <p>Уничтожение персональных данных осуществляется путём удаления с электронных носителей или уничтожения самих носителей.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>10. Использование cookie-файлов</h2>
+      <p>Сайт может использовать cookie-файлы для улучшения работы и анализа посещаемости. Cookie — это небольшие текстовые файлы, сохраняемые в браузере пользователя.</p>
+      <p>Пользователь может отключить cookie в настройках своего браузера. Однако это может повлиять на работу некоторых функций сайта.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>11. Изменение Политики</h2>
+      <p>Оператор вправе изменять настоящую Политику в одностороннем порядке без предварительного уведомления пользователя. Новая редакция вступает в силу с момента её размещения на сайте, если иное не предусмотрено новой редакцией.</p>
+      <p>Действующая редакция Политики всегда размещена на данной странице.</p>
+    </div>
+
+    <div class="privacy-block">
+      <h2>12. Контакты Оператора</h2>
+      <p>По всем вопросам, связанным с обработкой персональных данных, вы можете обратиться:</p>
+      <ul>
+        <li>Студия VIOKRISTA — в лице Волковой В.К. и Винс К.С.</li>
+        <li>Электронная почта: <a href="mailto:viokrista16@gmail.com">viokrista16@gmail.com</a></li>
+        <li>Телефоны: <a href="tel:+79628333044">+7 (962) 833-30-44</a>, <a href="tel:+79513613880">+7 (951) 361-38-80</a></li>
+        <li>Telegram: <a href="https://t.me/VioKrista" target="_blank" rel="noopener">@VioKrista</a></li>
+        <li>Instagram: <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener">@viokrista</a></li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="privacy-footer">
+  <div class="container">
+    <div class="f-logo">
+      <svg viewBox="0 0 40 40" fill="none" width="22" height="22" aria-hidden="true">
+        <path d="M6 8 L20 34 L34 8" stroke="#F3EFE7" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 34 L20 22" stroke="#F3EFE7" stroke-width="1.4" stroke-linecap="round"/>
+        <path d="M20 5 L20.9 8.1 L24 9 L20.9 9.9 L20 13 L19.1 9.9 L16 9 L19.1 8.1 Z" fill="#A88D62"/>
+      </svg>
+      VIOKRISTA
+    </div>
+    <p class="f-tag">Пространства, которые становятся частью истории.</p>
+    <div class="foot-links">
+      <a href="index.html">На главную</a>
+      <a href="#projects">Проекты</a>
+      <a href="#services">Услуги</a>
+      <a href="mailto:viokrista16@gmail.com">Email</a>
+    </div>
+    <p class="copyright">© VIOKRISTA · Новосибирск · Remote</p>
+  </div>
+</footer>
+
+</body>
+</html>
