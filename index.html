@@ -8,9 +8,9 @@
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M6 8 L20 34 L34 8' stroke='%2320241F' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3Cpath d='M20 34 L20 22' stroke='%2320241F' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M20 5 L20.9 8.1 L24 9 L20.9 9.9 L20 13 L19.1 9.9 L16 9 L19.1 8.1 Z' fill='%23A88D62'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--forest:#20241F;--ivory:#F3EFE7;--stone:#B8B2A7;--sand:#CDBDA7;--olive:#737B67;--brass:#A88D62;--blue:#7A93A8;--blue-deep:#4A6377;--blue-soft:#A8BAC7;--text:#2c3129;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;--ease:cubic-bezier(0.22,0.61,0.36,1);--max:1440px;--gutter:clamp(20px,4vw,64px)}
+:root{--forest:#20241F;--ivory:#F3EFE7;--stone:#B8B2A7;--sand:#CDBDA7;--olive:#737B67;--brass:#A88D62;--blue:#7A93A8;--blue-deep:#4A6377;--blue-soft:#A8BAC7;--text:#2c3129;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Manrope',-apple-system,sans-serif;--ease:cubic-bezier(.22,.61,.36,1);--max:1440px;--gutter:clamp(20px,4vw,64px)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
 body{font-family:var(--sans);font-weight:300;background:var(--ivory);color:var(--forest);line-height:1.6;overflow-x:hidden;font-size:16px}
@@ -19,32 +19,33 @@ a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 ::selection{background:var(--brass);color:var(--ivory)}
 h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.05}
-.eyebrow{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:0.28em;text-transform:uppercase;color:var(--olive)}
+.eyebrow{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--olive)}
 .container{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
 section{position:relative}
 
+/* HEADER */
 .header{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 0;transition:padding .5s var(--ease),background .4s var(--ease)}
 .header.scrolled{padding:14px 0;background:rgba(243,239,231,.95);border-bottom:1px solid rgba(32,36,31,.06)}
-.header.hero-over .logo,.header.hero-over .nav a,.header.hero-over .menu-toggle span,.header.hero-over .btn-nav{color:var(--ivory)}
+.header.hero-over .logo,.header.hero-over .nav a,.header.hero-over .btn-nav{color:var(--ivory)}
 .header.hero-over .logo svg{color:var(--ivory)}
 .header.hero-over .social-link{color:var(--ivory);border-color:rgba(243,239,231,.4)}
 .header.hero-over .social-link:hover{background:var(--ivory);color:var(--forest);border-color:var(--ivory)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-size:20px;letter-spacing:.32em;font-weight:500;color:var(--forest);transition:color .6s var(--ease);flex-shrink:0}
-.logo svg{width:30px;height:30px;color:var(--forest);transition:color .6s var(--ease);flex-shrink:0}
-.nav{display:flex;gap:24px;align-items:center}
-.nav a:not(.social-link):not(.btn-nav){font-size:13px;font-weight:400;letter-spacing:.06em;color:var(--forest);transition:color .4s var(--ease)}
-.nav a:not(.social-link):not(.btn-nav):hover{color:var(--blue-deep)}
-.social-link{width:38px;height:38px;border:1px solid rgba(32,36,31,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);flex-shrink:0;color:var(--forest)}
-.social-link svg{width:16px;height:16px;fill:currentColor}
+.logo svg{width:30px;height:30px;color:var(--forest);flex-shrink:0}
+.nav{display:flex;gap:22px;align-items:center}
+.nav-link{font-size:13px;color:var(--forest);transition:color .4s var(--ease)}
+.nav-link:hover{color:var(--blue-deep)}
+.social-link{width:36px;height:36px;border:1px solid rgba(32,36,31,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease);flex-shrink:0;color:var(--forest)}
+.social-link svg{width:15px;height:15px;fill:currentColor}
 .social-link:hover{background:var(--forest);color:var(--ivory);border-color:var(--forest)}
-.social-group{display:flex;gap:10px;align-items:center;margin-left:4px}
-.btn-nav{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;border:1px solid currentColor;transition:all .4s var(--ease);color:var(--forest);background:transparent;cursor:pointer;white-space:nowrap}
+.social-group{display:flex;gap:8px;align-items:center}
+.btn-nav{font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 20px;border:1px solid currentColor;transition:all .4s var(--ease);color:var(--forest);background:transparent;cursor:pointer;white-space:nowrap}
 .btn-nav:hover{background:var(--forest);color:var(--ivory);border-color:var(--forest)}
 .header.hero-over .btn-nav:hover{background:var(--ivory);color:var(--forest);border-color:var(--ivory)}
 .btn-consult{background:var(--brass);color:var(--forest);border-color:var(--brass)}
 .btn-consult:hover{background:var(--sand);border-color:var(--sand);color:var(--forest)}
-.header.hero-over .btn-consult{background:var(--brass);color:var(--forest);border-color:var(--brass)}
+.header.hero-over .btn-consult{color:var(--forest)}
 .header.hero-over .btn-consult:hover{background:var(--sand);border-color:var(--sand);color:var(--forest)}
 .menu-toggle{display:none;width:32px;height:20px;position:relative}
 .menu-toggle span{position:absolute;left:0;width:100%;height:1px;background:var(--forest);transition:all .4s var(--ease)}
@@ -52,33 +53,33 @@ section{position:relative}
 .menu-toggle span:nth-child(2){top:14px}
 .header.hero-over .menu-toggle span{background:var(--ivory)}
 
+/* MOBILE MENU */
 .mobile-menu{position:fixed;inset:0;background:var(--forest);z-index:200;display:flex;flex-direction:column;padding:32px var(--gutter);transform:translateY(-100%);transition:transform .7s var(--ease)}
 .mobile-menu.open{transform:translateY(0)}
 .mobile-menu .close{align-self:flex-end;color:var(--ivory);font-size:28px;font-weight:200;line-height:1}
 .mobile-menu nav{margin-top:60px;display:flex;flex-direction:column;gap:24px}
 .mobile-menu nav a{color:var(--ivory);font-family:var(--serif);font-size:30px;font-weight:400}
 .mobile-menu .mm-social{margin-top:40px;display:flex;gap:14px}
-.mobile-menu .mm-social a{width:48px;height:48px;border:1px solid rgba(243,239,231,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease)}
+.mobile-menu .mm-social a{width:48px;height:48px;border:1px solid rgba(243,239,231,.3);border-radius:50%;display:flex;align-items:center;justify-content:center}
 .mobile-menu .mm-social a svg{width:20px;height:20px;fill:var(--ivory)}
-.mobile-menu .mm-social a:hover{background:var(--ivory);border-color:var(--ivory)}
-.mobile-menu .mm-social a:hover svg{fill:var(--forest)}
 .mobile-menu .mm-phone{margin-top:32px;display:flex;flex-direction:column;gap:8px}
-.mobile-menu .mm-phone a{color:var(--sand);font-size:16px;font-weight:400;letter-spacing:.04em}
-.mobile-menu .mm-phone a:hover{color:var(--ivory)}
+.mobile-menu .mm-phone a{color:var(--sand);font-size:16px}
 .mobile-menu .mm-foot{margin-top:auto;color:var(--stone);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 
+/* HERO */
 .hero{height:100vh;min-height:640px;position:relative;overflow:hidden;background:var(--forest)}
-.hero-bg{position:absolute;inset:0;background-color:var(--forest);background-image:radial-gradient(circle at 28% 35%,rgba(115,123,103,.42) 0%,transparent 55%),radial-gradient(circle at 72% 65%,rgba(122,147,168,.35) 0%,transparent 50%),radial-gradient(circle at 60% 20%,rgba(168,141,98,.16) 0%,transparent 45%)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(circle at 28% 35%,rgba(115,123,103,.42) 0%,transparent 55%),radial-gradient(circle at 72% 65%,rgba(122,147,168,.35) 0%,transparent 50%),radial-gradient(circle at 60% 20%,rgba(168,141,98,.16) 0%,transparent 45%),var(--forest)}
 .hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(32,36,31,.35) 0%,rgba(32,36,31,.15) 40%,rgba(32,36,31,.78) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(48px,8vh,96px);color:var(--ivory)}
 .hero-star{color:var(--brass);font-size:18px;margin-bottom:20px}
 .hero h1{font-size:clamp(52px,11vw,160px);letter-spacing:.02em;font-weight:400;line-height:.95;margin-bottom:28px}
-.hero .tagline{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(20px,2.4vw,32px);max-width:640px;color:var(--ivory);margin-bottom:12px}
+.hero .tagline{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.4vw,32px);max-width:640px;margin-bottom:12px}
 .hero .sub{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--sand);margin-bottom:40px}
 .hero-actions{display:flex;gap:20px;flex-wrap:wrap}
-.hero-foot{position:absolute;bottom:28px;left:0;right:0;z-index:2;display:flex;justify-content:space-between;align-items:center;color:var(--stone);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding:0 var(--gutter)}
+.hero-foot{position:absolute;bottom:28px;left:0;right:0;z-index:2;display:flex;justify-content:space-between;color:var(--stone);font-size:10px;letter-spacing:.28em;text-transform:uppercase;padding:0 var(--gutter)}
 
-.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:20px 34px;background:var(--forest);color:var(--ivory);border:1px solid var(--forest);transition:all .5s var(--ease);cursor:pointer;text-decoration:none}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:20px 34px;background:var(--forest);color:var(--ivory);border:1px solid var(--forest);transition:all .5s var(--ease);cursor:pointer;text-decoration:none}
 .btn:hover{background:var(--olive);border-color:var(--olive)}
 .btn .arrow{transition:transform .5s var(--ease)}
 .btn:hover .arrow{transform:translateX(6px)}
@@ -87,6 +88,7 @@ section{position:relative}
 .btn-light{background:var(--ivory);color:var(--forest);border-color:var(--ivory)}
 .btn-light:hover{background:var(--sand);border-color:var(--sand)}
 
+/* WHO */
 .who{padding:clamp(64px,9vw,120px) 0;background:var(--ivory)}
 .who-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(32px,6vw,96px);align-items:center}
 .who-img{aspect-ratio:4/5;background:var(--forest);position:relative;overflow:hidden}
@@ -96,17 +98,19 @@ section{position:relative}
 .who-text p{font-size:16px;color:var(--text);margin-bottom:18px;max-width:52ch;line-height:1.65}
 .who-signature{margin-top:32px;font-family:var(--serif);font-style:italic;font-size:18px;color:var(--olive)}
 
+/* SECTION HEAD */
 .section-head{margin-bottom:clamp(36px,5vw,64px);max-width:900px}
 .section-head h2{font-size:clamp(32px,4.6vw,68px);margin-top:16px}
 .section-head h2 em{font-style:italic;color:var(--blue-deep)}
 
-.directions{padding:clamp(40px,6vw,80px) 0 clamp(64px,9vw,120px);background:var(--ivory)}
+/* DIRECTIONS */
+.directions{padding:clamp(40px,6vw,80px) 0 clamp(64px,9vw,120px)}
 .dir-accordion{display:flex;flex-direction:column;border-top:1px solid rgba(32,36,31,.15)}
 .dir-item{border-bottom:1px solid rgba(32,36,31,.15);transition:background .6s var(--ease)}
 .dir-item.open{background:rgba(168,186,199,.08)}
 .dir-trigger{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:clamp(16px,3vw,40px);width:100%;text-align:left;padding:clamp(22px,2.6vw,34px) clamp(16px,2vw,32px);cursor:pointer}
-.dir-num{font-family:var(--serif);font-style:italic;font-size:clamp(20px,1.6vw,26px);color:var(--blue-deep);line-height:1}
-.dir-title{font-family:var(--serif);font-size:clamp(28px,3.6vw,52px);font-weight:400;color:var(--forest);line-height:1.1}
+.dir-num{font-family:var(--serif);font-style:italic;font-size:clamp(20px,1.6vw,26px);color:var(--blue-deep)}
+.dir-title{font-family:var(--serif);font-size:clamp(28px,3.6vw,52px);color:var(--forest);line-height:1.1}
 .dir-title em{font-style:italic;color:var(--olive)}
 .dir-toggle{width:44px;height:44px;border:1px solid rgba(32,36,31,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:200;color:var(--forest);transition:all .5s var(--ease);flex-shrink:0}
 .dir-item.open .dir-toggle{transform:rotate(45deg);background:var(--blue-deep);color:var(--ivory);border-color:var(--blue-deep)}
@@ -119,14 +123,13 @@ section{position:relative}
 .dir-features{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:10px 22px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(32,36,31,.12)}
 .dir-features li{font-size:14px;color:var(--forest);padding-left:18px;position:relative}
 .dir-features li::before{content:'✦';position:absolute;left:0;color:var(--blue);font-size:9px;top:5px}
-
 .dir-formats{margin-top:40px}
 .dir-subhead{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
-.dir-subhead .sh-num{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--blue-deep);line-height:1}
-.dir-subhead .sh-title{font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--forest);font-weight:600}
+.dir-subhead .sh-num{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--blue-deep)}
+.dir-subhead .sh-title{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--forest);font-weight:600}
 .dir-formats-grid{display:flex;flex-direction:column;border-top:1px solid rgba(32,36,31,.12)}
-.dir-format{display:grid;grid-template-columns:110px 1fr;gap:32px;align-items:center;padding:28px 24px;background:var(--ivory);border-bottom:1px solid rgba(32,36,31,.12);position:relative}
-.dir-format::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease)}
+.dir-format{display:grid;grid-template-columns:110px 1fr;gap:32px;align-items:center;padding:28px 24px;border-bottom:1px solid rgba(32,36,31,.12);position:relative}
+.dir-format::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);transform:scaleY(0);transition:transform .5s var(--ease)}
 .dir-format:nth-child(2)::after{background:var(--brass)}
 .dir-format:nth-child(3)::after{background:var(--olive)}
 .dir-format:hover::after{transform:scaleY(1)}
@@ -135,9 +138,8 @@ section{position:relative}
 .dir-format .df-num{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--blue-deep);font-weight:500}
 .dir-format:nth-child(2) .df-num{color:var(--brass)}
 .dir-format:nth-child(3) .df-num{color:var(--olive)}
-.dir-format .df-text h4{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:8px;color:var(--forest)}
+.dir-format .df-text h4{font-family:var(--serif);font-size:26px;margin-bottom:8px;color:var(--forest)}
 .dir-format .df-text p{font-size:15px;color:var(--text);line-height:1.65;max-width:68ch}
-
 .dir-levels{margin-top:40px;padding-top:24px}
 .dir-levels-scale{display:grid;grid-template-columns:repeat(3,1fr);margin-top:20px;position:relative}
 .dir-levels-scale::before{content:'';position:absolute;top:12px;left:16.66%;right:16.66%;height:1px;background:linear-gradient(to right,var(--blue),var(--olive),var(--brass));opacity:.5}
@@ -150,28 +152,29 @@ section{position:relative}
 .dir-level:nth-child(3) .dl-marker::after{background:var(--brass);width:18px;height:18px}
 .dir-level .dl-name{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--forest);display:block;margin-bottom:8px}
 .dir-level .dl-desc{font-size:13.5px;color:var(--text);line-height:1.55;max-width:28ch;margin:0 auto}
-
 .dir-gallery{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;margin-top:40px;aspect-ratio:16/7}
 .dir-gallery .dg-item{background:var(--forest);position:relative;overflow:hidden}
 .dir-gallery .dg-item:nth-child(1){grid-row:1/3}
 .dir-gallery .dg-item img,.dir-gallery .dg-item video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
-.projects{padding:clamp(64px,9vw,120px) 0;background:var(--ivory);border-top:1px solid rgba(32,36,31,.08)}
+/* PROJECTS */
+.projects{padding:clamp(64px,9vw,120px) 0;border-top:1px solid rgba(32,36,31,.08)}
 .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,2.4vw,40px)}
-.proj-item{display:block;background:var(--ivory);border:1px solid rgba(32,36,31,.12);transition:all .5s var(--ease)}
+.proj-item{background:var(--ivory);border:1px solid rgba(32,36,31,.12);transition:all .5s var(--ease)}
 .proj-item:hover{border-color:var(--blue);box-shadow:0 20px 40px -24px rgba(32,36,31,.15)}
 .proj-thumb{aspect-ratio:4/3;background:var(--forest);position:relative;overflow:hidden}
 .proj-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .proj-thumb .thumb-num{position:absolute;top:22px;left:24px;font-size:10px;letter-spacing:.24em;color:var(--blue-soft);z-index:2}
 .proj-body{padding:28px 30px 32px}
-.proj-body h4{font-family:var(--serif);font-size:26px;margin-bottom:8px;font-weight:400}
+.proj-body h4{font-family:var(--serif);font-size:26px;margin-bottom:8px}
 .proj-body .p-info{font-size:12px;letter-spacing:.08em;color:var(--stone);margin-bottom:16px}
 .proj-body .p-desc{font-size:14px;color:var(--text);line-height:1.6}
 .proj-status{position:absolute;top:22px;right:22px;z-index:2;font-size:9px;letter-spacing:.22em;text-transform:uppercase;padding:6px 12px;background:rgba(243,239,231,.95);color:var(--forest)}
 .proj-status.diploma{background:rgba(168,141,98,.95);color:var(--ivory)}
-.proj-link-btn{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:12px 22px;font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);background:transparent;border:1px solid var(--forest);transition:all .4s var(--ease);text-decoration:none}
+.proj-link-btn{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:12px 22px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--forest);border:1px solid var(--forest);transition:all .4s var(--ease);text-decoration:none}
 .proj-link-btn:hover{background:var(--forest);color:var(--ivory)}
 
+/* PERSONAL STORY */
 .personal-story{padding:clamp(64px,9vw,120px) 0;background:var(--forest);color:var(--ivory)}
 .ps-inner{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(32px,6vw,96px);align-items:start}
 .ps-left .eyebrow{color:var(--brass)}
@@ -182,21 +185,23 @@ section{position:relative}
 .ps-step{display:flex;align-items:flex-start;gap:24px;padding:22px 0;border-bottom:1px solid rgba(184,178,167,.15)}
 .ps-step:first-child{border-top:1px solid rgba(184,178,167,.15)}
 .ps-step .ps-num{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--brass);min-width:40px}
-.ps-step .ps-content h4{font-family:var(--serif);font-size:20px;font-weight:400;margin-bottom:6px;color:var(--ivory)}
+.ps-step .ps-content h4{font-family:var(--serif);font-size:20px;margin-bottom:6px;color:var(--ivory)}
 .ps-step .ps-content p{font-size:13px;color:var(--stone);line-height:1.55}
 .ps-step:nth-child(3) .ps-num,.ps-step:nth-child(4) .ps-num{color:var(--blue)}
 .ps-cta{margin-top:40px}
 
-.process{padding:clamp(56px,8vw,100px) 0;background:var(--ivory);border-top:1px solid rgba(32,36,31,.08)}
+/* PROCESS */
+.process{padding:clamp(56px,8vw,100px) 0;border-top:1px solid rgba(32,36,31,.08)}
 .process-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(32,36,31,.15)}
 .step{padding:32px 24px 32px 0;border-right:1px solid rgba(32,36,31,.1)}
 .step:last-child{border-right:none}
 .step:nth-child(2n),.step:nth-child(3n),.step:nth-child(4n){padding-left:24px}
 .step .num{font-family:var(--serif);font-size:32px;color:var(--blue-deep);margin-bottom:18px;display:block;font-style:italic;line-height:1}
-.step h3{margin-bottom:10px;font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.step h3{margin-bottom:10px;font-weight:500;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
 .step p{font-size:14px;color:var(--text);line-height:1.55}
 
-.services{padding:clamp(64px,9vw,120px) 0;background:var(--ivory);border-top:1px solid rgba(32,36,31,.08)}
+/* SERVICES */
+.services{padding:clamp(64px,9vw,120px) 0;border-top:1px solid rgba(32,36,31,.08)}
 .services-intro{max-width:720px;margin-bottom:clamp(40px,5vw,64px)}
 .services-intro h2{font-size:clamp(32px,4.6vw,68px);margin:16px 0 20px}
 .services-intro h2 em{font-style:italic;color:var(--blue-deep)}
@@ -212,6 +217,7 @@ section{position:relative}
 .service-block .sb-list li::before{content:'✦';position:absolute;left:0;color:var(--blue);font-size:9px;top:5px}
 .service-block .sb-note{font-size:14px;color:var(--forest);font-style:italic;margin-top:22px;padding:14px 20px;background:rgba(168,186,199,.16);border-left:3px solid var(--blue);max-width:60ch;line-height:1.55}
 
+/* QUESTIONNAIRE */
 .questionnaire{padding:clamp(64px,9vw,120px) 0;background:var(--forest);color:var(--ivory)}
 .q-container{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(40px,6vw,96px);align-items:center}
 .q-side .eyebrow{color:var(--brass)}
@@ -225,91 +231,91 @@ section{position:relative}
 .q-form-wrap .q-cta-note{font-size:12px;color:var(--stone);font-style:italic;margin-top:20px;line-height:1.5}
 .q-form-wrap .q-cta-note a{color:var(--sand);border-bottom:1px solid rgba(205,189,167,.4)}
 
-.final-cta{background:var(--ivory);color:var(--forest);padding:clamp(80px,11vw,140px) 0 clamp(56px,7vw,88px);text-align:center}
+/* FINAL CTA */
+.final-cta{padding:clamp(80px,11vw,140px) 0 clamp(56px,7vw,88px);text-align:center}
 .final-cta .fstar{color:var(--brass);font-size:28px;margin-bottom:28px;display:inline-block}
 .final-cta h2{font-size:clamp(36px,5.4vw,80px);line-height:1.05;max-width:18ch;margin:0 auto 40px}
 .final-cta h2 em{font-style:italic;color:var(--blue-deep)}
 
+/* FOOTER */
 .footer{background:var(--forest);color:var(--stone);padding:64px 0 32px;font-size:14px}
 .foot-top{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-bottom:40px;border-bottom:1px solid rgba(184,178,167,.12);margin-bottom:40px}
-.foot-cta{display:inline-flex;align-items:center;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);background:var(--brass);padding:16px 28px;border:1px solid var(--brass);transition:all .4s var(--ease);cursor:pointer}
+.foot-cta{display:inline-flex;align-items:center;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--forest);background:var(--brass);padding:16px 28px;border:1px solid var(--brass);transition:all .4s var(--ease);cursor:pointer}
 .foot-cta:hover{background:var(--sand);border-color:var(--sand)}
-.foot-up{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory);padding:15px 22px;border:1px solid rgba(184,178,167,.35);background:transparent;transition:all .4s var(--ease);cursor:pointer}
+.foot-up{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory);padding:15px 22px;border:1px solid rgba(184,178,167,.35);background:transparent;cursor:pointer}
 .foot-up:hover{border-color:var(--ivory);background:rgba(243,239,231,.08)}
-.foot-up-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--brass);color:var(--forest);font-size:14px;font-weight:700}
+.foot-up-arrow{width:22px;height:22px;border-radius:50%;background:var(--brass);color:var(--forest);display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
 .foot-nav{display:flex;gap:32px;margin-left:auto;flex-wrap:wrap}
-.foot-nav a{font-size:14px;color:var(--stone);transition:color .3s var(--ease)}
+.foot-nav a{font-size:14px;color:var(--stone)}
 .foot-nav a:hover{color:var(--ivory)}
 .foot-contacts{display:flex;gap:32px;flex-wrap:wrap;align-items:center;padding-bottom:32px;border-bottom:1px solid rgba(184,178,167,.12);margin-bottom:32px}
-.foot-contact-item{display:inline-flex;align-items:center;gap:12px;font-size:15px;color:var(--ivory);transition:color .3s var(--ease)}
+.foot-contact-item{display:inline-flex;align-items:center;gap:12px;font-size:15px;color:var(--ivory)}
 .foot-contact-item:hover{color:var(--brass)}
 .foot-contact-icon{width:20px;height:20px;color:var(--brass);flex-shrink:0}
 .foot-middle{display:flex;gap:40px;align-items:center;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid rgba(184,178,167,.12);margin-bottom:32px}
 .foot-socials{display:flex;gap:12px}
 .foot-socials a{width:40px;height:40px;border:1px solid rgba(184,178,167,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .4s var(--ease)}
-.foot-socials a svg{width:16px;height:16px;fill:var(--stone);transition:fill .4s var(--ease)}
+.foot-socials a svg{width:16px;height:16px;fill:var(--stone)}
 .foot-socials a:hover{border-color:var(--brass);background:var(--brass)}
 .foot-socials a:hover svg{fill:var(--forest)}
 .foot-service{display:flex;gap:28px;flex-wrap:wrap;margin-left:auto}
-.foot-service a{font-size:13px;color:var(--stone);transition:color .3s var(--ease)}
+.foot-service a{font-size:13px;color:var(--stone)}
 .foot-service a:hover{color:var(--ivory)}
 .foot-bottom-new{display:flex;flex-direction:column;gap:16px;text-align:center;font-size:12px;color:rgba(184,178,167,.55);line-height:1.6}
 .foot-copy{color:var(--stone);font-size:13px}
 .foot-meta{max-width:720px;margin:0 auto;font-size:11px;font-style:italic;color:rgba(184,178,167,.5);line-height:1.5}
-.foot-legal{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;align-items:center}
-.foot-legal a{color:var(--stone);text-decoration:underline;text-underline-offset:3px}
-.foot-legal a:hover{color:var(--ivory)}
 
+/* COOKIE */
 .cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:300;background:rgba(32,36,31,.98);color:var(--ivory);border-top:1px solid rgba(184,178,167,.2);transform:translateY(100%);transition:transform .6s var(--ease);padding:clamp(20px,3vw,28px) 0}
 .cookie-banner.show{transform:translateY(0)}
 .cookie-banner-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:flex;align-items:center;gap:clamp(20px,3vw,40px);flex-wrap:wrap}
-.cookie-text{font-size:13px;line-height:1.6;color:var(--stone);flex:1;min-width:260px;margin:0}
+.cookie-text{font-size:13px;line-height:1.6;color:var(--stone);flex:1;min-width:260px}
 .cookie-text a{color:var(--sand);border-bottom:1px solid rgba(205,189,167,.4)}
-.cookie-actions{display:flex;gap:12px;flex-shrink:0}
-.cookie-btn{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;border:1px solid;transition:all .4s var(--ease);cursor:pointer;white-space:nowrap}
+.cookie-actions{display:flex;gap:12px}
+.cookie-btn{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;border:1px solid;cursor:pointer;white-space:nowrap}
 .cookie-btn-accept{background:var(--brass);color:var(--forest);border-color:var(--brass)}
 .cookie-btn-accept:hover{background:var(--sand);border-color:var(--sand)}
 .cookie-btn-decline{background:transparent;color:var(--stone);border-color:rgba(184,178,167,.4)}
 .cookie-btn-decline:hover{color:var(--ivory);border-color:var(--ivory)}
 
+/* MODAL */
 .modal-overlay{position:fixed;inset:0;background:rgba(32,36,31,.85);z-index:400;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .4s var(--ease);overflow-y:auto}
 .modal-overlay.open{opacity:1;pointer-events:auto}
 .modal{background:var(--ivory);width:100%;max-width:480px;padding:clamp(28px,4vw,44px);position:relative;transform:translateY(20px);transition:transform .4s var(--ease);margin:auto}
 .modal-overlay.open .modal{transform:translateY(0)}
-.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:200;color:var(--forest);transition:all .3s var(--ease);cursor:pointer;background:transparent;border:none}
-.modal-close:hover{transform:rotate(90deg);color:var(--brass)}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:200;color:var(--forest);cursor:pointer}
+.modal-close:hover{color:var(--brass)}
 .modal h3{font-family:var(--serif);font-size:clamp(24px,3vw,32px);color:var(--forest);margin-bottom:8px;line-height:1.15;padding-right:40px}
-.modal-sub{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:28px;max-width:44ch}
+.modal-sub{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:28px}
 .modal-form{display:flex;flex-direction:column;gap:18px}
 .modal-field{display:flex;flex-direction:column;gap:6px}
-.modal-field label{font-family:var(--sans);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
-.modal-field input{font-family:var(--sans);font-size:15px;padding:12px 0;background:transparent;border:none;border-bottom:1px solid rgba(32,36,31,.25);color:var(--forest);transition:border-color .3s var(--ease)}
+.modal-field label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+.modal-field input{font-family:var(--sans);font-size:15px;padding:12px 0;background:transparent;border:none;border-bottom:1px solid rgba(32,36,31,.25);color:var(--forest)}
 .modal-field input:focus{outline:none;border-color:var(--brass)}
-.modal-field input::placeholder{color:var(--stone)}
 .modal-consent{display:flex;align-items:flex-start;gap:10px;font-size:12px;line-height:1.5;color:var(--text);cursor:pointer;margin-top:4px}
 .modal-consent input{position:absolute;opacity:0;pointer-events:none}
-.modal-check{flex-shrink:0;width:18px;height:18px;border:1px solid rgba(32,36,31,.4);margin-top:1px;position:relative;transition:all .3s var(--ease);background:transparent}
+.modal-check{flex-shrink:0;width:18px;height:18px;border:1px solid rgba(32,36,31,.4);margin-top:1px;position:relative}
 .modal-consent input:checked + .modal-check{background:var(--brass);border-color:var(--brass)}
 .modal-consent input:checked + .modal-check::after{content:'';position:absolute;left:5px;top:1px;width:6px;height:11px;border:solid var(--forest);border-width:0 2px 2px 0;transform:rotate(45deg)}
 .modal-consent a{color:var(--blue-deep);border-bottom:1px solid rgba(74,99,119,.3)}
-.modal-submit{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:18px 28px;background:var(--forest);color:var(--ivory);border:1px solid var(--forest);transition:all .4s var(--ease);cursor:pointer;margin-top:8px;width:100%}
+.modal-submit{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:18px 28px;background:var(--forest);color:var(--ivory);border:1px solid var(--forest);cursor:pointer;margin-top:8px;width:100%}
 .modal-submit:hover{background:var(--olive);border-color:var(--olive)}
 .modal-submit:disabled{opacity:.5;cursor:not-allowed}
 .modal-message{display:none;padding:20px;border-left:3px solid var(--brass);background:rgba(168,141,98,.1);font-size:14px;color:var(--forest);line-height:1.6}
 .modal-message.success{display:block}
 .modal-message.error{display:block;border-left-color:#b94a4a;background:rgba(185,74,74,.08)}
 
+/* REVEAL */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.in-view{opacity:1;transform:translateY(0)}
 .reveal.delay-1{transition-delay:.08s}
 .reveal.delay-2{transition-delay:.16s}
 .reveal.delay-3{transition-delay:.24s}
 
-@media (max-width:1200px){.nav a:not(.social-link):not(.btn-nav){font-size:12px}.nav{gap:18px}.btn-nav{padding:10px 16px;font-size:11px}}
-@media (max-width:1000px){.social-group{display:none}}
-@media (max-width:900px){.nav a:not(.social-link):not(.btn-nav){display:none}.nav{gap:12px}}
+@media (max-width:1100px){.social-group{display:none}}
+@media (max-width:900px){.nav-link{display:none}}
 @media (max-width:1024px){.who-grid,.ps-inner{grid-template-columns:1fr}.who-img{aspect-ratio:16/10}.proj-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}.step{border-right:none;border-bottom:1px solid rgba(32,36,31,.1);padding:28px 0}.step:nth-child(2n),.step:nth-child(3n),.step:nth-child(4n){padding-left:0}.service-block{grid-template-columns:1fr;gap:20px}.q-container{grid-template-columns:1fr;gap:40px}.dir-content-inner{padding-left:0}.dir-features{grid-template-columns:1fr 1fr}}
-@media (max-width:720px){.nav{display:none}.menu-toggle{display:block}.header{padding:18px 0}.hero-foot{font-size:9px}.proj-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.service-block .sb-list{grid-template-columns:1fr}.who{padding:56px 0}.who-img{aspect-ratio:4/3}.who-text h2{font-size:30px}.dir-trigger{grid-template-columns:32px 1fr auto;gap:12px;padding:20px 10px}.dir-title{font-size:24px}.dir-format{grid-template-columns:72px 1fr;gap:16px;padding:22px 16px}.dir-format .df-icon{width:52px;height:52px}.dir-format .df-text h4{font-size:21px}.dir-levels-scale{grid-template-columns:repeat(3,1fr)}.dir-gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;aspect-ratio:auto}.dir-gallery .dg-item:nth-child(1){grid-column:1/3;grid-row:1;aspect-ratio:4/3}.projects{padding:56px 0}.personal-story{padding:56px 0}.ps-left h2{font-size:30px}.process{padding:56px 0}.services{padding:56px 0}.services-intro h2{font-size:30px}.questionnaire{padding:56px 0}.q-side h2{font-size:30px}.q-form-wrap{padding:28px 22px}.final-cta{padding:64px 0 56px}.final-cta h2{font-size:32px}.footer{padding:48px 0 24px}.foot-top{flex-direction:column;align-items:stretch;gap:16px}.foot-nav{margin-left:0;gap:20px}.foot-contacts{flex-direction:column;align-items:flex-start;gap:16px}.foot-middle{flex-direction:column;align-items:flex-start;gap:24px}.foot-service{margin-left:0;gap:16px}.foot-bottom-new{text-align:left}.foot-legal{justify-content:flex-start}.foot-meta{margin:0}.section-head h2{font-size:30px}.cookie-banner-inner{flex-direction:column;align-items:stretch;gap:16px}.cookie-actions{justify-content:stretch}.cookie-btn{flex:1;text-align:center}.modal-overlay{padding:0;align-items:flex-end}.modal{max-width:100%;padding:28px 22px 32px}}
+@media (max-width:720px){.nav{display:none}.menu-toggle{display:block}.header{padding:18px 0}.proj-grid{grid-template-columns:1fr}.process-grid{grid-template-columns:1fr}.service-block .sb-list{grid-template-columns:1fr}.who{padding:56px 0}.who-img{aspect-ratio:4/3}.who-text h2{font-size:30px}.dir-trigger{grid-template-columns:32px 1fr auto;gap:12px;padding:20px 10px}.dir-title{font-size:24px}.dir-format{grid-template-columns:72px 1fr;gap:16px;padding:22px 16px}.dir-format .df-icon{width:52px;height:52px}.dir-format .df-text h4{font-size:21px}.dir-gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;aspect-ratio:auto}.dir-gallery .dg-item:nth-child(1){grid-column:1/3;grid-row:1;aspect-ratio:4/3}.projects{padding:56px 0}.personal-story{padding:56px 0}.ps-left h2{font-size:30px}.process{padding:56px 0}.services{padding:56px 0}.services-intro h2{font-size:30px}.questionnaire{padding:56px 0}.q-side h2{font-size:30px}.q-form-wrap{padding:28px 22px}.final-cta{padding:64px 0 56px}.final-cta h2{font-size:32px}.footer{padding:48px 0 24px}.foot-top{flex-direction:column;align-items:stretch;gap:16px}.foot-nav{margin-left:0;gap:20px}.foot-contacts{flex-direction:column;align-items:flex-start;gap:16px}.foot-middle{flex-direction:column;align-items:flex-start;gap:24px}.foot-service{margin-left:0;gap:16px}.foot-bottom-new{text-align:left}.foot-meta{margin:0}.section-head h2{font-size:30px}.cookie-banner-inner{flex-direction:column;align-items:stretch;gap:16px}.cookie-actions{justify-content:stretch}.cookie-btn{flex:1;text-align:center}.modal-overlay{padding:0;align-items:flex-end}.modal{max-width:100%;padding:28px 22px 32px}}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
 </head>
@@ -319,26 +325,18 @@ section{position:relative}
 <header class="header hero-over" id="header">
   <div class="container nav-inner">
     <a href="#" class="logo">
-      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M6 8 L20 34 L34 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M20 34 L20 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
-        <path d="M20 5 L20.9 8.1 L24 9 L20.9 9.9 L20 13 L19.1 9.9 L16 9 L19.1 8.1 Z" fill="#A88D62"/>
-      </svg>
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 8 L20 34 L34 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 34 L20 22" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M20 5 L20.9 8.1 L24 9 L20.9 9.9 L20 13 L19.1 9.9 L16 9 L19.1 8.1 Z" fill="#A88D62"/></svg>
       <span>VIOKRISTA</span>
     </a>
     <nav class="nav">
-      <a href="#directions">Направления</a>
-      <a href="#projects">Проекты</a>
-      <a href="#process">Процесс</a>
-      <a href="#services">Услуги</a>
-      <a href="#about">О студии</a>
+      <a href="#directions" class="nav-link">Направления</a>
+      <a href="#projects" class="nav-link">Проекты</a>
+      <a href="#process" class="nav-link">Процесс</a>
+      <a href="#services" class="nav-link">Услуги</a>
+      <a href="#about" class="nav-link">О студии</a>
       <div class="social-group">
-        <a href="https://t.me/VioKrista" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.85-10.4c0 .79-.65 1.44-1.44 1.44-.79 0-1.44-.65-1.44-1.44 0-.79.65-1.44 1.44-1.44.79 0 1.44.65 1.44 1.44z"/></svg>
-        </a>
+        <a href="https://t.me/VioKrista" target="_blank" rel="noopener" class="social-link" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+        <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></a>
       </div>
       <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn-nav">Обсудить проект</a>
       <button type="button" class="btn-nav btn-consult" data-consult>Получить консультацию</button>
@@ -358,8 +356,8 @@ section{position:relative}
     <a href="#about">О студии</a>
   </nav>
   <div class="mm-social">
-    <a href="https://t.me/VioKrista" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
-    <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.85-10.4c0 .79-.65 1.44-1.44 1.44-.79 0-1.44-.65-1.44-1.44 0-.79.65-1.44 1.44-1.44.79 0 1.44.65 1.44 1.44z"/></svg></a>
+    <a href="https://t.me/VioKrista" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+    <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></a>
   </div>
   <div class="mm-phone">
     <a href="tel:+79628333044">+7 (962) 833-30-44</a>
@@ -391,9 +389,7 @@ section{position:relative}
 <section class="who" id="about">
   <div class="container">
     <div class="who-grid">
-      <div class="who-img reveal">
-        <img src="images/founders.jpg" alt="Основательницы VIOKRISTA" loading="lazy">
-      </div>
+      <div class="who-img reveal"><img src="images/founders.jpg" alt="Основательницы VIOKRISTA" loading="lazy"></div>
       <div class="who-text reveal delay-1">
         <span class="eyebrow">Кто мы</span>
         <h2>VIOKRISTA — студия пространства, искусства и <em>историй.</em></h2>
@@ -432,7 +428,7 @@ section{position:relative}
               <li>Анкета и знакомство</li><li>Анализ пространства</li><li>Планировочное решение</li><li>Концепция интерьера</li><li>3D-визуализация</li><li>Рабочая документация</li><li>Комплектация</li><li>Авторский надзор</li>
             </ul>
             <div class="dir-gallery">
-              <div class="dg-item"><img src="images/interior-1.jpg" alt="Интерьер" loading="lazy"></div>
+              <div class="dg-item"><img src="images/interior-1.jpg" alt="" loading="lazy"></div>
               <div class="dg-item"><img src="images/interior-2.jpg" alt="" loading="lazy"></div>
               <div class="dg-item"><img src="images/interior-3.jpg" alt="" loading="lazy"></div>
               <div class="dg-item"><img src="images/interior-4.jpg" alt="" loading="lazy"></div>
@@ -456,75 +452,28 @@ section{position:relative}
               <p>Внутри направления есть три формата — от классической авторской росписи до истории с цифровым продолжением. Каждый формат можно заказать отдельно или интегрировать в интерьерный проект.</p>
             </div>
             <div class="dir-formats">
-              <div class="dir-subhead">
-                <span class="sh-num">01</span>
-                <span class="sh-title">Форматы росписи</span>
-              </div>
+              <div class="dir-subhead"><span class="sh-num">01</span><span class="sh-title">Форматы росписи</span></div>
               <div class="dir-formats-grid">
                 <div class="dir-format">
-                  <div class="df-icon-wrap">
-                    <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-                      <path d="M6 38 L22 6 L38 38" stroke="#4A6377" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                      <path d="M22 38 L22 22" stroke="#4A6377" stroke-width="1.6" stroke-linecap="round"/>
-                      <circle cx="22" cy="15" r="2.5" fill="#A88D62"/>
-                    </svg>
-                    <div class="df-num">01 / 03</div>
-                  </div>
-                  <div class="df-text">
-                    <h4>Авторская роспись</h4>
-                    <p>Индивидуальный сюжет, созданный под ваше пространство и под вас. Роспись становится частью архитектуры и делает пространство именно вашим — не декор, не «картинка на стене».</p>
-                  </div>
+                  <div class="df-icon-wrap"><svg class="df-icon" viewBox="0 0 44 44" fill="none"><path d="M6 38 L22 6 L38 38" stroke="#4A6377" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 38 L22 22" stroke="#4A6377" stroke-width="1.6"/><circle cx="22" cy="15" r="2.5" fill="#A88D62"/></svg><div class="df-num">01 / 03</div></div>
+                  <div class="df-text"><h4>Авторская роспись</h4><p>Индивидуальный сюжет, созданный под ваше пространство и под вас. Роспись становится частью архитектуры.</p></div>
                 </div>
                 <div class="dir-format">
-                  <div class="df-icon-wrap">
-                    <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-                      <rect x="10" y="10" width="24" height="24" stroke="#A88D62" stroke-width="1.6"/>
-                      <rect x="14" y="14" width="6" height="6" fill="#A88D62"/>
-                      <rect x="24" y="24" width="6" height="6" fill="#A88D62"/>
-                    </svg>
-                    <div class="df-num">02 / 03</div>
-                  </div>
-                  <div class="df-text">
-                    <h4>Роспись + игра</h4>
-                    <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене. Подходит для детских центров, клиник, кафе и образовательных пространств.</p>
-                  </div>
+                  <div class="df-icon-wrap"><svg class="df-icon" viewBox="0 0 44 44" fill="none"><rect x="10" y="10" width="24" height="24" stroke="#A88D62" stroke-width="1.6"/><rect x="14" y="14" width="6" height="6" fill="#A88D62"/><rect x="24" y="24" width="6" height="6" fill="#A88D62"/></svg><div class="df-num">02 / 03</div></div>
+                  <div class="df-text"><h4>Роспись + игра</h4><p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене.</p></div>
                 </div>
                 <div class="dir-format">
-                  <div class="df-icon-wrap">
-                    <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
-                      <path d="M22 38 C12 32, 6 24, 6 16 C6 10, 11 6, 16 6 C18 6, 20 7, 22 11 C24 7, 26 6, 28 6 C33 6, 38 10, 38 16 C38 24, 32 32, 22 38 Z" stroke="#737B67" stroke-width="1.6" stroke-linejoin="round"/>
-                      <circle cx="22" cy="20" r="2.5" fill="#A88D62"/>
-                    </svg>
-                    <div class="df-num">03 / 03</div>
-                  </div>
-                  <div class="df-text">
-                    <h4>Роспись + история</h4>
-                    <p>Личная или семейная история становится частью пространства. QR ведёт к фотографиям, аудио, текстам или цифровому архиву.</p>
-                  </div>
+                  <div class="df-icon-wrap"><svg class="df-icon" viewBox="0 0 44 44" fill="none"><path d="M22 38 C12 32, 6 24, 6 16 C6 10, 11 6, 16 6 C18 6, 20 7, 22 11 C24 7, 26 6, 28 6 C33 6, 38 10, 38 16 C38 24, 32 32, 22 38 Z" stroke="#737B67" stroke-width="1.6" stroke-linejoin="round"/><circle cx="22" cy="20" r="2.5" fill="#A88D62"/></svg><div class="df-num">03 / 03</div></div>
+                  <div class="df-text"><h4>Роспись + история</h4><p>Личная или семейная история становится частью пространства. QR ведёт к фото, аудио, текстам.</p></div>
                 </div>
               </div>
             </div>
             <div class="dir-levels">
-              <div class="dir-subhead">
-                <span class="sh-num">02</span>
-                <span class="sh-title">Уровни сложности</span>
-              </div>
+              <div class="dir-subhead"><span class="sh-num">02</span><span class="sh-title">Уровни сложности</span></div>
               <div class="dir-levels-scale">
-                <div class="dir-level">
-                  <div class="dl-marker"></div>
-                  <span class="dl-name">Минимальная</span>
-                  <span class="dl-desc">Простой сюжет, ограниченная палитра, небольшой объём.</span>
-                </div>
-                <div class="dir-level">
-                  <div class="dl-marker"></div>
-                  <span class="dl-name">Средняя</span>
-                  <span class="dl-desc">Детализированный сюжет, несколько элементов, работа с цветом.</span>
-                </div>
-                <div class="dir-level">
-                  <div class="dl-marker"></div>
-                  <span class="dl-name">Высокая</span>
-                  <span class="dl-desc">Многослойная композиция, максимум деталей, сложные переходы.</span>
-                </div>
+                <div class="dir-level"><div class="dl-marker"></div><span class="dl-name">Минимальная</span><span class="dl-desc">Простой сюжет, ограниченная палитра, небольшой объём.</span></div>
+                <div class="dir-level"><div class="dl-marker"></div><span class="dl-name">Средняя</span><span class="dl-desc">Детализированный сюжет, несколько элементов, работа с цветом.</span></div>
+                <div class="dir-level"><div class="dl-marker"></div><span class="dl-name">Высокая</span><span class="dl-desc">Многослойная композиция, максимум деталей, сложные переходы.</span></div>
               </div>
             </div>
             <div class="dir-gallery">
@@ -544,59 +493,23 @@ section{position:relative}
 <!-- PROJECTS -->
 <section class="projects" id="projects">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Selected Projects</span>
-      <h2>Проекты <em>VIOKRISTA.</em></h2>
-    </div>
+    <div class="section-head reveal"><span class="eyebrow">Selected Projects</span><h2>Проекты <em>VIOKRISTA.</em></h2></div>
     <div class="proj-grid">
       <div class="proj-item reveal">
-        <div class="proj-thumb">
-          <img src="images/orel.jpg" alt="Детский центр — Орлёнок" loading="lazy">
-          <span class="thumb-num">01</span>
-          <span class="proj-status">Реализовано</span>
-        </div>
-        <div class="proj-body">
-          <h4>Детский центр — Орлёнок</h4>
-          <div class="p-info">Авторская роспись · Детский центр</div>
-          <p class="p-desc">Роспись для детского центра. Изображён орлёнок и декоративные орнаменты.</p>
-        </div>
+        <div class="proj-thumb"><img src="images/orel.jpg" alt="" loading="lazy"><span class="thumb-num">01</span><span class="proj-status">Реализовано</span></div>
+        <div class="proj-body"><h4>Детский центр — Орлёнок</h4><div class="p-info">Авторская роспись · Детский центр</div><p class="p-desc">Роспись для детского центра. Изображён орлёнок и декоративные орнаменты.</p></div>
       </div>
       <div class="proj-item reveal delay-1">
-        <div class="proj-thumb">
-          <img src="images/edinorog.jpg" alt="Детская комната — Единорог" loading="lazy">
-          <span class="thumb-num">02</span>
-          <span class="proj-status">Реализовано</span>
-        </div>
-        <div class="proj-body">
-          <h4>Детская комната — Единорог</h4>
-          <div class="p-info">Авторская роспись · Детская комната</div>
-          <p class="p-desc">Роспись с единорогом в детской комнате. Мягкая палитра, декоративные элементы.</p>
-        </div>
+        <div class="proj-thumb"><img src="images/edinorog.jpg" alt="" loading="lazy"><span class="thumb-num">02</span><span class="proj-status">Реализовано</span></div>
+        <div class="proj-body"><h4>Детская комната — Единорог</h4><div class="p-info">Авторская роспись · Детская комната</div><p class="p-desc">Роспись с единорогом в детской комнате. Мягкая палитра, декоративные элементы.</p></div>
       </div>
       <div class="proj-item reveal">
-        <div class="proj-thumb">
-          <img src="images/traktor.jpg" alt="Детская комната — Синий трактор" loading="lazy">
-          <span class="thumb-num">03</span>
-          <span class="proj-status">Реализовано</span>
-        </div>
-        <div class="proj-body">
-          <h4>Детская комната — Синий трактор</h4>
-          <div class="p-info">Авторская роспись · Детская комната</div>
-          <p class="p-desc">Роспись в детской комнате с синим трактором и полями.</p>
-        </div>
+        <div class="proj-thumb"><img src="images/traktor.jpg" alt="" loading="lazy"><span class="thumb-num">03</span><span class="proj-status">Реализовано</span></div>
+        <div class="proj-body"><h4>Детская комната — Синий трактор</h4><div class="p-info">Авторская роспись · Детская комната</div><p class="p-desc">Роспись в детской комнате с синим трактором и полями.</p></div>
       </div>
       <div class="proj-item reveal delay-1">
-        <div class="proj-thumb">
-          <img src="images/lirika.jpg" alt="Лирика души — дипломный проект" loading="lazy">
-          <span class="thumb-num">04</span>
-          <span class="proj-status diploma">Дипломный проект</span>
-        </div>
-        <div class="proj-body">
-          <h4>Лирика души</h4>
-          <div class="p-info">Архитектура · Алтай, Белтыр · 52 га</div>
-          <p class="p-desc">Экокомплекс: 12 объектов, 8 гостевых домов. Дипломный / концептуальный проект.</p>
-          <a href="baza-otdyha.html" class="proj-link-btn">Перейти на базу отдыха <span class="arrow">→</span></a>
-        </div>
+        <div class="proj-thumb"><img src="images/lirika.jpg" alt="" loading="lazy"><span class="thumb-num">04</span><span class="proj-status diploma">Дипломный проект</span></div>
+        <div class="proj-body"><h4>Лирика души</h4><div class="p-info">Архитектура · Алтай, Белтыр · 52 га</div><p class="p-desc">Экокомплекс: 12 объектов, 8 гостевых домов. Дипломный / концептуальный проект.</p><a href="baza-otdyha.html" class="proj-link-btn">Перейти на базу отдыха <span class="arrow">→</span></a></div>
       </div>
     </div>
   </div>
@@ -616,9 +529,7 @@ section{position:relative}
         <div class="ps-step"><span class="ps-num">02</span><div class="ps-content"><h4>Визуальная идея</h4><p>Мы переводим историю в образ, символ, сюжет.</p></div></div>
         <div class="ps-step"><span class="ps-num">03</span><div class="ps-content"><h4>Роспись</h4><p>Авторская роспись становится носителем вашей истории.</p></div></div>
         <div class="ps-step"><span class="ps-num">04</span><div class="ps-content"><h4>Цифровое продолжение</h4><p>QR может вести к фотографиям, аудио, текстам или цифровому архиву.</p></div></div>
-        <div class="ps-cta">
-          <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">Обсудить персональное решение <span class="arrow">→</span></a>
-        </div>
+        <div class="ps-cta"><a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">Обсудить персональное решение <span class="arrow">→</span></a></div>
       </div>
     </div>
   </div>
@@ -627,10 +538,7 @@ section{position:relative}
 <!-- PROCESS -->
 <section class="process" id="process">
   <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Процесс</span>
-      <h2>От идеи до <em>пространства.</em></h2>
-    </div>
+    <div class="section-head reveal"><span class="eyebrow">Процесс</span><h2>От идеи до <em>пространства.</em></h2></div>
     <div class="process-grid">
       <div class="step reveal"><span class="num">01</span><h3>Знакомство</h3><p>Задачи, образ жизни, пожелания и особенности пространства.</p></div>
       <div class="step reveal delay-1"><span class="num">02</span><h3>Исследование</h3><p>Изучаем помещение, исходные данные и ограничения.</p></div>
@@ -643,30 +551,16 @@ section{position:relative}
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="container">
-    <div class="services-intro reveal">
-      <span class="eyebrow">Услуги</span>
-      <h2>Что мы <em>делаем.</em></h2>
-      <p>Два направления VIOKRISTA можно заказать отдельно или вместе — как единое пространство.</p>
-    </div>
+    <div class="services-intro reveal"><span class="eyebrow">Услуги</span><h2>Что мы <em>делаем.</em></h2><p>Два направления VIOKRISTA можно заказать отдельно или вместе — как единое пространство.</p></div>
     <div class="service-block reveal">
-      <div class="sb-left">
-        <div class="sb-num">01</div>
-        <h3>Дизайн <em>интерьера</em></h3>
-        <p class="sb-tag">Главное направление студии.</p>
-      </div>
+      <div class="sb-left"><div class="sb-num">01</div><h3>Дизайн <em>интерьера</em></h3><p class="sb-tag">Главное направление студии.</p></div>
       <div>
-        <ul class="sb-list">
-          <li>Анкета и знакомство</li><li>Анализ пространства</li><li>Планировочное решение</li><li>Концепция интерьера</li><li>3D-визуализация</li><li>Рабочая документация</li><li>Комплектация</li><li>Авторский надзор</li>
-        </ul>
+        <ul class="sb-list"><li>Анкета и знакомство</li><li>Анализ пространства</li><li>Планировочное решение</li><li>Концепция интерьера</li><li>3D-визуализация</li><li>Рабочая документация</li><li>Комплектация</li><li>Авторский надзор</li></ul>
         <p class="sb-note">Авторский надзор подключается при необходимости и оплачивается отдельно.</p>
       </div>
     </div>
     <div class="service-block reveal">
-      <div class="sb-left">
-        <div class="sb-num">02</div>
-        <h3>Авторская <em>роспись</em></h3>
-        <p class="sb-tag">Второе направление студии.</p>
-      </div>
+      <div class="sb-left"><div class="sb-num">02</div><h3>Авторская <em>роспись</em></h3><p class="sb-tag">Второе направление студии.</p></div>
       <div>
         <p style="font-size:15px;color:var(--text);margin-bottom:20px;max-width:60ch;line-height:1.7;">Роспись создаётся специально под ваше пространство — с учётом архитектуры, света, цвета и вашей идеи. Три формата — от классической авторской росписи до истории с цифровым продолжением.</p>
         <p class="sb-note">Роспись может быть интегрирована в интерьерный проект или заказана отдельно.</p>
@@ -686,9 +580,7 @@ section{position:relative}
     <div class="q-form-wrap reveal delay-1">
       <h3 class="q-cta-title">Готовы <em>начать?</em></h3>
       <p class="q-cta-text">Заполните анкету — это займёт несколько минут. Расскажите о пространстве, своих пожеланиях и референсах. Мы свяжемся с вами, чтобы обсудить проект.</p>
-      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">
-        Заполнить анкету <span class="arrow">→</span>
-      </a>
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">Заполнить анкету <span class="arrow">→</span></a>
       <p class="q-cta-note">Откроется в новой вкладке. Отправляя заявку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
     </div>
   </div>
@@ -725,74 +617,38 @@ section{position:relative}
       <input type="hidden" name="subject" value="Новая заявка с сайта VIOKRISTA">
       <input type="hidden" name="from_name" value="VIOKRISTA">
       <input type="checkbox" name="botcheck" style="display:none !important">
-      <div class="modal-field">
-        <label for="consultName">Ваше имя</label>
-        <input type="text" id="consultName" name="name" placeholder="Имя" required>
-      </div>
-      <div class="modal-field">
-        <label for="consultPhone">Контактный телефон</label>
-        <input type="tel" id="consultPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
-      </div>
-      <div class="modal-field">
-        <label for="consultEmail">Email</label>
-        <input type="email" id="consultEmail" name="email" placeholder="example@mail.ru" required>
-      </div>
-      <label class="modal-consent">
-        <input type="checkbox" id="consultConsent" required>
-        <span class="modal-check"></span>
-        <span>Даю согласие на обработку персональных данных для связи со мной. Согласен(а) с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.</span>
-      </label>
+      <div class="modal-field"><label for="consultName">Ваше имя</label><input type="text" id="consultName" name="name" placeholder="Имя" required></div>
+      <div class="modal-field"><label for="consultPhone">Контактный телефон</label><input type="tel" id="consultPhone" name="phone" placeholder="+7 (___) ___-__-__" required></div>
+      <div class="modal-field"><label for="consultEmail">Email</label><input type="email" id="consultEmail" name="email" placeholder="example@mail.ru" required></div>
+      <label class="modal-consent"><input type="checkbox" id="consultConsent" required><span class="modal-check"></span><span>Даю согласие на обработку персональных данных для связи со мной. Согласен(а) с <a href="privacy.html" target="_blank" rel="noopener">политикой конфиденциальности</a>.</span></label>
       <button type="submit" class="modal-submit" id="consultSubmit">Получить консультацию <span class="arrow">→</span></button>
       <div class="modal-message" id="consultMessage"></div>
     </form>
   </div>
 </div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="foot-top">
       <button type="button" class="foot-cta" data-consult>Получить консультацию</button>
-      <button class="foot-up" id="footUp" aria-label="Наверх">Вверх <span class="foot-up-arrow">↑</span></button>
-      <nav class="foot-nav">
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#projects">Портфолио</a>
-      </nav>
+      <button class="foot-up" id="footUp">Вверх <span class="foot-up-arrow">↑</span></button>
+      <nav class="foot-nav"><a href="#about">О нас</a><a href="#services">Услуги</a><a href="#projects">Портфолио</a></nav>
     </div>
-
     <div class="foot-contacts">
-      <a href="tel:+79628333044" class="foot-contact-item">
-        <svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        +7 (962) 833-30-44
-      </a>
-      <a href="tel:+79513613880" class="foot-contact-item">
-        <svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        +7 (951) 361-38-80
-      </a>
-      <a href="mailto:viokrista16@gmail.com" class="foot-contact-item">
-        <svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        viokrista16@gmail.com
-      </a>
-      <div class="foot-contact-item">
-        <svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Пн–Пт 09:00–18:00, Сб–Вс — выходной
-      </div>
+      <a href="tel:+79628333044" class="foot-contact-item"><svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>+7 (962) 833-30-44</a>
+      <a href="tel:+79513613880" class="foot-contact-item"><svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>+7 (951) 361-38-80</a>
+      <a href="mailto:viokrista16@gmail.com" class="foot-contact-item"><svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.6"/></svg>viokrista16@gmail.com</a>
+      <div class="foot-contact-item"><svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Пн–Пт 09:00–18:00</div>
     </div>
-
     <div class="foot-middle">
       <div class="foot-socials">
-        <a href="https://t.me/VioKrista" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
-        <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.85-10.4c0 .79-.65 1.44-1.44 1.44-.79 0-1.44-.65-1.44-1.44 0-.79.65-1.44 1.44-1.44.79 0 1.44.65 1.44 1.44z"/></svg></a>
-        <a href="https://wa.me/79628333044" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.39 9.39 0 0 1-1.44-5.02c0-5.19 4.23-9.41 9.42-9.41 2.52 0 4.88.98 6.66 2.76a9.35 9.35 0 0 1 2.76 6.66c-.01 5.18-4.23 9.42-9.43 9.42zM20.52 3.48A11.75 11.75 0 0 0 12.04 0C5.5 0 .18 5.31.18 11.84c0 2.09.55 4.13 1.59 5.93L.08 24l6.38-1.67a11.83 11.83 0 0 0 5.58 1.42h.01c6.53 0 11.85-5.31 11.85-11.84 0-3.17-1.23-6.14-3.38-8.43z"/></svg></a>
+        <a href="https://t.me/VioKrista" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+        <a href="https://www.instagram.com/viokrista" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.13 1.38C1.34 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.13.67.66 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.13-1.38.66-.67 1.08-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.13-.67-.66-1.34-1.08-2.13-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84c-3.4 0-6.16 2.76-6.16 6.16S8.6 18.16 12 18.16s6.16-2.76 6.16-6.16S15.4 5.84 12 5.84zm0 10.16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg></a>
+        <a href="https://wa.me/79628333044" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.39 9.39 0 0 1-1.44-5.02c0-5.19 4.23-9.41 9.42-9.41 2.52 0 4.88.98 6.66 2.76a9.35 9.35 0 0 1 2.76 6.66c-.01 5.18-4.23 9.42-9.43 9.42zM20.52 3.48A11.75 11.75 0 0 0 12.04 0C5.5 0 .18 5.31.18 11.84c0 2.09.55 4.13 1.59 5.93L.08 24l6.38-1.67a11.83 11.83 0 0 0 5.58 1.42h.01c6.53 0 11.85-5.31 11.85-11.84 0-3.17-1.23-6.14-3.38-8.43z"/></svg></a>
       </div>
-      <nav class="foot-service">
-        <a href="privacy.html">Политика конфиденциальности</a>
-        <a href="privacy.html">Согласие на обработку</a>
-        <a href="#services">Услуги</a>
-        <a href="#projects">Портфолио</a>
-      </nav>
+      <nav class="foot-service"><a href="privacy.html">Политика конфиденциальности</a><a href="privacy.html">Согласие на обработку</a><a href="#services">Услуги</a><a href="#projects">Портфолио</a></nav>
     </div>
-
     <div class="foot-bottom-new">
       <p class="foot-copy">© VIOKRISTA · Дизайн интерьера и авторская роспись · Новосибирск</p>
       <p class="foot-meta">Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории Российской Федерации.</p>
@@ -801,160 +657,27 @@ section{position:relative}
 </footer>
 
 <script>
-// HEADER SCROLL
-const header = document.getElementById('header');
-const hero = document.querySelector('.hero');
-function updateHeader(){
-  const y = window.scrollY;
-  const heroBottom = hero.offsetHeight - 100;
-  if (y > 40) header.classList.add('scrolled'); else header.classList.remove('scrolled');
-  if (y > heroBottom) header.classList.remove('hero-over'); else header.classList.add('hero-over');
-}
-window.addEventListener('scroll', updateHeader, { passive: true });
-updateHeader();
-
-// MOBILE MENU
-const menuToggle = document.getElementById('menuToggle');
-const menuClose = document.getElementById('menuClose');
-const mobileMenu = document.getElementById('mobileMenu');
-menuToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
-menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
-
-// REVEAL ON SCROLL
-const revealEls = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-revealEls.forEach(el => io.observe(el));
-
-// DIRECTIONS ACCORDION
-const dirItems = document.querySelectorAll('.dir-item');
-dirItems.forEach(item => {
-  const trigger = item.querySelector('.dir-trigger');
-  trigger.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-    dirItems.forEach(i => {
-      if (i !== item) { i.classList.remove('open'); i.querySelector('.dir-trigger').setAttribute('aria-expanded','false'); }
-    });
-    if (!isOpen) { item.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
-    else { item.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
-  });
-});
-
-// FOOTER UP
-const footUp = document.getElementById('footUp');
-if (footUp) footUp.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-// SMOOTH ANCHORS
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', (e) => {
-    const id = a.getAttribute('href');
-    if (id === '#' || id.length < 2) return;
-    const target = document.querySelector(id);
-    if (!target) return;
-    e.preventDefault();
-    const top = target.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: 'smooth' });
-  });
-});
-
-// COOKIE BANNER
-(function(){
-  const banner = document.getElementById('cookieBanner');
-  const acceptBtn = document.getElementById('cookieAccept');
-  const declineBtn = document.getElementById('cookieDecline');
-  if (!banner) return;
-  const KEY = 'viokrista_cookie_choice';
-  let choice = null;
-  try { choice = localStorage.getItem(KEY); } catch(e){}
-  if (!choice) setTimeout(() => banner.classList.add('show'), 1200);
-  function save(value){ try { localStorage.setItem(KEY, value); localStorage.setItem(KEY+'_date', new Date().toISOString()); } catch(e){} banner.classList.remove('show'); }
-  if (acceptBtn) acceptBtn.addEventListener('click', () => save('accepted'));
-  if (declineBtn) declineBtn.addEventListener('click', () => save('declined'));
-})();
-
-// MODAL — Получить консультацию
-(function(){
-  const modal = document.getElementById('consultModal');
-  const closeBtn = document.getElementById('consultClose');
-  const form = document.getElementById('consultForm');
-  const submitBtn = document.getElementById('consultSubmit');
-  const messageEl = document.getElementById('consultMessage');
-  const phoneInput = document.getElementById('consultPhone');
-  if (!modal || !form) return;
-
-  document.querySelectorAll('[data-consult]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => { const n = document.getElementById('consultName'); if (n) n.focus(); }, 300);
-    });
-  });
-
-  function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; }
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
-
-  // Phone mask
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function(e){
-      let v = e.target.value.replace(/\D/g,'');
-      if (v.startsWith('8')) v = '7' + v.slice(1);
-      if (!v.startsWith('7')) v = '7' + v;
-      v = v.slice(0, 11);
-      let f = '+7';
-      if (v.length > 1) f += ' (' + v.slice(1,4);
-      if (v.length >= 5) f += ') ' + v.slice(4,7);
-      if (v.length >= 8) f += '-' + v.slice(7,9);
-      if (v.length >= 10) f += '-' + v.slice(9,11);
-      e.target.value = f;
-    });
-    phoneInput.addEventListener('focus', function(e){ if (!e.target.value) e.target.value = '+7 ('; });
-    phoneInput.addEventListener('blur', function(e){ if (e.target.value === '+7 (' || e.target.value === '+7') e.target.value = ''; });
-  }
-
-  form.addEventListener('submit', async function(e){
-    e.preventDefault();
-    const consent = document.getElementById('consultConsent');
-    if (!consent.checked) {
-      messageEl.className = 'modal-message error';
-      messageEl.textContent = 'Пожалуйста, подтвердите согласие на обработку персональных данных.';
-      return;
-    }
-    submitBtn.disabled = true;
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = 'Отправляем...';
-    try {
-      const formData = new FormData(form);
-      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
-      const data = await response.json();
-      if (data.success) {
-        messageEl.className = 'modal-message success';
-        messageEl.textContent = 'Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';
-        form.reset();
-        setTimeout(() => {
-          closeModal();
-          messageEl.className = 'modal-message';
-          messageEl.textContent = '';
-          submitBtn.innerHTML = originalText;
-          submitBtn.disabled = false;
-        }, 3000);
-      } else {
-        throw new Error(data.message || 'Ошибка');
-      }
-    } catch (err) {
-      messageEl.className = 'modal-message error';
-      messageEl.textContent = 'Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь по телефону.';
-      submitBtn.innerHTML = originalText;
-      submitBtn.disabled = false;
-    }
-  });
-})();
+const header=document.getElementById('header'),hero=document.querySelector('.hero');
+function updateHeader(){const y=window.scrollY,hb=hero.offsetHeight-100;header.classList.toggle('scrolled',y>40);header.classList.toggle('hero-over',y<=hb)}
+window.addEventListener('scroll',updateHeader,{passive:true});updateHeader();
+const menuToggle=document.getElementById('menuToggle'),menuClose=document.getElementById('menuClose'),mobileMenu=document.getElementById('mobileMenu');
+menuToggle.addEventListener('click',()=>mobileMenu.classList.add('open'));
+menuClose.addEventListener('click',()=>mobileMenu.classList.remove('open'));
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobileMenu.classList.remove('open')));
+const revealEls=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+revealEls.forEach(el=>io.observe(el));
+const dirItems=document.querySelectorAll('.dir-item');
+dirItems.forEach(item=>{const t=item.querySelector('.dir-trigger');t.addEventListener('click',()=>{const open=item.classList.contains('open');dirItems.forEach(i=>{if(i!==item){i.classList.remove('open');i.querySelector('.dir-trigger').setAttribute('aria-expanded','false')}});if(!open){item.classList.add('open');t.setAttribute('aria-expanded','true')}else{item.classList.remove('open');t.setAttribute('aria-expanded','false')}})});
+const footUp=document.getElementById('footUp');if(footUp)footUp.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',(e)=>{const id=a.getAttribute('href');if(id==='#'||id.length<2)return;const t=document.querySelector(id);if(!t)return;e.preventDefault();const top=t.getBoundingClientRect().top+window.scrollY-80;window.scrollTo({top,behavior:'smooth'})})});
+(function(){const b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept'),d=document.getElementById('cookieDecline');if(!b)return;const KEY='viokrista_cookie_choice';let c=null;try{c=localStorage.getItem(KEY)}catch(e){}if(!c)setTimeout(()=>b.classList.add('show'),1200);function save(v){try{localStorage.setItem(KEY,v);localStorage.setItem(KEY+'_date',new Date().toISOString())}catch(e){}b.classList.remove('show')}if(a)a.addEventListener('click',()=>save('accepted'));if(d)d.addEventListener('click',()=>save('declined'))})();
+(function(){const m=document.getElementById('consultModal'),cb=document.getElementById('consultClose'),f=document.getElementById('consultForm'),sb=document.getElementById('consultSubmit'),ms=document.getElementById('consultMessage'),ph=document.getElementById('consultPhone');if(!m||!f)return;
+document.querySelectorAll('[data-consult]').forEach(b=>{b.addEventListener('click',(e)=>{e.preventDefault();m.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>{const n=document.getElementById('consultName');if(n)n.focus()},300)})});
+function close(){m.classList.remove('open');document.body.style.overflow=''}
+if(cb)cb.addEventListener('click',close);m.addEventListener('click',(e)=>{if(e.target===m)close()});document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&m.classList.contains('open'))close()});
+if(ph){ph.addEventListener('input',function(e){let v=e.target.value.replace(/\D/g,'');if(v.startsWith('8'))v='7'+v.slice(1);if(!v.startsWith('7'))v='7'+v;v=v.slice(0,11);let r='+7';if(v.length>1)r+=' ('+v.slice(1,4);if(v.length>=5)r+=') '+v.slice(4,7);if(v.length>=8)r+='-'+v.slice(7,9);if(v.length>=10)r+='-'+v.slice(9,11);e.target.value=r});ph.addEventListener('focus',function(e){if(!e.target.value)e.target.value='+7 ('});ph.addEventListener('blur',function(e){if(e.target.value==='+7 ('||e.target.value==='+7')e.target.value=''})}
+f.addEventListener('submit',async function(e){e.preventDefault();const c=document.getElementById('consultConsent');if(!c.checked){ms.className='modal-message error';ms.textContent='Пожалуйста, подтвердите согласие на обработку персональных данных.';return}sb.disabled=true;const o=sb.innerHTML;sb.innerHTML='Отправляем...';try{const fd=new FormData(f);const r=await fetch('https://api.web3forms.com/submit',{method:'POST',body:fd});const d=await r.json();if(d.success){ms.className='modal-message success';ms.textContent='Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.';f.reset();setTimeout(()=>{close();ms.className='modal-message';ms.textContent='';sb.innerHTML=o;sb.disabled=false},3000)}else{throw new Error(d.message||'Ошибка')}}catch(err){ms.className='modal-message error';ms.textContent='Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь по телефону.';sb.innerHTML=o;sb.disabled=false}})})();
 </script>
 
 </body>
