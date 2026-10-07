@@ -65,7 +65,7 @@ h1, h2, h3, h4 {
 .container { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 section { position: relative; }
 
-/* ============ HEADER ============ */
+/* HEADER */
 .header {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 100;
@@ -116,16 +116,8 @@ section { position: relative; }
   flex-shrink: 0;
   color: var(--forest);
 }
-.social-link svg {
-  width: 16px; height: 16px;
-  fill: currentColor;
-  transition: transform 0.4s var(--ease);
-}
-.social-link:hover {
-  background: var(--forest);
-  color: var(--ivory);
-  border-color: var(--forest);
-}
+.social-link svg { width: 16px; height: 16px; fill: currentColor; transition: transform 0.4s var(--ease); }
+.social-link:hover { background: var(--forest); color: var(--ivory); border-color: var(--forest); }
 .social-link:hover svg { transform: scale(1.15); }
 .social-group { display: flex; gap: 10px; align-items: center; margin-left: 4px; }
 .btn-nav {
@@ -182,7 +174,7 @@ section { position: relative; }
   font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
 }
 
-/* ============ HERO ============ */
+/* HERO */
 .hero { height: 100vh; min-height: 640px; position: relative; overflow: hidden; background: var(--forest); }
 .hero-bg {
   position: absolute; inset: 0;
@@ -247,7 +239,7 @@ section { position: relative; }
 }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ============ BUTTONS ============ */
+/* BUTTONS */
 .btn {
   display: inline-flex; align-items: center; gap: 14px;
   font-family: var(--sans); font-size: 12px; font-weight: 500;
@@ -265,7 +257,7 @@ section { position: relative; }
 .btn-light { background: var(--ivory); color: var(--forest); border-color: var(--ivory); }
 .btn-light:hover { background: var(--sand); border-color: var(--sand); color: var(--forest); }
 
-/* ============ STORY LINE ============ */
+/* STORY LINE */
 .story-line { display: block; width: 100%; height: 60px; overflow: visible; }
 .story-line path {
   fill: none; stroke: var(--stone); stroke-width: 1;
@@ -275,12 +267,9 @@ section { position: relative; }
 .story-line.in-view path { stroke-dashoffset: 0; }
 .story-line.blue path { stroke: var(--blue); opacity: 0.7; }
 
-/* ============ WHO WE ARE ============ */
+/* WHO WE ARE */
 .who { padding: clamp(64px, 9vw, 120px) 0; background: var(--ivory); }
-.who-grid {
-  display: grid; grid-template-columns: 1fr 1.2fr;
-  gap: clamp(32px, 6vw, 96px); align-items: center;
-}
+.who-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px, 6vw, 96px); align-items: center; }
 .who-img {
   aspect-ratio: 4/5; background: var(--forest);
   position: relative; overflow: hidden;
@@ -303,7 +292,7 @@ section { position: relative; }
 .who-text p { font-size: 16px; color: var(--text); margin-bottom: 18px; max-width: 52ch; line-height: 1.65; }
 .who-signature { margin-top: 32px; font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--olive); }
 
-/* ============ SECTION HEAD ============ */
+/* SECTION HEAD */
 .section-head { margin-bottom: clamp(36px, 5vw, 64px); max-width: 900px; }
 .section-head h2 { font-size: clamp(32px, 4.6vw, 68px); margin-top: 16px; }
 .section-head h2 em { font-style: italic; color: var(--blue-deep); }
@@ -313,7 +302,7 @@ section { position: relative; }
   background: var(--blue); vertical-align: middle; margin-right: 12px;
 }
 
-/* ============ DIRECTIONS ============ */
+/* DIRECTIONS */
 .directions { padding: clamp(40px, 6vw, 80px) 0 clamp(64px, 9vw, 120px); background: var(--ivory); }
 .dir-accordion { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(32,36,31,0.15); }
 .dir-item { border-bottom: 1px solid rgba(32,36,31,0.15); transition: background 0.6s var(--ease); position: relative; }
@@ -392,7 +381,7 @@ section { position: relative; }
   color: var(--blue); font-size: 9px; top: 5px;
 }
 
-/* ============ ФОРМАТЫ РОСПИСИ ============ */
+/* FORMATS */
 .dir-formats { margin-top: 40px; position: relative; }
 .dir-formats::before {
   content: ''; position: absolute;
@@ -400,21 +389,9 @@ section { position: relative; }
   background: linear-gradient(to right, transparent 0%, rgba(122,147,168,0.6) 15%, rgba(122,147,168,0.6) 85%, transparent 100%);
 }
 .dir-subhead { display: flex; align-items: baseline; gap: 16px; margin-bottom: 22px; position: relative; }
-.dir-subhead .sh-num {
-  font-family: var(--serif); font-style: italic;
-  font-size: 32px; color: var(--blue-deep);
-  line-height: 1; font-weight: 400;
-}
-.dir-subhead .sh-title {
-  font-family: var(--sans); font-size: 12px;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--forest); font-weight: 600;
-}
-.dir-subhead .sh-line {
-  flex: 1; height: 1px;
-  background: linear-gradient(to right, rgba(122,147,168,0.5), transparent);
-  align-self: center;
-}
+.dir-subhead .sh-num { font-family: var(--serif); font-style: italic; font-size: 32px; color: var(--blue-deep); line-height: 1; font-weight: 400; }
+.dir-subhead .sh-title { font-family: var(--sans); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--forest); font-weight: 600; }
+.dir-subhead .sh-line { flex: 1; height: 1px; background: linear-gradient(to right, rgba(122,147,168,0.5), transparent); align-self: center; }
 .dir-formats-grid { display: flex; flex-direction: column; gap: 0; border-top: 1px solid rgba(32,36,31,0.12); }
 .dir-format {
   display: grid; grid-template-columns: 110px 1fr;
@@ -440,33 +417,19 @@ section { position: relative; }
 .dir-format .df-icon-wrap { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
 .dir-format .df-icon { width: 44px; height: 44px; transition: transform 0.5s var(--ease); }
 .dir-format:hover .df-icon { transform: scale(1.1); }
-.dir-format .df-num {
-  font-family: var(--serif); font-style: italic;
-  font-size: 13px; letter-spacing: 0.14em;
-  color: var(--blue-deep); font-weight: 500;
-}
+.dir-format .df-num { font-family: var(--serif); font-style: italic; font-size: 13px; letter-spacing: 0.14em; color: var(--blue-deep); font-weight: 500; }
 .dir-format:nth-child(2) .df-num { color: var(--brass); }
 .dir-format:nth-child(3) .df-num { color: var(--olive); }
-.dir-format .df-text h4 {
-  font-family: var(--serif); font-size: 26px;
-  font-weight: 400; margin-bottom: 8px;
-  color: var(--forest); letter-spacing: -0.005em;
-}
-.dir-format .df-text p {
-  font-size: 15px; color: var(--text);
-  line-height: 1.65; max-width: 68ch; font-weight: 400;
-}
+.dir-format .df-text h4 { font-family: var(--serif); font-size: 26px; font-weight: 400; margin-bottom: 8px; color: var(--forest); letter-spacing: -0.005em; }
+.dir-format .df-text p { font-size: 15px; color: var(--text); line-height: 1.65; max-width: 68ch; font-weight: 400; }
 
-/* ============ УРОВНИ СЛОЖНОСТИ ============ */
+/* LEVELS */
 .dir-levels { margin-top: 40px; padding-top: 24px; position: relative; }
 .dir-levels::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(to right, transparent 0%, rgba(115,123,103,0.5) 15%, rgba(115,123,103,0.5) 85%, transparent 100%);
 }
-.dir-levels-scale {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 0; margin-top: 20px; position: relative;
-}
+.dir-levels-scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 20px; position: relative; }
 .dir-levels-scale::before {
   content: ''; position: absolute; top: 12px;
   left: 16.66%; right: 16.66%; height: 1px;
@@ -482,28 +445,16 @@ section { position: relative; }
   transition: all 0.4s var(--ease);
   display: flex; align-items: center; justify-content: center;
 }
-.dir-level .dl-marker::after {
-  content: ''; width: 10px; height: 10px;
-  border-radius: 50%; background: var(--blue);
-  transition: all 0.4s var(--ease);
-}
+.dir-level .dl-marker::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--blue); transition: all 0.4s var(--ease); }
 .dir-level:nth-child(2) .dl-marker { border-color: var(--olive); }
 .dir-level:nth-child(2) .dl-marker::after { background: var(--olive); width: 14px; height: 14px; }
 .dir-level:nth-child(3) .dl-marker { border-color: var(--brass); }
 .dir-level:nth-child(3) .dl-marker::after { background: var(--brass); width: 18px; height: 18px; }
 .dir-level:hover .dl-marker { transform: scale(1.15); }
-.dir-level .dl-name {
-  font-family: var(--serif); font-style: italic;
-  font-size: 22px; color: var(--forest);
-  display: block; margin-bottom: 8px; font-weight: 400;
-}
-.dir-level .dl-desc {
-  font-size: 13.5px; color: var(--text);
-  line-height: 1.55; font-weight: 400;
-  max-width: 28ch; margin: 0 auto;
-}
+.dir-level .dl-name { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--forest); display: block; margin-bottom: 8px; font-weight: 400; }
+.dir-level .dl-desc { font-size: 13.5px; color: var(--text); line-height: 1.55; font-weight: 400; max-width: 28ch; margin: 0 auto; }
 
-/* ============ ГАЛЕРЕЯ РОСПИСИ ============ */
+/* GALLERY */
 .dir-gallery {
   display: grid; grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -572,7 +523,7 @@ section { position: relative; }
 .dir-item.open .dir-content-inner > *:nth-child(5) { animation-delay: 0.55s; }
 @keyframes layerIn { to { opacity: 1; transform: translateY(0); } }
 
-/* ============ PROJECTS ============ */
+/* PROJECTS */
 .projects { padding: clamp(64px, 9vw, 120px) 0; background: var(--ivory); border-top: 1px solid rgba(32,36,31,0.08); }
 .proj-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 2.4vw, 40px); }
 .proj-item {
@@ -581,15 +532,8 @@ section { position: relative; }
   border: 1px solid rgba(32,36,31,0.12);
   transition: all 0.5s var(--ease);
 }
-a.proj-item:hover {
-  border-color: var(--blue-deep);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px -24px rgba(32,36,31,0.2);
-}
-.proj-item:not(a):hover {
-  border-color: var(--blue);
-  box-shadow: 0 20px 40px -24px rgba(32,36,31,0.15);
-}
+a.proj-item:hover { border-color: var(--blue-deep); transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(32,36,31,0.2); }
+.proj-item:not(a):hover { border-color: var(--blue); box-shadow: 0 20px 40px -24px rgba(32,36,31,0.15); }
 .proj-thumb {
   aspect-ratio: 4/3; background: var(--forest);
   position: relative; overflow: hidden;
@@ -604,18 +548,8 @@ a.proj-item:hover {
   z-index: 0;
 }
 .proj-thumb:has(img)::before { opacity: 0; }
-.proj-thumb img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center;
-  display: block; z-index: 1;
-}
-.proj-thumb .thumb-num {
-  position: absolute; top: 22px; left: 24px;
-  font-size: 10px; letter-spacing: 0.24em;
-  color: var(--blue-soft); z-index: 2;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
-}
+.proj-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; z-index: 1; }
+.proj-thumb .thumb-num { position: absolute; top: 22px; left: 24px; font-size: 10px; letter-spacing: 0.24em; color: var(--blue-soft); z-index: 2; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
 .proj-body { padding: 28px 30px 32px; }
 .proj-body h4 { font-family: var(--serif); font-size: 26px; margin-bottom: 8px; font-weight: 400; }
 .proj-body .p-info { font-size: 12px; letter-spacing: 0.08em; color: var(--stone); margin-bottom: 16px; }
@@ -640,40 +574,27 @@ a.proj-item:hover {
 .proj-link-btn .arrow { transition: transform 0.4s var(--ease); }
 .proj-link-btn:hover .arrow { transform: translateX(6px); }
 
-/* ============ PERSONAL STORY ============ */
-.personal-story {
-  padding: clamp(64px, 9vw, 120px) 0;
-  background: var(--forest); color: var(--ivory);
-  overflow: hidden; position: relative;
-}
+/* PERSONAL STORY */
+.personal-story { padding: clamp(64px, 9vw, 120px) 0; background: var(--forest); color: var(--ivory); overflow: hidden; position: relative; }
 .ps-deco { position: absolute; top: 0; right: 0; width: 55%; height: 100%; pointer-events: none; opacity: 0.45; }
 .ps-deco path { fill: none; stroke: var(--blue); stroke-width: 0.7; }
 .ps-deco .star { fill: var(--brass); opacity: 0.7; }
-.ps-inner {
-  display: grid; grid-template-columns: 1fr 1.3fr;
-  gap: clamp(32px, 6vw, 96px); align-items: start;
-  position: relative; z-index: 2;
-}
+.ps-inner { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(32px, 6vw, 96px); align-items: start; position: relative; z-index: 2; }
 .ps-left .eyebrow { color: var(--brass); }
 .ps-left h2 { font-size: clamp(30px, 4vw, 52px); margin: 16px 0 24px; }
 .ps-left h2 em { font-style: italic; color: var(--sand); }
 .ps-left p { font-size: 15px; color: var(--sand); line-height: 1.65; max-width: 42ch; }
 .ps-chain { display: flex; flex-direction: column; gap: 0; }
-.ps-step {
-  display: flex; align-items: flex-start; gap: 24px;
-  padding: 22px 0; border-bottom: 1px solid rgba(184,178,167,0.15);
-  transition: padding-left 0.5s var(--ease);
-}
+.ps-step { display: flex; align-items: flex-start; gap: 24px; padding: 22px 0; border-bottom: 1px solid rgba(184,178,167,0.15); transition: padding-left 0.5s var(--ease); }
 .ps-step:first-child { border-top: 1px solid rgba(184,178,167,0.15); }
 .ps-step:hover { padding-left: 8px; }
 .ps-step .ps-num { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--brass); min-width: 40px; }
 .ps-step .ps-content h4 { font-family: var(--serif); font-size: 20px; font-weight: 400; margin-bottom: 6px; color: var(--ivory); }
 .ps-step .ps-content p { font-size: 13px; color: var(--stone); line-height: 1.55; }
-.ps-step:nth-child(3) .ps-num,
-.ps-step:nth-child(4) .ps-num { color: var(--blue); }
+.ps-step:nth-child(3) .ps-num, .ps-step:nth-child(4) .ps-num { color: var(--blue); }
 .ps-cta { margin-top: 40px; }
 
-/* ============ PROCESS ============ */
+/* PROCESS */
 .process { padding: clamp(56px, 8vw, 100px) 0; background: var(--ivory); border-top: 1px solid rgba(32,36,31,0.08); }
 .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid rgba(32,36,31,0.15); }
 .step { padding: 32px 24px 32px 0; border-right: 1px solid rgba(32,36,31,0.1); transition: background 0.5s var(--ease); }
@@ -686,7 +607,7 @@ a.proj-item:hover {
 .step h3 { margin-bottom: 10px; font-family: var(--sans); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; }
 .step p { font-size: 14px; color: var(--text); line-height: 1.55; }
 
-/* ============ SERVICES ============ */
+/* SERVICES */
 .services { padding: clamp(64px, 9vw, 120px) 0; background: var(--ivory); border-top: 1px solid rgba(32,36,31,0.08); }
 .services-intro { max-width: 720px; margin-bottom: clamp(40px, 5vw, 64px); }
 .services-intro h2 { font-size: clamp(32px, 4.6vw, 68px); margin: 16px 0 20px; }
@@ -710,18 +631,14 @@ a.proj-item:hover {
   max-width: 60ch; line-height: 1.55;
 }
 
-/* ============ QUESTIONNAIRE ============ */
+/* QUESTIONNAIRE */
 .questionnaire { padding: clamp(64px, 9vw, 120px) 0; background: var(--forest); color: var(--ivory); position: relative; overflow: hidden; }
 .q-bg-deco { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
 .q-bg-deco svg { width: 100%; height: 100%; }
 .q-bg-deco .qline { fill: none; stroke: var(--blue); stroke-width: 0.5; opacity: 0.6; }
 .q-bg-deco .qline.olive { stroke: var(--olive); }
 .q-bg-deco .qstar { fill: var(--brass); }
-.q-container {
-  display: grid; grid-template-columns: 1fr 1.2fr;
-  gap: clamp(40px, 6vw, 96px); align-items: center;
-  position: relative; z-index: 2;
-}
+.q-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(40px, 6vw, 96px); align-items: center; position: relative; z-index: 2; }
 .q-side { position: sticky; top: 100px; }
 .q-side .eyebrow { color: var(--brass); }
 .q-side h2 { font-size: clamp(32px, 4vw, 56px); margin: 16px 0 24px; }
@@ -743,15 +660,18 @@ a.proj-item:hover {
   padding: clamp(32px, 4vw, 56px);
   text-align: left;
 }
-.q-form-wrap .q-cta-title {
-  font-family: var(--serif); font-size: clamp(26px, 3vw, 40px);
-  color: var(--ivory); margin-bottom: 20px; line-height: 1.15;
-}
+.q-form-wrap .q-cta-title { font-family: var(--serif); font-size: clamp(26px, 3vw, 40px); color: var(--ivory); margin-bottom: 20px; line-height: 1.15; }
 .q-form-wrap .q-cta-title em { font-style: italic; color: var(--sand); }
 .q-form-wrap .q-cta-text { font-size: 15px; color: var(--sand); line-height: 1.7; margin-bottom: 36px; max-width: 52ch; }
 .q-form-wrap .q-cta-note { font-size: 12px; color: var(--stone); font-style: italic; margin-top: 24px; line-height: 1.5; }
+.q-form-wrap .q-cta-note a {
+  color: var(--sand);
+  border-bottom: 1px solid rgba(205,189,167,0.4);
+  transition: border-color 0.3s var(--ease);
+}
+.q-form-wrap .q-cta-note a:hover { border-color: var(--sand); }
 
-/* ============ FINAL CTA ============ */
+/* FINAL CTA */
 .final-cta {
   background: var(--ivory); color: var(--forest);
   padding: clamp(80px, 11vw, 140px) 0 clamp(56px, 7vw, 88px);
@@ -765,7 +685,7 @@ a.proj-item:hover {
 .final-cta h2 { font-size: clamp(36px, 5.4vw, 80px); line-height: 1.05; max-width: 18ch; margin: 0 auto 40px; }
 .final-cta h2 em { font-style: italic; color: var(--blue-deep); }
 
-/* ============ FOOTER ============ */
+/* FOOTER */
 .footer { background: var(--forest); color: var(--stone); padding: 64px 0 32px; font-size: 14px; }
 .foot-top {
   display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
@@ -851,14 +771,14 @@ a.proj-item:hover {
 }
 .foot-legal a:hover { color: var(--ivory); }
 
-/* ============ REVEAL ============ */
+/* REVEAL */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .reveal.in-view { opacity: 1; transform: translateY(0); }
 .reveal.delay-1 { transition-delay: 0.08s; }
 .reveal.delay-2 { transition-delay: 0.16s; }
 .reveal.delay-3 { transition-delay: 0.24s; }
 
-/* ============ RESPONSIVE ============ */
+/* RESPONSIVE */
 @media (max-width: 1100px) {
   .social-group { display: none; }
 }
@@ -1132,7 +1052,6 @@ a.proj-item:hover {
     </div>
 
     <div class="dir-accordion">
-      <!-- 01 ДИЗАЙН ИНТЕРЬЕРА -->
       <div class="dir-item open reveal" data-dir="interior">
         <button class="dir-trigger" aria-expanded="true">
           <span class="dir-num">01</span>
@@ -1158,27 +1077,16 @@ a.proj-item:hover {
               <li>Авторский надзор</li>
             </ul>
             <div class="dir-gallery">
-              <div class="dg-item">
-                <img src="images/interior-1.jpg" alt="Интерьер — главное фото" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/interior-2.jpg" alt="" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/interior-3.jpg" alt="" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/interior-4.jpg" alt="" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/interior-5.jpg" alt="" loading="lazy">
-              </div>
+              <div class="dg-item"><img src="images/interior-1.jpg" alt="Интерьер — главное фото" loading="lazy"></div>
+              <div class="dg-item"><img src="images/interior-2.jpg" alt="" loading="lazy"></div>
+              <div class="dg-item"><img src="images/interior-3.jpg" alt="" loading="lazy"></div>
+              <div class="dg-item"><img src="images/interior-4.jpg" alt="" loading="lazy"></div>
+              <div class="dg-item"><img src="images/interior-5.jpg" alt="" loading="lazy"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 02 АВТОРСКАЯ РОСПИСЬ -->
       <div class="dir-item reveal" data-dir="art">
         <button class="dir-trigger" aria-expanded="false">
           <span class="dir-num">02</span>
@@ -1199,7 +1107,6 @@ a.proj-item:hover {
                 <span class="sh-title">Форматы росписи</span>
                 <span class="sh-line"></span>
               </div>
-
               <div class="dir-formats-grid">
                 <div class="dir-format">
                   <div class="df-icon-wrap">
@@ -1213,10 +1120,9 @@ a.proj-item:hover {
                   </div>
                   <div class="df-text">
                     <h4>Авторская роспись</h4>
-                    <p>Индивидуальный сюжет, созданный под ваше пространство и под вас. Роспись становится частью архитектуры и делает пространство именно вашим — не декор, не «картинка на стене».</p>
+                    <p>Индивидуальный сюжет, созданный под ваше пространство и под вас. Роспись становится частью архитектуры и делает пространство именно вашим.</p>
                   </div>
                 </div>
-
                 <div class="dir-format">
                   <div class="df-icon-wrap">
                     <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
@@ -1231,10 +1137,9 @@ a.proj-item:hover {
                   </div>
                   <div class="df-text">
                     <h4>Роспись + игра</h4>
-                    <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене. Подходит для детских центров, клиник, кафе и образовательных пространств — там, где важно вовлечь.</p>
+                    <p>QR-код ведёт к цифровой мини-игре, связанной с изображением на стене. Подходит для детских центров, клиник, кафе и образовательных пространств.</p>
                   </div>
                 </div>
-
                 <div class="dir-format">
                   <div class="df-icon-wrap">
                     <svg class="df-icon" viewBox="0 0 44 44" fill="none" aria-hidden="true">
@@ -1246,7 +1151,7 @@ a.proj-item:hover {
                   </div>
                   <div class="df-text">
                     <h4>Роспись + история</h4>
-                    <p>Личная или семейная история становится частью пространства. QR ведёт к фотографиям, аудио, текстам или цифровому архиву — так память остаётся рядом.</p>
+                    <p>Личная или семейная история становится частью пространства. QR ведёт к фотографиям, аудио, текстам или цифровому архиву.</p>
                   </div>
                 </div>
               </div>
@@ -1258,7 +1163,6 @@ a.proj-item:hover {
                 <span class="sh-title">Уровни сложности</span>
                 <span class="sh-line"></span>
               </div>
-
               <div class="dir-levels-scale">
                 <div class="dir-level">
                   <div class="dl-marker"></div>
@@ -1279,21 +1183,11 @@ a.proj-item:hover {
             </div>
 
             <div class="dir-gallery">
-              <div class="dg-item">
-                <video src="images/mural-video.mp4" autoplay muted loop playsinline preload="metadata"></video>
-              </div>
-              <div class="dg-item">
-                <img src="images/mural-2.jpg" alt="" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/mural-3.jpg" alt="" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/mural-4.jpg" alt="" loading="lazy">
-              </div>
-              <div class="dg-item">
-                <img src="images/mural-5.jpg" alt="" loading="lazy">
-              </div>
+              <div class="dg-item"><video src="images/mural-video.mp4" autoplay muted loop playsinline preload="metadata"></video></div>
+              <div class="dg-item"><img src="images/mural-2.jpg" alt="" loading="lazy"></div>
+              <div class="dg-item"><img src="images/mural-3.jpg" alt="" loading="lazy"></div>
+              <div class="dg-item"><img src="images/mural-4.jpg" alt="" loading="lazy"></div>
+              <div class="dg-item"><img src="images/mural-5.jpg" alt="" loading="lazy"></div>
             </div>
           </div>
         </div>
@@ -1311,7 +1205,6 @@ a.proj-item:hover {
     </div>
 
     <div class="proj-grid">
-      <!-- Орлёнок — некликабельный -->
       <div class="proj-item reveal">
         <div class="proj-thumb">
           <img src="images/orel.jpg" alt="Детский центр — Орлёнок" loading="lazy">
@@ -1325,7 +1218,6 @@ a.proj-item:hover {
         </div>
       </div>
 
-      <!-- Единорог — некликабельный -->
       <div class="proj-item reveal delay-1">
         <div class="proj-thumb">
           <img src="images/edinorog.jpg" alt="Детская комната — Единорог" loading="lazy">
@@ -1339,7 +1231,6 @@ a.proj-item:hover {
         </div>
       </div>
 
-      <!-- Трактор — некликабельный -->
       <div class="proj-item reveal">
         <div class="proj-thumb">
           <img src="images/traktor.jpg" alt="Детская комната — Синий трактор" loading="lazy">
@@ -1353,7 +1244,6 @@ a.proj-item:hover {
         </div>
       </div>
 
-      <!-- Лирика души — единственная с кнопкой -->
       <div class="proj-item reveal delay-1">
         <div class="proj-thumb">
           <img src="images/lirika.jpg" alt="Лирика души — дипломный проект" loading="lazy">
@@ -1421,7 +1311,6 @@ a.proj-item:hover {
             <p>QR может вести к фотографиям, аудио, текстам или цифровому архиву.</p>
           </div>
         </div>
-
         <div class="ps-cta">
           <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">Обсудить персональное решение <span class="arrow">→</span></a>
         </div>
@@ -1444,7 +1333,6 @@ a.proj-item:hover {
       <span class="eyebrow">Процесс</span>
       <h2>От идеи до <em>пространства.</em></h2>
     </div>
-
     <div class="process-grid">
       <div class="step reveal">
         <span class="num">01</span>
@@ -1536,7 +1424,6 @@ a.proj-item:hover {
       <span class="eyebrow">Анкета</span>
       <h2>Расскажите нам о вашем <em>пространстве.</em></h2>
       <p>Даже если у вас пока только помещение, несколько фотографий и сохранённые референсы — этого достаточно, чтобы начать разговор.</p>
-
       <div class="q-visual">
         <svg viewBox="0 0 200 200" fill="none" aria-hidden="true">
           <path d="M30 40 L100 170 L170 40" stroke="#F3EFE7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
@@ -1556,7 +1443,7 @@ a.proj-item:hover {
       <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn btn-light">
         Заполнить анкету <span class="arrow">→</span>
       </a>
-      <p class="q-cta-note">Откроется в новой вкладке.</p>
+      <p class="q-cta-note">Откроется в новой вкладке. Отправляя заявку, вы соглашаетесь с <a href="privacy.html">политикой конфиденциальности</a>.</p>
     </div>
   </div>
 </section>
@@ -1569,21 +1456,18 @@ a.proj-item:hover {
       <path class="fline" d="M0 260 C350 250, 500 300, 720 290 S1100 250, 1440 260"/>
     </svg>
   </div>
-
   <div class="container">
     <span class="fstar reveal">✦</span>
     <h2 class="reveal">Создадим пространство,<br><em>которое будет только вашим.</em></h2>
     <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="btn reveal">Обсудить проект <span class="arrow">→</span></a>
   </div>
 </section>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-
     <div class="foot-top">
-      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="foot-cta">
-        Обсудить проект
-      </a>
+      <a href="https://a63871.webask.io/gg8kakii7" target="_blank" rel="noopener" class="foot-cta">Обсудить проект</a>
       <button class="foot-up" id="footUp" aria-label="Наверх">
         Вверх <span class="foot-up-arrow">↑</span>
       </button>
@@ -1608,12 +1492,12 @@ a.proj-item:hover {
         </svg>
         +7 (951) 361-38-80
       </a>
-      <a href="mailto:hello@viokrista.ru" class="foot-contact-item">
+      <a href="mailto:viokrista16@gmail.com" class="foot-contact-item">
         <svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        hello@viokrista.ru
+        viokrista16@gmail.com
       </a>
       <div class="foot-contact-item">
         <svg class="foot-contact-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1657,17 +1541,15 @@ a.proj-item:hover {
       <p class="foot-copy">© VIOKRISTA · Дизайн интерьера и авторская роспись · Новосибирск</p>
       <p class="foot-meta">Instagram принадлежит компании Meta Platforms Inc., признанной экстремистской организацией и запрещённой на территории Российской Федерации.</p>
       <div class="foot-legal">
-        <a href="#">Политика конфиденциальности</a>
+        <a href="privacy.html">Политика конфиденциальности</a>
         <span>·</span>
-        <a href="#">Согласие на обработку персональных данных</a>
+        <a href="privacy.html">Согласие на обработку персональных данных</a>
       </div>
     </div>
-
   </div>
 </footer>
 
 <script>
-// ========== HEADER SCROLL ==========
 const header = document.getElementById('header');
 const hero = document.querySelector('.hero');
 function updateHeader() {
@@ -1681,7 +1563,6 @@ function updateHeader() {
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
-// ========== MOBILE MENU ==========
 const menuToggle = document.getElementById('menuToggle');
 const menuClose = document.getElementById('menuClose');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -1691,7 +1572,6 @@ mobileMenu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
-// ========== REVEAL ON SCROLL ==========
 const revealEls = document.querySelectorAll('.reveal, .story-line');
 const io = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -1703,7 +1583,6 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 revealEls.forEach(el => io.observe(el));
 
-// ========== DIRECTIONS ACCORDION ==========
 const dirItems = document.querySelectorAll('.dir-item');
 dirItems.forEach(item => {
   const trigger = item.querySelector('.dir-trigger');
@@ -1725,7 +1604,6 @@ dirItems.forEach(item => {
   });
 });
 
-// ========== FOOTER UP BUTTON ==========
 const footUp = document.getElementById('footUp');
 if (footUp) {
   footUp.addEventListener('click', () => {
@@ -1733,7 +1611,6 @@ if (footUp) {
   });
 }
 
-// ========== SMOOTH ANCHOR SCROLL ==========
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', (e) => {
     const id = a.getAttribute('href');
